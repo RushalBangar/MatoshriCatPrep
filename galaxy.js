@@ -7,16 +7,10 @@ class GalaxyAnimation {
         this.baseSpeed = 0.05;
         this.setupCanvas();
         this.initStars();
-
-        // Cache the nebula gradient rendering once to avoid heavy per-frame gradients
-        this.nebulaCanvas = document.createElement('canvas');
-        this.createNebulaCache();
-
         this.animate();
 
         window.addEventListener('resize', () => {
             this.setupCanvas();
-            this.createNebulaCache();
             this.initStars();
         });
     }
@@ -31,9 +25,8 @@ class GalaxyAnimation {
         this.canvas.style.height = '100vh';
         this.canvas.style.zIndex = '-2';
         this.canvas.style.pointerEvents = 'none';
-
-        // Base dark space color
-        this.canvas.style.background = '#030014';
+        // Base dark space color handled by CSS
+        this.canvas.style.background = 'transparent';
 
         if (!document.body.contains(this.canvas)) {
             document.body.insertBefore(this.canvas, document.body.firstChild);
@@ -64,60 +57,9 @@ class GalaxyAnimation {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    createNebulaCache() {
-        // Pre-render the heavy radial gradients into an offscreen canvas
-        this.nebulaCanvas.width = this.canvas.width;
-        this.nebulaCanvas.height = this.canvas.height;
-        const nCtx = this.nebulaCanvas.getContext('2d');
-
-        const cx = this.canvas.width / 2;
-        const cy = this.canvas.height / 2;
-
-        // Galactic Core
-        const coreGradient = nCtx.createRadialGradient(cx, cy, 0, cx, cy, 300);
-        coreGradient.addColorStop(0, 'rgba(255, 200, 100, 0.15)');
-        coreGradient.addColorStop(0.2, 'rgba(255, 100, 50, 0.05)');
-        coreGradient.addColorStop(1, 'transparent');
-        nCtx.fillStyle = coreGradient;
-        nCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Purple Arm
-        nCtx.save();
-        nCtx.translate(cx, cy);
-        nCtx.rotate(Math.PI / 4);
-        const arm1Gradient = nCtx.createRadialGradient(100, 100, 0, 100, 100, 600);
-        arm1Gradient.addColorStop(0, 'rgba(138, 43, 226, 0.1)');
-        arm1Gradient.addColorStop(0.5, 'rgba(255, 0, 255, 0.05)');
-        arm1Gradient.addColorStop(1, 'transparent');
-        nCtx.fillStyle = arm1Gradient;
-        nCtx.scale(2, 0.8);
-        nCtx.fillRect(-this.canvas.width, -this.canvas.height, this.canvas.width * 2, this.canvas.height * 2);
-        nCtx.restore();
-
-        // Blue Arm
-        nCtx.save();
-        nCtx.translate(cx, cy);
-        nCtx.rotate((Math.PI / 4) + Math.PI);
-        const arm2Gradient = nCtx.createRadialGradient(150, 150, 0, 150, 150, 700);
-        arm2Gradient.addColorStop(0, 'rgba(0, 191, 255, 0.1)');
-        arm2Gradient.addColorStop(0.6, 'rgba(65, 105, 225, 0.05)');
-        arm2Gradient.addColorStop(1, 'transparent');
-        nCtx.fillStyle = arm2Gradient;
-        nCtx.scale(1.8, 0.9);
-        nCtx.fillRect(-this.canvas.width, -this.canvas.height, this.canvas.width * 2, this.canvas.height * 2);
-        nCtx.restore();
-    }
-
     animate() {
         // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Draw deep space background
-        this.ctx.fillStyle = '#030014';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Draw the cached nebula image once (massive performance save)
-        this.ctx.drawImage(this.nebulaCanvas, 0, 0);
 
         // Draw and update stars
         const cx = this.canvas.width / 2;
@@ -197,19 +139,15 @@ class CursorTrail {
         window.addEventListener('mousemove', (e) => {
             this.mouse.x = e.clientX;
             this.mouse.y = e.clientY;
-            // Add multiple tiny particles per move for a dense, fluid tail
-            for (let i = 0; i < 3; i++) {
-                this.addParticle();
-            }
+            // Add fewer particles per move to optimize performace
+            this.addParticle();
         });
 
         window.addEventListener('touchmove', (e) => {
             if (e.touches.length > 0) {
                 this.mouse.x = e.touches[0].clientX;
                 this.mouse.y = e.touches[0].clientY;
-                for (let i = 0; i < 3; i++) {
-                    this.addParticle();
-                }
+                this.addParticle();
             }
         });
     }
@@ -265,9 +203,7 @@ class CursorTrail {
             // Apply a smooth fade out
             this.ctx.globalAlpha = Math.max(0, p.life);
 
-            // Subtle glow
-            this.ctx.shadowBlur = 4;
-            this.ctx.shadowColor = p.color;
+            // Removed shadowBlur for performance
 
             this.ctx.fill();
         }

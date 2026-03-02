@@ -1,2181 +1,4408 @@
--- =========================================================================
--- Auto-generated: Normalized Schema Data Dump (Regex Python Generator)
--- =========================================================================
+-- Clear existing data first
+DELETE FROM options;
+DELETE FROM questions;
 
--- ----------------------------------------
--- Data for subject: fds
--- ----------------------------------------
+-- Auto-generated for Supabase
 
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the definition of a Reference Electrode?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An electrode with a potential that changes with the solution''s concentration.', false),
-  ((SELECT id FROM inserted_question), 'An electrode that has a stable and reproducible potential.', true),
-  ((SELECT id FROM inserted_question), 'An electrode made only of glass and platinum.', false),
-  ((SELECT id FROM inserted_question), 'An electrode that can only be used for oxidation reactions.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In a Calomel Electrode, what is the layer directly above the liquid mercury?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A paste of Hg and Hg<sub>2</sub>Cl<sub>2</sub> (Calomel)', true),
-  ((SELECT id FROM inserted_question), 'A 0.1M HCl solution', false),
-  ((SELECT id FROM inserted_question), 'A silver chloride (AgCl) coating', false),
-  ((SELECT id FROM inserted_question), 'A porous graphite rod', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the main demerit of using a Calomel Electrode?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It is not portable or compact.', false),
-  ((SELECT id FROM inserted_question), 'It cannot be used above 50°C as Hg<sub>2</sub>Cl<sub>2</sub> starts decomposing.', true),
-  ((SELECT id FROM inserted_question), 'It gives inaccurate results in acidic solutions.', false),
-  ((SELECT id FROM inserted_question), 'It must be stored in the dark.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'If a Calomel Electrode acts as a cathode (reduction), what is the correct reaction?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '2Hg + 2Cl<sup>-</sup> &rarr; Hg<sub>2</sub>Cl<sub>2</sub> + 2e<sup>-</sup>', false),
-  ((SELECT id FROM inserted_question), 'Hg<sub>2</sub>Cl<sub>2</sub> + 2e<sup>-</sup> &rarr; 2Hg + 2Cl<sup>-</sup>', true),
-  ((SELECT id FROM inserted_question), 'H<sup>+</sup> + e<sup>-</sup> &rarr; &frac12;H<sub>2</sub>', false),
-  ((SELECT id FROM inserted_question), 'Ag + Cl<sup>-</sup> &rarr; AgCl + e<sup>-</sup>', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the key component at the bottom of a Glass Electrode?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A platinum wire', false),
-  ((SELECT id FROM inserted_question), 'A calomel paste', false),
-  ((SELECT id FROM inserted_question), 'A thin-walled glass membrane bulb', true),
-  ((SELECT id FROM inserted_question), 'A porous asbestos plug', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'The potential of a Glass Electrode (E<sub>G</sub>) is directly proportional to the solution''s...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Temperature', false),
-  ((SELECT id FROM inserted_question), 'Conductivity', false),
-  ((SELECT id FROM inserted_question), 'Volume', false),
-  ((SELECT id FROM inserted_question), 'pH', true);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Which of the following is an advantage of a Glass Electrode?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It is portable and compact.', true),
-  ((SELECT id FROM inserted_question), 'It works well at temperatures above 50°C.', false),
-  ((SELECT id FROM inserted_question), 'It is very cheap to manufacture.', false),
-  ((SELECT id FROM inserted_question), 'It does not require a salt bridge.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a Conductometric Titration?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A titration where the end point is noted by a color change.', false),
-  ((SELECT id FROM inserted_question), 'A titration where the end point is noted by measuring conductance.', true),
-  ((SELECT id FROM inserted_question), 'A titration that measures the pH of the solution.', false),
-  ((SELECT id FROM inserted_question), 'A titration that only works with colored solutions.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Conductance (C) is defined as the reciprocal of...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Resistance (R)', true),
-  ((SELECT id FROM inserted_question), 'Voltage (V)', false),
-  ((SELECT id FROM inserted_question), 'Current (I)', false),
-  ((SELECT id FROM inserted_question), 'Length (L)', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the unit of Conductance?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Ohm', false),
-  ((SELECT id FROM inserted_question), 'Ohm-cm', false),
-  ((SELECT id FROM inserted_question), 'Ohm<sup>-1</sup> (or Siemens)', true),
-  ((SELECT id FROM inserted_question), 'cm<sup>-1</sup>', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the unit of the Cell Constant (L/A)?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'cm<sup>-1</sup>', true),
-  ((SELECT id FROM inserted_question), 'cm<sup>2</sup>', false),
-  ((SELECT id FROM inserted_question), 'cm', false),
-  ((SELECT id FROM inserted_question), 'Ohm-cm', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In the titration of a strong acid (HCl) with a strong base (NaOH), why does conductance decrease before the equivalence point?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The total number of ions decreases.', false),
-  ((SELECT id FROM inserted_question), 'The highly mobile H<sup>+</sup> ions are replaced by less mobile Na<sup>+</sup> ions.', true),
-  ((SELECT id FROM inserted_question), 'The solution becomes diluted.', false),
-  ((SELECT id FROM inserted_question), 'The salt (NaCl) formed is a non-conductor.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In the titration of a strong acid (HCl) with a strong base (NaOH), why does conductance increase *after* the equivalence point?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The concentration of the salt (NaCl) increases.', false),
-  ((SELECT id FROM inserted_question), 'The temperature of the solution increases.', false),
-  ((SELECT id FROM inserted_question), 'Excess, highly mobile OH<sup>-</sup> ions are added from the strong base.', true),
-  ((SELECT id FROM inserted_question), 'Water is formed, which increases conductance.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the wavelength range for UV (Ultraviolet) radiation?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '200 - 380 nm', true),
-  ((SELECT id FROM inserted_question), '380 - 780 nm', false),
-  ((SELECT id FROM inserted_question), '0.1 - 200 nm', false),
-  ((SELECT id FROM inserted_question), '780 - 1000 nm', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the wavelength range for Visible radiation?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '200 - 380 nm', false),
-  ((SELECT id FROM inserted_question), '380 - 780 nm', true),
-  ((SELECT id FROM inserted_question), '10 - 200 nm', false),
-  ((SELECT id FROM inserted_question), '100 - 300 nm', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What happens to a molecule when it absorbs UV-Visible radiation?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It causes molecular vibration.', false),
-  ((SELECT id FROM inserted_question), 'It causes molecular rotation.', false),
-  ((SELECT id FROM inserted_question), 'It causes excitation of electrons to a higher energy level.', true),
-  ((SELECT id FROM inserted_question), 'It causes the nucleus to spin.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In a UV-Visible spectrophotometer, what is the function of the radiation source?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To select a single wavelength of light.', false),
-  ((SELECT id FROM inserted_question), 'To generate a high-intensity beam of polychromatic radiation.', true),
-  ((SELECT id FROM inserted_question), 'To convert light energy into electrical current.', false),
-  ((SELECT id FROM inserted_question), 'To hold the sample.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What radiation source is most commonly used for the *Visible* region?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A Tungsten filament lamp', true),
-  ((SELECT id FROM inserted_question), 'A Deuterium lamp', false),
-  ((SELECT id FROM inserted_question), 'A Nernst glower', false),
-  ((SELECT id FROM inserted_question), 'A Quartz lamp', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What radiation source is commonly used for the *UV* region?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A Tungsten filament lamp', false),
-  ((SELECT id FROM inserted_question), 'A Deuterium lamp', true),
-  ((SELECT id FROM inserted_question), 'A glass filter', false),
-  ((SELECT id FROM inserted_question), 'A Photomultiplier tube', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the function of a Monochromator?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To hold the sample solution.', false),
-  ((SELECT id FROM inserted_question), 'To convert polychromatic radiation into monochromatic radiation.', true),
-  ((SELECT id FROM inserted_question), 'To amplify the signal from the detector.', false),
-  ((SELECT id FROM inserted_question), 'To generate the initial beam of light.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Sample holders (cuvettes) for UV-Visible spectroscopy are typically made of what material?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Plastic', false),
-  ((SELECT id FROM inserted_question), 'Pyrex glass', false),
-  ((SELECT id FROM inserted_question), 'Quartz or Fused Silica', true),
-  ((SELECT id FROM inserted_question), 'Aluminum', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the function of the Detector in a spectrophotometer?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To convert light energy (transmitted light) into an electrical signal.', true),
-  ((SELECT id FROM inserted_question), 'To select a specific wavelength of light.', false),
-  ((SELECT id FROM inserted_question), 'To record the output on a graph.', false),
-  ((SELECT id FROM inserted_question), 'To filter out stray light.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Which of the following is an application of UV-Visible spectroscopy?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Detection of impurities', true),
-  ((SELECT id FROM inserted_question), 'Separation of proteins', false),
-  ((SELECT id FROM inserted_question), 'Measurement of pH', false),
-  ((SELECT id FROM inserted_question), 'Synthesis of organic compounds', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'How can UV-Visible spectroscopy distinguish between conjugated and non-conjugated compounds?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Conjugated systems absorb at shorter wavelengths.', false),
-  ((SELECT id FROM inserted_question), 'Conjugated systems absorb at longer wavelengths.', true),
-  ((SELECT id FROM inserted_question), 'Non-conjugated systems do not absorb light.', false),
-  ((SELECT id FROM inserted_question), 'Only non-conjugated systems are visible to the detector.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Which electronic transition generally requires the *most* energy?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'n → &pi;<sup>*</sup>', false),
-  ((SELECT id FROM inserted_question), '&pi; → &pi;<sup>*</sup>', false),
-  ((SELECT id FROM inserted_question), '&sigma; → &sigma;<sup>*</sup>', true),
-  ((SELECT id FROM inserted_question), 'n → &sigma;<sup>*</sup>', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Which electronic transition generally requires the *least* energy?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'n → &pi;<sup>*</sup>', true),
-  ((SELECT id FROM inserted_question), '&pi; → &pi;<sup>*</sup>', false),
-  ((SELECT id FROM inserted_question), '&sigma; → &sigma;<sup>*</sup>', false),
-  ((SELECT id FROM inserted_question), 'n → &sigma;<sup>*</sup>', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'A &sigma; &rarr; &sigma;<sup>*</sup> transition is typical for which type of compound?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Alkenes (C=C)', false),
-  ((SELECT id FROM inserted_question), 'Saturated hydrocarbons (e.g., Methane, CH<sub>4</sub>)', true),
-  ((SELECT id FROM inserted_question), 'Alcohols (-OH)', false),
-  ((SELECT id FROM inserted_question), 'Carbonyl compounds (C=O)', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'A &pi; &rarr; &pi;<sup>*</sup> transition is characteristic of compounds containing...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Single bonds only', false),
-  ((SELECT id FROM inserted_question), 'Lone pairs of electrons', false),
-  ((SELECT id FROM inserted_question), 'Unsaturated groups (e.g., alkenes, alkynes)', true),
-  ((SELECT id FROM inserted_question), 'Only sigma bonds', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a Chromophore?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A saturated group with a lone pair of electrons.', false),
-  ((SELECT id FROM inserted_question), 'A covalently unsaturated group (like C=C, C=O) responsible for absorption.', true),
-  ((SELECT id FROM inserted_question), 'The solvent used in the spectrophotometer.', false),
-  ((SELECT id FROM inserted_question), 'A shift to a longer wavelength.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is an Auxochrome?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A group (like -OH, -NH<sub>2</sub>) with lone pairs that, when attached to a chromophore, changes the absorption.', true),
-  ((SELECT id FROM inserted_question), 'Any group that contains a double bond.', false),
-  ((SELECT id FROM inserted_question), 'The part of the detector that measures light.', false),
-  ((SELECT id FROM inserted_question), 'A shift to a shorter wavelength.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'A ''Bathochromic Shift'' is also known as a...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Red Shift (to a longer wavelength)', true),
-  ((SELECT id FROM inserted_question), 'Blue Shift (to a shorter wavelength)', false),
-  ((SELECT id FROM inserted_question), 'Hyperchromic Shift (to higher intensity)', false),
-  ((SELECT id FROM inserted_question), 'Hypochromic Shift (to lower intensity)', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'A ''Hypsochromic Shift'' is also known as a...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Red Shift (to a longer wavelength)', false),
-  ((SELECT id FROM inserted_question), 'Blue Shift (to a shorter wavelength)', true),
-  ((SELECT id FROM inserted_question), 'Hyperchromic Shift (to higher intensity)', false),
-  ((SELECT id FROM inserted_question), 'Hypochromic Shift (to lower intensity)', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a ''Hyperchromic Shift''?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A shift to a longer wavelength', false),
-  ((SELECT id FROM inserted_question), 'A shift to a shorter wavelength', false),
-  ((SELECT id FROM inserted_question), 'An increase in absorption intensity', true),
-  ((SELECT id FROM inserted_question), 'A decrease in absorption intensity', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a ''Hypochromic Shift''?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A shift to a longer wavelength', false),
-  ((SELECT id FROM inserted_question), 'A shift to a shorter wavelength', false),
-  ((SELECT id FROM inserted_question), 'An increase in absorption intensity', false),
-  ((SELECT id FROM inserted_question), 'A decrease in absorption intensity', true);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Lambert''s Law states that the rate of decrease in light intensity is proportional to the...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Concentration of the solution', false),
-  ((SELECT id FROM inserted_question), 'Path length of the solution', true),
-  ((SELECT id FROM inserted_question), 'Temperature of the solution', false),
-  ((SELECT id FROM inserted_question), 'Wavelength of the light', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'Beer''s Law states that the rate of decrease in light intensity is proportional to the...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Concentration of the solution', true),
-  ((SELECT id FROM inserted_question), 'Path length of the solution', false),
-  ((SELECT id FROM inserted_question), 'Density of the solution', false),
-  ((SELECT id FROM inserted_question), 'Volume of the cuvette', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a battery?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A device that converts electrical energy into chemical energy.', false),
-  ((SELECT id FROM inserted_question), 'A device that converts chemical energy into electrical energy.', true),
-  ((SELECT id FROM inserted_question), 'A device that only stores electrical charge, like a capacitor.', false),
-  ((SELECT id FROM inserted_question), 'A device that measures the pH of a solution.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is ''Discharging'' in a battery?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Reversing the cell reaction by passing an external current.', false),
-  ((SELECT id FROM inserted_question), 'Converting inactive material back into active material.', false),
-  ((SELECT id FROM inserted_question), 'Converting active material into inactive material during a redox reaction.', true),
-  ((SELECT id FROM inserted_question), 'The battery leaking its electrolyte.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is ''Charging'' in a battery?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The process of converting inactive material back into active material.', true),
-  ((SELECT id FROM inserted_question), 'The battery losing charge even when not in use.', false),
-  ((SELECT id FROM inserted_question), 'The battery generating its maximum voltage.', false),
-  ((SELECT id FROM inserted_question), 'The battery''s redox reaction running in the forward direction.', false);
+-- Data for fds
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the ''Cycle Life'' of a battery?')
+  VALUES ('fds', 'What term refers to raw facts and figures that are not processed?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The total time the battery can be stored.', false),
-  ((SELECT id FROM inserted_question), 'The number of times a rechargeable battery can be discharged and recharged.', true),
-  ((SELECT id FROM inserted_question), 'The total energy the battery can hold per unit weight.', false),
-  ((SELECT id FROM inserted_question), 'The rate of self-discharge.', false);
+  ((SELECT id FROM inserted_question), 'Algorithm', false),
+  ((SELECT id FROM inserted_question), 'Data', true),
+  ((SELECT id FROM inserted_question), 'Array', false),
+  ((SELECT id FROM inserted_question), 'Function', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the ''Shelf Life'' of a battery?')
+  VALUES ('fds', 'Which of the following has no meaning by itself?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The time the battery can be stored without significant loss of charge.', true),
-  ((SELECT id FROM inserted_question), 'The number of recharge cycles.', false),
-  ((SELECT id FROM inserted_question), 'The battery''s voltage.', false),
-  ((SELECT id FROM inserted_question), 'The battery''s power density.', false);
+  ((SELECT id FROM inserted_question), 'Data Structure', false),
+  ((SELECT id FROM inserted_question), 'Data Object', false),
+  ((SELECT id FROM inserted_question), 'Data', true),
+  ((SELECT id FROM inserted_question), 'Data Type', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the ''Energy Density'' of a battery?')
+  VALUES ('fds', 'What is considered the input to a computer?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The total voltage of the cell.', false),
-  ((SELECT id FROM inserted_question), 'The energy available per unit weight of the cell.', true),
-  ((SELECT id FROM inserted_question), 'The number of recharge cycles.', false),
-  ((SELECT id FROM inserted_question), 'The time it takes to charge the battery.', false);
+  ((SELECT id FROM inserted_question), 'Output', false),
+  ((SELECT id FROM inserted_question), 'Algorithm', false),
+  ((SELECT id FROM inserted_question), 'Data', true),
+  ((SELECT id FROM inserted_question), 'Memory', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In a Nickel-Metal Hydride (Ni-MH) battery, what is the anode material?')
+  VALUES ('fds', 'What tells the computer what kind of value a variable can store?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Nickel oxyhydroxide (NiO(OH))', false),
-  ((SELECT id FROM inserted_question), 'Metal Hydrides (MH or MH<sub>2</sub>)', true),
-  ((SELECT id FROM inserted_question), 'Aqueous KOH', false),
-  ((SELECT id FROM inserted_question), 'Lithium metal', false);
+  ((SELECT id FROM inserted_question), 'Data Object', false),
+  ((SELECT id FROM inserted_question), 'Data Type', true),
+  ((SELECT id FROM inserted_question), 'Algorithm', false),
+  ((SELECT id FROM inserted_question), 'Array', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In a Nickel-Metal Hydride (Ni-MH) battery, what is the cathode material?')
+  VALUES ('fds', 'Which data type is used to store whole numbers?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Nickel oxyhydroxide (NiO(OH))', true),
-  ((SELECT id FROM inserted_question), 'Metal Hydrides (MH or MH<sub>2</sub>)', false),
-  ((SELECT id FROM inserted_question), 'Aqueous KOH', false),
-  ((SELECT id FROM inserted_question), 'Manganese Dioxide (MnO<sub>2</sub>)', false);
+  ((SELECT id FROM inserted_question), 'float', false),
+  ((SELECT id FROM inserted_question), 'string', false),
+  ((SELECT id FROM inserted_question), 'int', true),
+  ((SELECT id FROM inserted_question), 'char', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the electrolyte used in a Ni-MH battery?')
+  VALUES ('fds', 'Which data type is used to store decimal numbers?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '0.1M HCl', false),
-  ((SELECT id FROM inserted_question), 'Lithium salt in an organic solvent', false),
-  ((SELECT id FROM inserted_question), 'Aqueous Potassium Hydroxide (KOH)', true),
-  ((SELECT id FROM inserted_question), 'Pure water', false);
+  ((SELECT id FROM inserted_question), 'int', false),
+  ((SELECT id FROM inserted_question), 'float', true),
+  ((SELECT id FROM inserted_question), 'boolean', false),
+  ((SELECT id FROM inserted_question), 'object', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In a Lithium-Manganese Dioxide (Li-MnO<sub>2</sub>) battery, what is the anode material?')
+  VALUES ('fds', 'What is a named location in memory that stores data called?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Lithium metal', true),
-  ((SELECT id FROM inserted_question), 'Manganese Dioxide (MnO<sub>2</sub>)', false),
-  ((SELECT id FROM inserted_question), 'Graphite', false),
-  ((SELECT id FROM inserted_question), 'Nickel', false);
+  ((SELECT id FROM inserted_question), 'Data Object', true),
+  ((SELECT id FROM inserted_question), 'Data Type', false),
+  ((SELECT id FROM inserted_question), 'Base Address', false),
+  ((SELECT id FROM inserted_question), 'Pointer', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a major advantage of Lithium batteries?')
+  VALUES ('fds', 'A data object has a name, a data type, and it holds a...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'They are the least expensive batteries to produce.', false),
-  ((SELECT id FROM inserted_question), 'They are lightweight and have a high energy density.', true),
-  ((SELECT id FROM inserted_question), 'They use a safe, water-based electrolyte.', false),
-  ((SELECT id FROM inserted_question), 'They have a very short shelf life.', false);
+  ((SELECT id FROM inserted_question), 'variable', false),
+  ((SELECT id FROM inserted_question), 'structure', false),
+  ((SELECT id FROM inserted_question), 'value', true),
+  ((SELECT id FROM inserted_question), 'loop', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is a Fuel Cell?')
+  VALUES ('fds', 'Organizing and storing data efficiently is the primary purpose of a:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A galvanic cell where chemical energy of a fuel is directly converted to electrical energy.', true),
-  ((SELECT id FROM inserted_question), 'A rechargeable battery that uses lithium.', false),
-  ((SELECT id FROM inserted_question), 'A device that burns fuel to create steam and turn a turbine.', false),
-  ((SELECT id FROM inserted_question), 'A type of reference electrode.', false);
+  ((SELECT id FROM inserted_question), 'Data Type', false),
+  ((SELECT id FROM inserted_question), 'Data Structure', true),
+  ((SELECT id FROM inserted_question), 'Computer Monitor', false),
+  ((SELECT id FROM inserted_question), 'Text Editor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'In an H<sub>2</sub>-O<sub>2</sub> fuel cell, what is the fuel?')
+  VALUES ('fds', 'What does an Abstract Data Type (ADT) focus on?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Potassium Hydroxide (KOH)', false),
-  ((SELECT id FROM inserted_question), 'Platinum', false),
-  ((SELECT id FROM inserted_question), 'Hydrogen (H<sub>2</sub>)', true),
-  ((SELECT id FROM inserted_question), 'Water (H<sub>2</sub>O)', false);
+  ((SELECT id FROM inserted_question), 'How operations are implemented', false),
+  ((SELECT id FROM inserted_question), 'What operations can be done', true),
+  ((SELECT id FROM inserted_question), 'The syntax of the code', false),
+  ((SELECT id FROM inserted_question), 'The hardware used', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('fds', 'What is the overall net reaction in an H<sub>2</sub>-O<sub>2</sub> fuel cell?')
+  VALUES ('fds', 'Which real-life example is used to explain an Abstract Data Type (ADT)?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'O<sub>2(g)</sub> + 2H<sub>2</sub>O + 4e<sup>-</sup> &rarr; 4OH<sup>-</sup>', false),
-  ((SELECT id FROM inserted_question), '2H<sub>2(g)</sub> + 4OH<sup>-</sup> &rarr; 4H<sub>2</sub>O + 4e<sup>-</sup>', false),
-  ((SELECT id FROM inserted_question), '2H<sub>2(g)</sub> + O<sub>2(g)</sub> &rarr; 2H<sub>2</sub>O', true),
-  ((SELECT id FROM inserted_question), 'Hg<sub>2</sub>Cl<sub>2</sub> + 2e<sup>-</sup> &rarr; 2Hg + 2Cl<sup>-</sup>', false);
-
--- ----------------------------------------
--- Data for subject: oop
--- ----------------------------------------
+  ((SELECT id FROM inserted_question), 'Driving a car', false),
+  ((SELECT id FROM inserted_question), 'An ATM machine', true),
+  ((SELECT id FROM inserted_question), 'Cooking a meal', false),
+  ((SELECT id FROM inserted_question), 'Writing a letter', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you create an empty list in Python?')
+  VALUES ('fds', 'Data structures help to use what efficiently?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_list = {}', false);
+  ((SELECT id FROM inserted_question), 'Peripherals', false),
+  ((SELECT id FROM inserted_question), 'Network bandwidth', false),
+  ((SELECT id FROM inserted_question), 'Memory', true),
+  ((SELECT id FROM inserted_question), 'Screen space', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the primary characteristic of a Python list?')
+  VALUES ('fds', 'In which type of data structure are elements arranged in a straight line?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'They are immutable (cannot be changed).', false),
-  ((SELECT id FROM inserted_question), 'They are changeable (mutable) and allow duplicate values.', true),
-  ((SELECT id FROM inserted_question), 'They do not allow duplicate values.', false),
-  ((SELECT id FROM inserted_question), 'They must store items of the same data type.', false);
+  ((SELECT id FROM inserted_question), 'Non-linear', false),
+  ((SELECT id FROM inserted_question), 'Dynamic', false),
+  ((SELECT id FROM inserted_question), 'Persistent', false),
+  ((SELECT id FROM inserted_question), 'Linear', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which method adds an element to the *end* of a list?')
+  VALUES ('fds', 'In a linear data structure, how are elements accessed?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_list.insert(0, ''x'')', false),
-  ((SELECT id FROM inserted_question), 'my_list.add(''x'')', false),
-  ((SELECT id FROM inserted_question), 'my_list.append(''x'')', true),
-  ((SELECT id FROM inserted_question), 'my_list.push(''x'')', false);
+  ((SELECT id FROM inserted_question), 'Randomly', false),
+  ((SELECT id FROM inserted_question), 'Sequentially', true),
+  ((SELECT id FROM inserted_question), 'Hierarchically', false),
+  ((SELECT id FROM inserted_question), 'Exponentially', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of this code: <code>my_list = [1, 2, 3]</code><br><code>my_list.insert(1, ''new'')</code><br><code>print(my_list)</code>')
+  VALUES ('fds', 'Which of the following is a linear data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Tree', false),
+  ((SELECT id FROM inserted_question), 'Graph', false),
+  ((SELECT id FROM inserted_question), 'Array', true),
+  ((SELECT id FROM inserted_question), 'Database', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you remove the item ''30'' from this list: <code>my_list = [10, 20, 30, 40]</code>')
+  VALUES ('fds', 'What is a real-life example of a linear data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_list.pop(30)', false),
-  ((SELECT id FROM inserted_question), 'my_list.delete(30)', false),
-  ((SELECT id FROM inserted_question), 'my_list.remove(30)', true),
-  ((SELECT id FROM inserted_question), 'my_list.pop(2)', false);
+  ((SELECT id FROM inserted_question), 'A family tree', false),
+  ((SELECT id FROM inserted_question), 'Students standing in a queue', true),
+  ((SELECT id FROM inserted_question), 'A college department structure', false),
+  ((SELECT id FROM inserted_question), 'A map of cities', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of this code: <code>my_list = [10, 20, 30, 40]</code><br><code>my_list.pop(1)</code><br><code>print(my_list)</code>')
+  VALUES ('fds', 'In which data structure can one element be connected to many elements?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Linear', false),
+  ((SELECT id FROM inserted_question), 'Array', false),
+  ((SELECT id FROM inserted_question), 'Non-linear', true),
+  ((SELECT id FROM inserted_question), 'Stack', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the key difference between <code>my_list.remove(x)</code> and <code>my_list.pop(i)</code>?')
+  VALUES ('fds', 'Non-linear data structures are typically used to represent:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '<code>remove</code> uses a value, <code>pop</code> uses an index.', true),
-  ((SELECT id FROM inserted_question), '<code>remove</code> uses an index, <code>pop</code> uses a value.', false),
-  ((SELECT id FROM inserted_question), '<code>remove</code> adds an item, <code>pop</code> removes one.', false),
-  ((SELECT id FROM inserted_question), 'There is no difference.', false);
+  ((SELECT id FROM inserted_question), 'Sequential actions', false),
+  ((SELECT id FROM inserted_question), 'Hierarchy or relationships', true),
+  ((SELECT id FROM inserted_question), 'Basic arithmetic', false),
+  ((SELECT id FROM inserted_question), 'Unsorted lists', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_list = [3, 8, 1, 6]</code><br><code>print(my_list.index(1))</code>')
+  VALUES ('fds', 'Which of the following is an example of a non-linear data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '3', false),
-  ((SELECT id FROM inserted_question), '8', false),
-  ((SELECT id FROM inserted_question), '2', true),
-  ((SELECT id FROM inserted_question), '1', false);
+  ((SELECT id FROM inserted_question), 'Array', false),
+  ((SELECT id FROM inserted_question), 'Stack', false),
+  ((SELECT id FROM inserted_question), 'Queue', false),
+  ((SELECT id FROM inserted_question), 'Tree', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What does the <code>my_list.sort()</code> method do?')
+  VALUES ('fds', 'What is a real-life example of a non-linear data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Sorts the list in descending order by default.', false),
-  ((SELECT id FROM inserted_question), 'Returns a new, sorted copy of the list.', false),
-  ((SELECT id FROM inserted_question), 'Sorts the list in ascending order *in-place*.', true),
-  ((SELECT id FROM inserted_question), 'Reverses the order of the list.', false);
+  ((SELECT id FROM inserted_question), 'A family tree', true),
+  ((SELECT id FROM inserted_question), 'Waiting for a bus', false),
+  ((SELECT id FROM inserted_question), 'A stack of plates', false),
+  ((SELECT id FROM inserted_question), 'Writing a list', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>list1 = [1, 2]</code><br><code>list2 = [3, 4]</code><br><code>list1.extend(list2)</code><br><code>print(list1)</code>')
+  VALUES ('fds', 'Which data structure has a fixed size before program execution?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Dynamic', false),
+  ((SELECT id FROM inserted_question), 'Ephemeral', false),
+  ((SELECT id FROM inserted_question), 'Static', true),
+  ((SELECT id FROM inserted_question), 'Persistent', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What does the <code>len()</code> function do?')
+  VALUES ('fds', 'Can the size of a static data structure be changed during runtime?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Finds the largest number in a list.', false),
-  ((SELECT id FROM inserted_question), 'Returns the number of items in an object.', true),
-  ((SELECT id FROM inserted_question), 'Calculates the length of the variable name.', false),
-  ((SELECT id FROM inserted_question), 'Sorts the list by length.', false);
+  ((SELECT id FROM inserted_question), 'Yes, always', false),
+  ((SELECT id FROM inserted_question), 'No, it cannot be changed', true),
+  ((SELECT id FROM inserted_question), 'Only if it is an array', false),
+  ((SELECT id FROM inserted_question), 'Only if memory allows', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'In Python, list indices start at what number?')
+  VALUES ('fds', 'What is a common example of a static data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), '0', true),
-  ((SELECT id FROM inserted_question), '-1', false),
-  ((SELECT id FROM inserted_question), 'It depends on the list size.', false);
+  ((SELECT id FROM inserted_question), 'Linked List', false),
+  ((SELECT id FROM inserted_question), 'Graph', false),
+  ((SELECT id FROM inserted_question), 'Array', true),
+  ((SELECT id FROM inserted_question), 'Tree', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_list = [''p'', ''r'', ''o'', ''b'', ''e'']</code><br><code>print(my_list[-1])</code>')
+  VALUES ('fds', 'A fixed number of seats in a classroom is an example of what type of data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '''p''', false),
-  ((SELECT id FROM inserted_question), '''e''', true),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false),
-  ((SELECT id FROM inserted_question), '''b''', false);
+  ((SELECT id FROM inserted_question), 'Dynamic', false),
+  ((SELECT id FROM inserted_question), 'Static', true),
+  ((SELECT id FROM inserted_question), 'Ephemeral', false),
+  ((SELECT id FROM inserted_question), 'Persistent', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_list = [''C'', ''O'', ''M'', ''P'', ''U'', ''T'', ''E'', ''R'']</code><br><code>print(my_list[2:5])</code>')
+  VALUES ('fds', 'Which data structure can change its size during execution?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Dynamic', true),
+  ((SELECT id FROM inserted_question), 'Static', false),
+  ((SELECT id FROM inserted_question), 'Fixed', false),
+  ((SELECT id FROM inserted_question), 'Constant', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_list = [''C'', ''O'', ''M'', ''P'', ''U'']</code><br><code>print(my_list[:3])</code>')
+  VALUES ('fds', 'In a dynamic data structure, when is memory allocated?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Before execution', false),
+  ((SELECT id FROM inserted_question), 'Only at the end', false),
+  ((SELECT id FROM inserted_question), 'When needed', true),
+  ((SELECT id FROM inserted_question), 'Never', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is a ''nested list''?')
+  VALUES ('fds', 'Which of the following is a dynamic data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A list that cannot be changed.', false),
-  ((SELECT id FROM inserted_question), 'A list that has another list as an item.', true),
-  ((SELECT id FROM inserted_question), 'A list that only contains strings.', false),
-  ((SELECT id FROM inserted_question), 'A list that has been sorted.', false);
+  ((SELECT id FROM inserted_question), 'Fixed Array', false),
+  ((SELECT id FROM inserted_question), 'Linked List', true),
+  ((SELECT id FROM inserted_question), 'String', false),
+  ((SELECT id FROM inserted_question), 'Integer', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the main difference between a Python list and a tuple?')
+  VALUES ('fds', 'Bus passengers entering or leaving anytime is a real-life example of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Lists are immutable, tuples are mutable.', false),
-  ((SELECT id FROM inserted_question), 'Lists are mutable, tuples are immutable (unchangeable).', true);
+  ((SELECT id FROM inserted_question), 'Static structure', false),
+  ((SELECT id FROM inserted_question), 'Linear structure', false),
+  ((SELECT id FROM inserted_question), 'Dynamic structure', true),
+  ((SELECT id FROM inserted_question), 'Hierarchical structure', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you create a tuple in Python?')
+  VALUES ('fds', 'In an ephemeral data structure, which version of data is available?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Only the oldest version', false),
+  ((SELECT id FROM inserted_question), 'Only the latest version', true),
+  ((SELECT id FROM inserted_question), 'All previous versions', false),
+  ((SELECT id FROM inserted_question), 'No versions', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_tuple = (1, ''Hello'', 3.4)</code><br><code>print(my_tuple[1])</code>')
+  VALUES ('fds', 'What happens to old data in an ephemeral data structure after modifications?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), '''Hello''', true),
-  ((SELECT id FROM inserted_question), '3.4', false),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false);
+  ((SELECT id FROM inserted_question), 'It is saved in an archive', false),
+  ((SELECT id FROM inserted_question), 'It is sent to the cloud', false),
+  ((SELECT id FROM inserted_question), 'It is lost and cannot be accessed', true),
+  ((SELECT id FROM inserted_question), 'It becomes read-only', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What happens if you try this code: <code>my_tuple = (1, 2, 3)</code><br><code>my_tuple[0] = 5</code>')
+  VALUES ('fds', 'Writing on a whiteboard and erasing old content represents which data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The tuple becomes <code>(5, 2, 3)</code>.', false),
-  ((SELECT id FROM inserted_question), 'It raises a <code>TypeError</code> because tuples are immutable.', true),
-  ((SELECT id FROM inserted_question), 'The tuple becomes <code>(1, 2, 3, 5)</code>.', false),
-  ((SELECT id FROM inserted_question), 'It raises an <code>IndexError</code>.', false);
+  ((SELECT id FROM inserted_question), 'Persistent', false),
+  ((SELECT id FROM inserted_question), 'Ephemeral', true),
+  ((SELECT id FROM inserted_question), 'Dynamic', false),
+  ((SELECT id FROM inserted_question), 'Non-linear', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you correctly define a tuple with only *one* element, <code>''hello''</code>?')
+  VALUES ('fds', 'Which data structure preserves all its previous data even after modification?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 't = (''hello'')', false),
-  ((SELECT id FROM inserted_question), 't = ''hello'',', false),
-  ((SELECT id FROM inserted_question), 't = (''hello'',)', true),
-  ((SELECT id FROM inserted_question), 't = {''hello''}', false);
+  ((SELECT id FROM inserted_question), 'Ephemeral', false),
+  ((SELECT id FROM inserted_question), 'Persistent', true),
+  ((SELECT id FROM inserted_question), 'Static', false),
+  ((SELECT id FROM inserted_question), 'Linear', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>print((1, 2, 3) + (4, 5, 6))</code>')
+  VALUES ('fds', 'What does every update in a persistent data structure create?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '(1, 2, 3, 4, 5, 6)', true),
-  ((SELECT id FROM inserted_question), '(5, 7, 9)', false),
-  ((SELECT id FROM inserted_question), '((1, 2, 3), (4, 5, 6))', false),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false);
+  ((SELECT id FROM inserted_question), 'A new version', true),
+  ((SELECT id FROM inserted_question), 'A memory leak', false),
+  ((SELECT id FROM inserted_question), 'A static array', false),
+  ((SELECT id FROM inserted_question), 'An error', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>print((''Repeat'',) * 3)</code>')
+  VALUES ('fds', 'Which of the following is an example of a persistent data structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '(''RepeatRepeatRepeat'',)', false),
-  ((SELECT id FROM inserted_question), '(''Repeat'', ''Repeat'', ''Repeat'')', true),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false),
-  ((SELECT id FROM inserted_question), '(''Repeat'', 3)', false);
+  ((SELECT id FROM inserted_question), 'A basic integer variable', false),
+  ((SELECT id FROM inserted_question), 'Version control systems like Git', true),
+  ((SELECT id FROM inserted_question), 'A standard array', false),
+  ((SELECT id FROM inserted_question), 'A physical whiteboard', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is ''Tuple Assignment''?')
+  VALUES ('fds', 'Google Docs history and MS Word Undo/Redo are examples of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Assigning a tuple as a key in a dictionary.', false),
-  ((SELECT id FROM inserted_question), 'Assigning values from a tuple to a tuple of variables.', true),
-  ((SELECT id FROM inserted_question), 'A function that creates a tuple.', false),
-  ((SELECT id FROM inserted_question), 'Changing a value inside a tuple.', false);
+  ((SELECT id FROM inserted_question), 'Static structures', false),
+  ((SELECT id FROM inserted_question), 'Ephemeral structures', false),
+  ((SELECT id FROM inserted_question), 'Persistent structures', true),
+  ((SELECT id FROM inserted_question), 'Non-linear structures', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_tuple = (''a'', ''p'', ''p'', ''l'', ''e'')</code><br><code>print(''p'' in my_tuple)</code>')
+  VALUES ('fds', 'Arrays and stacks are commonly used examples of which type of structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'True', true),
-  ((SELECT id FROM inserted_question), 'False', false),
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false);
+  ((SELECT id FROM inserted_question), 'Persistent', false),
+  ((SELECT id FROM inserted_question), 'Ephemeral', true),
+  ((SELECT id FROM inserted_question), 'Non-linear', false),
+  ((SELECT id FROM inserted_question), 'Advanced', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you delete an entire tuple named <code>my_tuple</code>?')
+  VALUES ('fds', 'An algorithm is defined as a step-by-step...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_tuple.clear()', false),
-  ((SELECT id FROM inserted_question), 'my_tuple.remove_all()', false),
-  ((SELECT id FROM inserted_question), 'del my_tuple', true),
-  ((SELECT id FROM inserted_question), 'You cannot delete a tuple.', false);
+  ((SELECT id FROM inserted_question), 'hardware device', false),
+  ((SELECT id FROM inserted_question), 'procedure', true),
+  ((SELECT id FROM inserted_question), 'memory block', false),
+  ((SELECT id FROM inserted_question), 'compiler', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which built-in function returns a tuple containing the quotient and remainder of a division?')
+  VALUES ('fds', 'An algorithm must perform a task in a...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'divmod()', true),
-  ((SELECT id FROM inserted_question), 'divide()', false),
-  ((SELECT id FROM inserted_question), 'modulus()', false),
-  ((SELECT id FROM inserted_question), 'quotient()', false);
+  ((SELECT id FROM inserted_question), 'random amount of time', false),
+  ((SELECT id FROM inserted_question), 'infinite amount of time', false),
+  ((SELECT id FROM inserted_question), 'finite amount of time', true),
+  ((SELECT id FROM inserted_question), 'zero amount of time', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is a Python Set?')
+  VALUES ('fds', 'How many inputs can an algorithm have?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An ordered collection that allows duplicates.', false),
-  ((SELECT id FROM inserted_question), 'An unordered collection that has no duplicate elements.', true),
-  ((SELECT id FROM inserted_question), 'A key-value pair collection.', false),
-  ((SELECT id FROM inserted_question), 'An immutable (unchangeable) list.', false);
+  ((SELECT id FROM inserted_question), 'Exactly one', false),
+  ((SELECT id FROM inserted_question), 'Zero or more', true),
+  ((SELECT id FROM inserted_question), 'At least two', false),
+  ((SELECT id FROM inserted_question), 'Infinite', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you create an empty set?')
+  VALUES ('fds', 'How many outputs must an algorithm produce?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_set = {}', false),
-  ((SELECT id FROM inserted_question), 'my_set = set()', true),
-  ((SELECT id FROM inserted_question), 'my_set = ()', false);
+  ((SELECT id FROM inserted_question), 'None', false),
+  ((SELECT id FROM inserted_question), 'Exactly zero', false),
+  ((SELECT id FROM inserted_question), 'At least one', true),
+  ((SELECT id FROM inserted_question), 'Unlimited', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Why does <code>my_set = {}</code> not create an empty set?')
+  VALUES ('fds', 'Which characteristic means every step of an algorithm must be clear and specific?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It creates an empty tuple.', false),
-  ((SELECT id FROM inserted_question), 'It creates an empty dictionary.', true),
-  ((SELECT id FROM inserted_question), 'It creates an empty list.', false),
-  ((SELECT id FROM inserted_question), 'It is invalid syntax.', false);
+  ((SELECT id FROM inserted_question), 'Finiteness', false),
+  ((SELECT id FROM inserted_question), 'Definiteness', true),
+  ((SELECT id FROM inserted_question), 'Effectiveness', false),
+  ((SELECT id FROM inserted_question), 'Correctness', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_set = {11, 21, 11, 4, 5, 4}</code><br><code>print(my_set)</code>')
+  VALUES ('fds', 'In an algorithm, definiteness ensures there is no...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '{11, 21, 11, 4, 5, 4}', false),
-  ((SELECT id FROM inserted_question), 'The output could be {4, 5, 11, 21} (or any order).', true);
+  ((SELECT id FROM inserted_question), 'confusion about what to do', true),
+  ((SELECT id FROM inserted_question), 'time limit', false),
+  ((SELECT id FROM inserted_question), 'input required', false),
+  ((SELECT id FROM inserted_question), 'memory usage', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What does it mean for a set to be ''unordered''?')
+  VALUES ('fds', 'The rule that an algorithm must end after a limited number of steps is called:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The items do not have a defined order and cannot be accessed by index.', true),
-  ((SELECT id FROM inserted_question), 'The items are sorted in descending order.', false),
-  ((SELECT id FROM inserted_question), 'You must sort the set before using it.', false),
-  ((SELECT id FROM inserted_question), 'It cannot store numbers.', false);
+  ((SELECT id FROM inserted_question), 'Definiteness', false),
+  ((SELECT id FROM inserted_question), 'Correctness', false),
+  ((SELECT id FROM inserted_question), 'Finiteness', true),
+  ((SELECT id FROM inserted_question), 'Effectiveness', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How are items stored in a Python dictionary?')
+  VALUES ('fds', 'According to the finiteness characteristic, what is NOT allowed in an algorithm?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'As an ordered sequence of values.', false),
-  ((SELECT id FROM inserted_question), 'As key-value pairs.', true),
-  ((SELECT id FROM inserted_question), 'As an unordered set of values.', false),
-  ((SELECT id FROM inserted_question), 'As an immutable list of items.', false);
+  ((SELECT id FROM inserted_question), 'Inputs', false),
+  ((SELECT id FROM inserted_question), 'Variables', false),
+  ((SELECT id FROM inserted_question), 'Infinite loops', true),
+  ((SELECT id FROM inserted_question), 'Sequential steps', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is a valid dictionary key?')
+  VALUES ('fds', 'The characteristic demanding each step be simple, practical, and possible to perform is:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A list', false),
-  ((SELECT id FROM inserted_question), 'A string or a number (immutable types).', true),
-  ((SELECT id FROM inserted_question), 'Another dictionary', false),
-  ((SELECT id FROM inserted_question), 'A set', false);
+  ((SELECT id FROM inserted_question), 'Finiteness', false),
+  ((SELECT id FROM inserted_question), 'Effectiveness', true),
+  ((SELECT id FROM inserted_question), 'Correctness', false),
+  ((SELECT id FROM inserted_question), 'Output', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you access the value associated with the key ''age'' in <code>my_dict</code>?')
+  VALUES ('fds', 'The instruction "Think of the best number" violates which algorithmic characteristic?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_dict.age', false);
+  ((SELECT id FROM inserted_question), 'Correctness', false),
+  ((SELECT id FROM inserted_question), 'Finiteness', false),
+  ((SELECT id FROM inserted_question), 'Effectiveness', true),
+  ((SELECT id FROM inserted_question), 'Input', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What happens if you try to access a key that doesn''t exist using square brackets <code>[]</code>?')
+  VALUES ('fds', 'Which characteristic ensures an algorithm always produces the right result for valid inputs?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It returns <code>None</code>.', false),
-  ((SELECT id FROM inserted_question), 'It returns <code>0</code>.', false),
-  ((SELECT id FROM inserted_question), 'It raises a <code>KeyError</code>.', true),
-  ((SELECT id FROM inserted_question), 'It adds the key to the dictionary.', false);
+  ((SELECT id FROM inserted_question), 'Correctness', true),
+  ((SELECT id FROM inserted_question), 'Finiteness', false),
+  ((SELECT id FROM inserted_question), 'Definiteness', false),
+  ((SELECT id FROM inserted_question), 'Effectiveness', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the safer way to get a value for a key that might not exist, which returns <code>None</code> instead of an error?')
+  VALUES ('fds', 'The foundation of programming consists of data, data structures, and...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Using <code>my_dict.get(''key'')</code>', true),
-  ((SELECT id FROM inserted_question), 'Using <code>my_dict.find(''key'')</code>', false),
-  ((SELECT id FROM inserted_question), 'Using <code>my_dict.safe_get(''key'')</code>', false);
+  ((SELECT id FROM inserted_question), 'Compilers', false),
+  ((SELECT id FROM inserted_question), 'Algorithms', true),
+  ((SELECT id FROM inserted_question), 'Hardware', false),
+  ((SELECT id FROM inserted_question), 'Networks', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What does this code do: <code>my_dict = {''name'': ''Jack'', ''age'': 26}</code><br><code>my_dict[''age''] = 27</code>')
+  VALUES ('fds', 'A complete program is considered the sum of Data + Data Structure + ...?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It adds a new key ''age'' with value 27.', false),
-  ((SELECT id FROM inserted_question), 'It raises an error because ''age'' already exists.', false),
-  ((SELECT id FROM inserted_question), 'It updates the existing value for the key ''age'' to 27.', true),
-  ((SELECT id FROM inserted_question), 'It creates a new dictionary.', false);
+  ((SELECT id FROM inserted_question), 'Output', false),
+  ((SELECT id FROM inserted_question), 'Algorithm', true),
+  ((SELECT id FROM inserted_question), 'Syntax', false),
+  ((SELECT id FROM inserted_question), 'Memory', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you add a new key-value pair <code>''address'': ''Downtown''</code> to <code>my_dict</code>?')
+  VALUES ('fds', 'Without proper data structures, algorithms become...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_dict.append(''address'', ''Downtown'')', false);
+  ((SELECT id FROM inserted_question), 'faster', false),
+  ((SELECT id FROM inserted_question), 'slow and inefficient', true),
+  ((SELECT id FROM inserted_question), 'perfectly accurate', false),
+  ((SELECT id FROM inserted_question), 'hardware dependent', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which method removes an item with the provided key and *returns its value*?')
+  VALUES ('fds', 'What does the implementation of a data structure refer to?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'The hardware it runs on', false),
+  ((SELECT id FROM inserted_question), 'How to store and manage data in memory', true),
+  ((SELECT id FROM inserted_question), 'The specific programming language syntax', false),
+  ((SELECT id FROM inserted_question), 'The graphical user interface', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which method removes *all* items from a dictionary?')
+  VALUES ('fds', 'What are the two main ways to implement data structures?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'del my_dict', false),
-  ((SELECT id FROM inserted_question), 'my_dict.pop_all()', false),
-  ((SELECT id FROM inserted_question), 'my_dict.clear()', true),
-  ((SELECT id FROM inserted_question), 'my_dict.remove_all()', false);
+  ((SELECT id FROM inserted_question), 'Ephemeral and Persistent', false),
+  ((SELECT id FROM inserted_question), 'Static and Dynamic', true),
+  ((SELECT id FROM inserted_question), 'Linear and Non-linear', false),
+  ((SELECT id FROM inserted_question), 'Internal and External', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_dict = {''b'': 2, ''a'': 1, ''c'': 3}</code><br><code>print(sorted(my_dict.keys()))</code>')
+  VALUES ('fds', 'The process of studying how efficient an algorithm is, is called:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-;
+  ((SELECT id FROM inserted_question), 'Implementation', false),
+  ((SELECT id FROM inserted_question), 'Execution', false),
+  ((SELECT id FROM inserted_question), 'Analysis', true),
+  ((SELECT id FROM inserted_question), 'Compilation', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'How do you iterate through both the keys and values of a dictionary?')
+  VALUES ('fds', 'What does the complexity of an algorithm tell us?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'for k, v in my_dict.items():', true),
-  ((SELECT id FROM inserted_question), 'for k in my_dict.keys():', false),
-  ((SELECT id FROM inserted_question), 'for v in my_dict.values():', false),
-  ((SELECT id FROM inserted_question), 'for i in my_dict:', false);
+  ((SELECT id FROM inserted_question), 'How much the software costs', false),
+  ((SELECT id FROM inserted_question), 'How efficient it is when input size increases', true),
+  ((SELECT id FROM inserted_question), 'The exact number of code lines', false),
+  ((SELECT id FROM inserted_question), 'Who wrote the algorithm', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is a ''nested dictionary''?')
+  VALUES ('fds', 'What are the two types of algorithm complexity?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A dictionary with no items.', false),
-  ((SELECT id FROM inserted_question), 'A dictionary that cannot be changed.', false),
-  ((SELECT id FROM inserted_question), 'A dictionary that is stored inside another dictionary.', true),
-  ((SELECT id FROM inserted_question), 'A dictionary that uses lists as keys.', false);
+  ((SELECT id FROM inserted_question), 'Static and Dynamic', false),
+  ((SELECT id FROM inserted_question), 'Linear and Non-linear', false),
+  ((SELECT id FROM inserted_question), 'Time and Space', true),
+  ((SELECT id FROM inserted_question), 'Fast and Slow', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which method returns a *list* of all values in a dictionary?')
+  VALUES ('fds', 'Space complexity measures the total amount of what required by an algorithm?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_dict.keys()', false),
-  ((SELECT id FROM inserted_question), 'my_dict.values()', true),
-  ((SELECT id FROM inserted_question), 'my_dict.items()', false),
-  ((SELECT id FROM inserted_question), 'my_dict.get_values()', false);
+  ((SELECT id FROM inserted_question), 'Time', false),
+  ((SELECT id FROM inserted_question), 'Memory', true),
+  ((SELECT id FROM inserted_question), 'Code', false),
+  ((SELECT id FROM inserted_question), 'Power', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'Which method returns a list of tuples, where each tuple is a (key, value) pair?')
+  VALUES ('fds', 'If a program only adds two numbers using fixed variables, its space complexity is:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'my_dict.keys()', false),
-  ((SELECT id FROM inserted_question), 'my_dict.values()', false),
-  ((SELECT id FROM inserted_question), 'my_dict.items()', true),
-  ((SELECT id FROM inserted_question), 'my_dict.pairs()', false);
+  ((SELECT id FROM inserted_question), 'O(n)', false),
+  ((SELECT id FROM inserted_question), 'O(log n)', false),
+  ((SELECT id FROM inserted_question), 'O(1)', true),
+  ((SELECT id FROM inserted_question), 'O(n^2)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is a key difference between a list and a dictionary?')
+  VALUES ('fds', 'If a program uses arrays or recursion, its memory depends on n inputs, making the complexity:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Lists are ordered and accessed by a numeric index, while dictionaries are unordered (in older Python) key-value maps.', true),
-  ((SELECT id FROM inserted_question), 'Lists are for numbers, dictionaries are for strings.', false),
-  ((SELECT id FROM inserted_question), 'Lists are mutable, dictionaries are immutable.', false),
-  ((SELECT id FROM inserted_question), 'Lists can have duplicates, dictionaries cannot.', false);
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(n)', true),
+  ((SELECT id FROM inserted_question), 'Constant', false),
+  ((SELECT id FROM inserted_question), 'Zero', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_dict = {1: ''a'', 2: ''b''}</code><br><code>print(1 in my_dict)</code>')
+  VALUES ('fds', 'Time complexity is measured as a function of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'True', true),
-  ((SELECT id FROM inserted_question), 'False', false),
-  ((SELECT id FROM inserted_question), '''a''', false),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false);
+  ((SELECT id FROM inserted_question), 'Execution seconds', false),
+  ((SELECT id FROM inserted_question), 'Input size', true),
+  ((SELECT id FROM inserted_question), 'Memory bytes', false),
+  ((SELECT id FROM inserted_question), 'Line numbers', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'What is the output of: <code>my_dict = {1: ''a'', 2: ''b''}</code><br><code>print(''a'' in my_dict)</code>')
+  VALUES ('fds', 'Time complexity is measured in actual time in seconds.')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
   ((SELECT id FROM inserted_question), 'True', false),
   ((SELECT id FROM inserted_question), 'False', true),
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), 'An error will occur.', false);
+  ((SELECT id FROM inserted_question), 'Only for arrays', false),
+  ((SELECT id FROM inserted_question), 'Only for loops', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('oop', 'The dictionary membership test (using the `in` keyword) checks for the presence of...')
+  VALUES ('fds', 'Time complexity depends primarily on the number of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Keys only.', true),
-  ((SELECT id FROM inserted_question), 'Values only.', false),
-  ((SELECT id FROM inserted_question), 'Both keys and values.', false),
-  ((SELECT id FROM inserted_question), 'The index of the item.', false);
-
--- ----------------------------------------
--- Data for subject: math
--- ----------------------------------------
+  ((SELECT id FROM inserted_question), 'Variables', false),
+  ((SELECT id FROM inserted_question), 'Operations', true),
+  ((SELECT id FROM inserted_question), 'Comments', false),
+  ((SELECT id FROM inserted_question), 'Classes', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If A<b>v</b> = &lambda;<b>v</b> for a non-zero vector <b>v</b>, what is <b>v</b> called?')
+  VALUES ('fds', 'The time complexity for adding two numbers is:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An eigenvalue', false),
-  ((SELECT id FROM inserted_question), 'An eigenvector', true),
-  ((SELECT id FROM inserted_question), 'The characteristic vector', false),
-  ((SELECT id FROM inserted_question), 'A null vector', false);
+  ((SELECT id FROM inserted_question), 'O(n)', false),
+  ((SELECT id FROM inserted_question), 'O(log n)', false),
+  ((SELECT id FROM inserted_question), 'O(1)', true),
+  ((SELECT id FROM inserted_question), 'O(n^2)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If A<b>v</b> = &lambda;<b>v</b> for a non-zero vector <b>v</b>, what is &lambda; called?')
+  VALUES ('fds', 'What is the mathematical way to represent time complexity or memory usage?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An eigenvalue', true),
-  ((SELECT id FROM inserted_question), 'An eigenvector', false),
-  ((SELECT id FROM inserted_question), 'The determinant', false),
-  ((SELECT id FROM inserted_question), 'The trace', false);
+  ((SELECT id FROM inserted_question), 'Algebra Notation', false),
+  ((SELECT id FROM inserted_question), 'Big-O Notation', true),
+  ((SELECT id FROM inserted_question), 'Binary Notation', false),
+  ((SELECT id FROM inserted_question), 'Hexadecimal Notation', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'What is the characteristic equation used to find the eigenvalues (&lambda;) of a square matrix A?')
+  VALUES ('fds', 'In Big-O notation, what does O(1) represent?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A<b>v</b> = &lambda;<b>v</b>', false),
-  ((SELECT id FROM inserted_question), 'det(A - &lambda;I) = 0', true),
-  ((SELECT id FROM inserted_question), 'det(A) = 0', false),
-  ((SELECT id FROM inserted_question), 'A = PDP<sup>-1</sup>', false);
+  ((SELECT id FROM inserted_question), 'Linear time', false),
+  ((SELECT id FROM inserted_question), 'Quadratic time', false),
+  ((SELECT id FROM inserted_question), 'Constant time', true),
+  ((SELECT id FROM inserted_question), 'Exponential time', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The eigenvalues of a diagonal matrix are...')
+  VALUES ('fds', 'In Big-O notation, what does O(n) represent?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Always zero.', false),
-  ((SELECT id FROM inserted_question), 'The elements on its main diagonal.', true),
-  ((SELECT id FROM inserted_question), 'Always 1.', false),
-  ((SELECT id FROM inserted_question), 'The elements of its first row.', false);
+  ((SELECT id FROM inserted_question), 'Constant time', false),
+  ((SELECT id FROM inserted_question), 'Linear time', true),
+  ((SELECT id FROM inserted_question), 'Logarithmic time', false),
+  ((SELECT id FROM inserted_question), 'Quadratic time', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The eigenvalues of an upper triangular matrix are...')
+  VALUES ('fds', 'An algorithm with a single loop typically has a time complexity of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The elements on its main diagonal.', true),
-  ((SELECT id FROM inserted_question), 'The sum of the diagonal elements.', false),
-  ((SELECT id FROM inserted_question), 'Always zero.', false),
-  ((SELECT id FROM inserted_question), 'The elements of its last column.', false);
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(n)', true),
+  ((SELECT id FROM inserted_question), 'O(n^2)', false),
+  ((SELECT id FROM inserted_question), 'O(log n)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If &lambda; is an eigenvalue of an invertible matrix A, what is an eigenvalue of A<sup>-1</sup>?')
+  VALUES ('fds', 'An algorithm with nested loops typically has a time complexity of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '&lambda;', false),
-  ((SELECT id FROM inserted_question), '-&lambda;', false),
-  ((SELECT id FROM inserted_question), '1 / &lambda;', true),
-  ((SELECT id FROM inserted_question), '&lambda;<sup>2</sup>', false);
+  ((SELECT id FROM inserted_question), 'O(n)', false),
+  ((SELECT id FROM inserted_question), 'O(n^2)', true),
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(log n)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'Find the eigenvalues of the matrix: A = [row 1: 2, 0; row 2: 0, 3]')
+  VALUES ('fds', 'Binary search is an example of which time complexity?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '2 and 3', true),
-  ((SELECT id FROM inserted_question), '0 and 2', false),
-  ((SELECT id FROM inserted_question), '0 and 3', false),
-  ((SELECT id FROM inserted_question), '2 and 0', false);
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(n)', false),
+  ((SELECT id FROM inserted_question), 'O(log n)', true),
+  ((SELECT id FROM inserted_question), 'O(2^n)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The sum of the eigenvalues of a matrix is equal to its...')
+  VALUES ('fds', 'Recursive Fibonacci is an example of which time complexity?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Determinant', false),
-  ((SELECT id FROM inserted_question), 'Rank', false),
-  ((SELECT id FROM inserted_question), 'Trace', true),
-  ((SELECT id FROM inserted_question), 'Inverse', false);
+  ((SELECT id FROM inserted_question), 'O(2^n)', true),
+  ((SELECT id FROM inserted_question), 'O(n)', false),
+  ((SELECT id FROM inserted_question), 'O(n^2)', false),
+  ((SELECT id FROM inserted_question), 'O(1)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The product of the eigenvalues of a matrix is equal to its...')
+  VALUES ('fds', 'When computing time complexity, what is the first step?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Determinant', true),
-  ((SELECT id FROM inserted_question), 'Rank', false),
-  ((SELECT id FROM inserted_question), 'Trace', false),
-  ((SELECT id FROM inserted_question), 'Signature', false);
+  ((SELECT id FROM inserted_question), 'Ignore constants', false),
+  ((SELECT id FROM inserted_question), 'Write Big-O notation', false),
+  ((SELECT id FROM inserted_question), 'Identify basic operations', false),
+  ((SELECT id FROM inserted_question), 'Identify the input size', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'An eigenvector <b>v</b> cannot be...')
+  VALUES ('fds', 'When computing time complexity, you should ignore constants and...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A vector of all ones.', false),
-  ((SELECT id FROM inserted_question), 'A zero vector.', true),
-  ((SELECT id FROM inserted_question), 'A column vector.', false),
-  ((SELECT id FROM inserted_question), 'A vector with negative entries.', false);
+  ((SELECT id FROM inserted_question), 'lower terms', true),
+  ((SELECT id FROM inserted_question), 'the input size', false),
+  ((SELECT id FROM inserted_question), 'basic operations', false),
+  ((SELECT id FROM inserted_question), 'the highest order term', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If a 2x2 matrix has eigenvalues 4 and 5, what is its determinant?')
+  VALUES ('fds', 'Sequential organization stores data elements in...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '9', false),
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), '20', true),
-  ((SELECT id FROM inserted_question), 'Cannot be determined', false);
+  ((SELECT id FROM inserted_question), 'random memory locations', false),
+  ((SELECT id FROM inserted_question), 'scattered sectors', false),
+  ((SELECT id FROM inserted_question), 'consecutive memory locations', true),
+  ((SELECT id FROM inserted_question), 'separate databases', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If a 2x2 matrix has eigenvalues 4 and 5, what is its trace?')
+  VALUES ('fds', 'Each element in a sequential organization can be accessed using its:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '9', true),
-  ((SELECT id FROM inserted_question), '1', false),
-  ((SELECT id FROM inserted_question), '20', false),
-  ((SELECT id FROM inserted_question), 'Cannot be determined', false);
+  ((SELECT id FROM inserted_question), 'Name', false),
+  ((SELECT id FROM inserted_question), 'Index', true),
+  ((SELECT id FROM inserted_question), 'Value', false),
+  ((SELECT id FROM inserted_question), 'Size', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'How are eigenvectors <b>v</b> for an eigenvalue &lambda; found?')
+  VALUES ('fds', 'An array stores a collection of elements of the...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'By solving (A - &lambda;I)<b>v</b> = <b>0</b>', true),
-  ((SELECT id FROM inserted_question), 'By solving A<b>v</b> = <b>0</b>', false),
-  ((SELECT id FROM inserted_question), 'By finding the determinant of A', false),
-  ((SELECT id FROM inserted_question), 'By inverting the matrix A', false);
+  ((SELECT id FROM inserted_question), 'same data type', true),
+  ((SELECT id FROM inserted_question), 'different data types', false),
+  ((SELECT id FROM inserted_question), 'mixed variables', false),
+  ((SELECT id FROM inserted_question), 'objects', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If a matrix has an eigenvalue of 0, what does this imply about the matrix?')
+  VALUES ('fds', 'Sequential organization easily supports what kind of access?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The matrix is invertible.', false),
-  ((SELECT id FROM inserted_question), 'The matrix is singular (not invertible).', true),
-  ((SELECT id FROM inserted_question), 'The matrix is symmetric.', false),
-  ((SELECT id FROM inserted_question), 'All other eigenvalues are also 0.', false);
+  ((SELECT id FROM inserted_question), 'Read-only access', false),
+  ((SELECT id FROM inserted_question), 'Random access', true),
+  ((SELECT id FROM inserted_question), 'Network access', false),
+  ((SELECT id FROM inserted_question), 'Write-only access', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If &lambda; is an eigenvalue of A, what is an eigenvalue of A<sup>3</sup>?')
+  VALUES ('fds', 'If an array has N elements, what is the index range?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), '3&lambda;', false),
-  ((SELECT id FROM inserted_question), '&lambda; + 3', false),
-  ((SELECT id FROM inserted_question), '&lambda;<sup>3</sup>', true),
-  ((SELECT id FROM inserted_question), 'Cannot be determined', false);
+  ((SELECT id FROM inserted_question), '1 to N', false),
+  ((SELECT id FROM inserted_question), '0 to N', false),
+  ((SELECT id FROM inserted_question), '0 to N-1', true),
+  ((SELECT id FROM inserted_question), '1 to N-1', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'What does the Cayley-Hamilton Theorem state?')
+  VALUES ('fds', 'Which Array ADT operation allocates memory and creates the structure?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Every square matrix is diagonalizable.', false),
-  ((SELECT id FROM inserted_question), 'Every square matrix satisfies its own characteristic equation.', true),
-  ((SELECT id FROM inserted_question), 'A matrix''s determinant is the product of its eigenvalues.', false),
-  ((SELECT id FROM inserted_question), 'A matrix is invertible if its determinant is non-zero.', false);
+  ((SELECT id FROM inserted_question), 'Traverse', false),
+  ((SELECT id FROM inserted_question), 'Insert', false),
+  ((SELECT id FROM inserted_question), 'Delete', false),
+  ((SELECT id FROM inserted_question), 'Create', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If the characteristic equation of A is &lambda;<sup>2</sup> - 4&lambda; + 3 = 0, what equation is true by Cayley-Hamilton?')
+  VALUES ('fds', 'The traversal operation in an array means:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A<sup>2</sup> - 4A + 3I = 0', true),
-  ((SELECT id FROM inserted_question), 'A<sup>2</sup> - 4A = 3', false),
-  ((SELECT id FROM inserted_question), 'A - 4I = 0', false),
-  ((SELECT id FROM inserted_question), 'A = (4A - 3I)<sup>1/2</sup>', false);
+  ((SELECT id FROM inserted_question), 'Deleting all elements', false),
+  ((SELECT id FROM inserted_question), 'Visiting all elements one by one', true),
+  ((SELECT id FROM inserted_question), 'Sorting the elements', false),
+  ((SELECT id FROM inserted_question), 'Reversing the elements', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The Cayley-Hamilton theorem can be used to find...')
+  VALUES ('fds', 'In the memory representation of an array, each element occupies:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Only the eigenvalues of a matrix.', false),
-  ((SELECT id FROM inserted_question), 'The inverse of a matrix (e.g., A<sup>-1</sup>).', true),
-  ((SELECT id FROM inserted_question), 'Only the eigenvectors of a matrix.', false),
-  ((SELECT id FROM inserted_question), 'The rank of a matrix.', false);
+  ((SELECT id FROM inserted_question), 'Equal memory space', true),
+  ((SELECT id FROM inserted_question), 'Different memory spaces', false),
+  ((SELECT id FROM inserted_question), 'Zero memory space', false),
+  ((SELECT id FROM inserted_question), 'Random memory space', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'For A = [row 1: 1, 2; row 2: 3, 4], the characteristic equation is &lambda;<sup>2</sup> - 5&lambda; - 2 = 0. What is A<sup>2</sup> - 5A - 2I?')
+  VALUES ('fds', 'In address calculation, what does ''LB'' stand for?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The identity matrix, I', false),
-  ((SELECT id FROM inserted_question), 'The matrix A itself', false),
-  ((SELECT id FROM inserted_question), 'The zero matrix, 0', true),
-  ((SELECT id FROM inserted_question), 'The inverse matrix, A<sup>-1</sup>', false);
+  ((SELECT id FROM inserted_question), 'Linear Bound', false),
+  ((SELECT id FROM inserted_question), 'Lower Bound', true),
+  ((SELECT id FROM inserted_question), 'Limit Base', false),
+  ((SELECT id FROM inserted_question), 'Last Byte', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'According to Cayley-Hamilton, p(A) = 0, where p(&lambda;) is the...')
+  VALUES ('fds', 'If the base address of an integer array is 1000 and the size of an int is 4 bytes, what is the address of index 3?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Characteristic polynomial of A', true),
-  ((SELECT id FROM inserted_question), 'Null space of A', false),
-  ((SELECT id FROM inserted_question), 'Rank of A', false),
-  ((SELECT id FROM inserted_question), 'Trace of A', false);
+  ((SELECT id FROM inserted_question), '1004', false),
+  ((SELECT id FROM inserted_question), '1008', false),
+  ((SELECT id FROM inserted_question), '1012', true),
+  ((SELECT id FROM inserted_question), '1016', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If A is invertible and A<sup>2</sup> + 3A + 2I = 0, what is A<sup>-1</sup>?')
+  VALUES ('fds', 'When inserting an element into an array, existing elements may need to be shifted in which direction to create space?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A<sup>2</sup> + 3A', false),
-  ((SELECT id FROM inserted_question), '(-1/2)(A + 3I)', true),
-  ((SELECT id FROM inserted_question), 'A + 3I', false),
-  ((SELECT id FROM inserted_question), 'It cannot be found.', false);
+  ((SELECT id FROM inserted_question), 'Up', false),
+  ((SELECT id FROM inserted_question), 'Down', false),
+  ((SELECT id FROM inserted_question), 'Left', false),
+  ((SELECT id FROM inserted_question), 'Right', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'Can the Cayley-Hamilton theorem be used for non-square matrices?')
+  VALUES ('fds', 'After inserting an element, how should the array''s size be updated?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Yes, always.', false),
-  ((SELECT id FROM inserted_question), 'No, it applies only to square matrices.', true),
-  ((SELECT id FROM inserted_question), 'Only if they have a non-zero determinant.', false),
-  ((SELECT id FROM inserted_question), 'Only if they are symmetric.', false);
+  ((SELECT id FROM inserted_question), 'Increment by 1', true),
+  ((SELECT id FROM inserted_question), 'Decrement by 1', false),
+  ((SELECT id FROM inserted_question), 'Multiply by 2', false),
+  ((SELECT id FROM inserted_question), 'Keep it the same', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If A = [row 1: 2, 0; row 2: 0, 2], its characteristic equation is (&lambda;-2)<sup>2</sup> = 0. What is (A-2I)<sup>2</sup>?')
+  VALUES ('fds', 'Inserting an element at the beginning of an array requires shifting:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A', false),
-  ((SELECT id FROM inserted_question), 'I', false),
-  ((SELECT id FROM inserted_question), '0 (the zero matrix)', true),
-  ((SELECT id FROM inserted_question), 'A<sup>-1</sup>', false);
+  ((SELECT id FROM inserted_question), 'No elements', false),
+  ((SELECT id FROM inserted_question), 'Only the first element', false),
+  ((SELECT id FROM inserted_question), 'Every existing element', true),
+  ((SELECT id FROM inserted_question), 'Only the last element', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The Cayley-Hamilton theorem is useful for calculating...')
+  VALUES ('fds', 'Inserting an element at the end of an array (if space exists) requires shifting:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The square root of a matrix.', false),
-  ((SELECT id FROM inserted_question), 'High powers of a matrix (e.g., A<sup>100</sup>).', true),
-  ((SELECT id FROM inserted_question), 'The logarithm of a matrix.', false),
-  ((SELECT id FROM inserted_question), 'The singular values of a matrix.', false);
+  ((SELECT id FROM inserted_question), 'All elements', false),
+  ((SELECT id FROM inserted_question), 'Half the elements', false),
+  ((SELECT id FROM inserted_question), 'No elements', true),
+  ((SELECT id FROM inserted_question), 'One element', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'If p(&lambda;) = &lambda;<sup>3</sup> + 2&lambda; - 5I = 0 is the characteristic equation for A, what is A<sup>3</sup>?')
+  VALUES ('fds', 'What is the worst/average case time complexity for inserting an element into an array?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A<sup>3</sup> = -2A + 5I', true),
-  ((SELECT id FROM inserted_question), 'A<sup>3</sup> = 2A - 5I', false),
-  ((SELECT id FROM inserted_question), 'A<sup>3</sup> = 5I - 2A<sup>2</sup>', false),
-  ((SELECT id FROM inserted_question), 'A<sup>3</sup> = 0', false);
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(N)', true),
+  ((SELECT id FROM inserted_question), 'O(N^2)', false),
+  ((SELECT id FROM inserted_question), 'O(log N)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'A matrix A is diagonalizable if it can be written as...')
+  VALUES ('fds', 'What is the best case time complexity for inserting an element (at the end) of an array?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A = P + D + P<sup>-1</sup>', false),
-  ((SELECT id FROM inserted_question), 'A = PDP<sup>-1</sup>', true),
-  ((SELECT id FROM inserted_question), 'A = P + D', false),
-  ((SELECT id FROM inserted_question), 'A = P D P<sup>T</sup>', false);
+  ((SELECT id FROM inserted_question), 'O(1)', true),
+  ((SELECT id FROM inserted_question), 'O(N)', false),
+  ((SELECT id FROM inserted_question), 'O(N^2)', false),
+  ((SELECT id FROM inserted_question), 'O(log N)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'In the diagonalization formula A = PDP<sup>-1</sup>, what is D?')
+  VALUES ('fds', 'Deleting an element from an array usually involves shifting elements to the...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A diagonal matrix of eigenvectors.', false),
-  ((SELECT id FROM inserted_question), 'A diagonal matrix of eigenvalues.', true),
-  ((SELECT id FROM inserted_question), 'An invertible matrix.', false),
-  ((SELECT id FROM inserted_question), 'An orthogonal matrix.', false);
+  ((SELECT id FROM inserted_question), 'Right', false),
+  ((SELECT id FROM inserted_question), 'Left', true),
+  ((SELECT id FROM inserted_question), 'Top', false),
+  ((SELECT id FROM inserted_question), 'Bottom', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'In the diagonalization formula A = PDP<sup>-1</sup>, what is P?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A matrix whose columns are the eigenvalues.', false),
-  ((SELECT id FROM inserted_question), 'A matrix whose rows are the eigenvectors.', false),
-  ((SELECT id FROM inserted_question), 'A matrix whose columns are the linearly independent eigenvectors.', true),
-  ((SELECT id FROM inserted_question), 'A diagonal matrix.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'An $n \\times n$ matrix $A$ is diagonalizable if and only if it has $n$ linearly independent...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Eigenvalues', false),
-  ((SELECT id FROM inserted_question), 'Eigenvectors', true),
-  ((SELECT id FROM inserted_question), 'Rows', false),
-  ((SELECT id FROM inserted_question), 'Pivots', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'If an $n \\times n$ matrix has $n$ distinct (different) eigenvalues, it is...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Guaranteed to be diagonalizable.', true),
-  ((SELECT id FROM inserted_question), 'Never diagonalizable.', false),
-  ((SELECT id FROM inserted_question), 'Guaranteed to be singular.', false),
-  ((SELECT id FROM inserted_question), 'Guaranteed to be symmetric.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'Is the matrix A = [row 1: 1, 1; row 2: 0, 1] diagonalizable?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Yes, because it is 2x2.', false),
-  ((SELECT id FROM inserted_question), 'No, because it only has one eigenvalue (1) but not two linearly independent eigenvectors.', true),
-  ((SELECT id FROM inserted_question), 'Yes, because its determinant is 1.', false),
-  ((SELECT id FROM inserted_question), 'No, because it is not symmetric.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'What is a key property of real symmetric matrices regarding diagonalization?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'They are never diagonalizable.', false),
-  ((SELECT id FROM inserted_question), 'They are always orthogonally diagonalizable.', true),
-  ((SELECT id FROM inserted_question), 'Their eigenvalues are always complex.', false),
-  ((SELECT id FROM inserted_question), 'They only have one eigenvector.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'Diagonalization is very useful for what purpose?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Calculating the inverse of a matrix.', false),
-  ((SELECT id FROM inserted_question), 'Solving systems of linear equations.', false),
-  ((SELECT id FROM inserted_question), 'Quickly computing high powers of a matrix (e.g., A<sup>k</sup>).', true),
-  ((SELECT id FROM inserted_question), 'Finding the trace of a matrix.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'If A = PDP<sup>-1</sup>, what is A<sup>k</sup>?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A<sup>k</sup> = P<sup>k</sup> D<sup>k</sup> (P<sup>-1</sup>)<sup>k</sup>', false),
-  ((SELECT id FROM inserted_question), 'A<sup>k</sup> = P D<sup>k</sup> P<sup>-1</sup>', true),
-  ((SELECT id FROM inserted_question), 'A<sup>k</sup> = P D P<sup>-k</sup>', false),
-  ((SELECT id FROM inserted_question), 'A<sup>k</sup> = (PDP<sup>-1</sup>) + k', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'If a matrix is diagonalizable, the diagonal entries of D are the...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Eigenvalues of A', true),
-  ((SELECT id FROM inserted_question), 'Eigenvectors of A', false),
-  ((SELECT id FROM inserted_question), 'Pivots of A', false),
-  ((SELECT id FROM inserted_question), 'Always 1', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'A quadratic form is a polynomial in which all terms are of degree...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'One', false),
-  ((SELECT id FROM inserted_question), 'Two', true),
-  ((SELECT id FROM inserted_question), 'Three', false),
-  ((SELECT id FROM inserted_question), 'Any degree', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'The matrix $A$ associated with a quadratic form <b>x</b><sup>T</sup>A<b>x</b> must be...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Invertible', false),
-  ((SELECT id FROM inserted_question), 'Diagonal', false),
-  ((SELECT id FROM inserted_question), 'Symmetric', true),
-  ((SELECT id FROM inserted_question), 'Orthogonal', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'A square matrix $P$ is called an orthogonal matrix if...')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'P = P<sup>T</sup> (Symmetric)', false),
-  ((SELECT id FROM inserted_question), 'P<sup>T</sup> = P<sup>-1</sup> (Transpose equals inverse)', true),
-  ((SELECT id FROM inserted_question), 'P = -P<sup>T</sup> (Skew-symmetric)', false),
-  ((SELECT id FROM inserted_question), 'Its determinant is 0.', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'If $P$ is an orthogonal matrix, what is $P^{-1}$?')
-  RETURNING id
-)
-INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'P<sup>T</sup>', true),
-  ((SELECT id FROM inserted_question), 'P', false),
-  ((SELECT id FROM inserted_question), 'I', false),
-  ((SELECT id FROM inserted_question), '-P', false);
-
-WITH inserted_question AS (
-  INSERT INTO questions (subject, question)
-  VALUES ('math', 'If $P$ is an orthogonal matrix, what is its determinant?')
+  VALUES ('fds', 'After deleting an element from an array, you must decrease the total count of elements by:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
   ((SELECT id FROM inserted_question), '0', false),
-  ((SELECT id FROM inserted_question), '1 or -1', true),
-  ((SELECT id FROM inserted_question), 'Always 1', false),
-  ((SELECT id FROM inserted_question), 'Greater than 1', false);
+  ((SELECT id FROM inserted_question), '1', true),
+  ((SELECT id FROM inserted_question), '2', false),
+  ((SELECT id FROM inserted_question), 'N', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'An orthogonal transformation <b>x</b> = P<b>y</b> reduces a quadratic form to a...')
+  VALUES ('fds', 'Deleting an element from the beginning of an array has a time complexity of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Sum of squares (canonical form)', true),
-  ((SELECT id FROM inserted_question), 'Zero matrix', false),
-  ((SELECT id FROM inserted_question), 'Matrix with no eigenvalues', false),
-  ((SELECT id FROM inserted_question), 'Singular matrix', false);
+  ((SELECT id FROM inserted_question), 'O(1)', false),
+  ((SELECT id FROM inserted_question), 'O(N)', true),
+  ((SELECT id FROM inserted_question), 'O(N^2)', false),
+  ((SELECT id FROM inserted_question), 'O(log N)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The ''canonical form'' (or conical form) of a quadratic form contains no...')
+  VALUES ('fds', 'Deleting an element from the end of an array requires no shifting, making its time complexity:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Squared terms', false),
-  ((SELECT id FROM inserted_question), 'Cross-product terms (e.g., x<sub>1</sub>x<sub>2</sub>)', true),
-  ((SELECT id FROM inserted_question), 'Eigenvalues', false),
-  ((SELECT id FROM inserted_question), 'Diagonal terms', false);
+  ((SELECT id FROM inserted_question), 'O(N)', false),
+  ((SELECT id FROM inserted_question), 'O(N^2)', false),
+  ((SELECT id FROM inserted_question), 'O(1)', true),
+  ((SELECT id FROM inserted_question), 'O(log N)', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'A quadratic form is ''positive definite'' if...')
+  VALUES ('fds', 'An array that grows in more than one direction is called a:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are negative.', false),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are positive.', true),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are zero.', false),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are non-negative (&ge; 0).', false);
+  ((SELECT id FROM inserted_question), 'Linear array', false),
+  ((SELECT id FROM inserted_question), 'Multidimensional array', true),
+  ((SELECT id FROM inserted_question), 'Dynamic array', false),
+  ((SELECT id FROM inserted_question), 'Single array', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'A quadratic form is ''positive semi-definite'' if...')
+  VALUES ('fds', 'A two-dimensional (2')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are positive (> 0).', false),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are non-negative (&ge; 0).', true),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are negative (< 0).', false),
-  ((SELECT id FROM inserted_question), 'All its eigenvalues are zero.', false);
+  ((SELECT id FROM inserted_question), 'array is mainly used to represent:', false),
+  ((SELECT id FROM inserted_question), 'Single lines of text', false),
+  ((SELECT id FROM inserted_question), 'Tables or matrices', true),
+  ((SELECT id FROM inserted_question), 'Binary search trees', false),
+  ((SELECT id FROM inserted_question), 'Linked lists', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The transformation that reduces a quadratic form to its canonical form is...')
+  VALUES ('fds', 'How is a 2D integer array with 3 rows and 4 columns declared in C++?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A linear transformation', false),
-  ((SELECT id FROM inserted_question), 'An orthogonal transformation', true),
-  ((SELECT id FROM inserted_question), 'A singular transformation', false),
-  ((SELECT id FROM inserted_question), 'A zero transformation', false);
+  ((SELECT id FROM inserted_question), 'int arr[4][3];', false),
+  ((SELECT id FROM inserted_question), 'int arr(3,4);', false),
+  ((SELECT id FROM inserted_question), 'int arr[3][4];', true),
+  ((SELECT id FROM inserted_question), 'array int[3,4];', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'A set of vectors {<b>v</b><sub>1</sub>, <b>v</b><sub>2</sub>, ..., <b>v</b><sub>k</sub>} is an ''orthogonal system'' if...')
+  VALUES ('fds', 'An N-dimensional array organizes data in a...')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'All vectors are parallel.', false),
-  ((SELECT id FROM inserted_question), 'The dot product of any two *different* vectors is zero.', true),
-  ((SELECT id FROM inserted_question), 'All vectors have a magnitude of 1.', false),
-  ((SELECT id FROM inserted_question), 'The sum of the vectors is zero.', false);
+  ((SELECT id FROM inserted_question), 'circular loop', false),
+  ((SELECT id FROM inserted_question), 'straight line', false),
+  ((SELECT id FROM inserted_question), 'grid-like or multilayered structure', true),
+  ((SELECT id FROM inserted_question), 'single row', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'A set of orthogonal vectors is...')
+  VALUES ('fds', 'To perform matrix addition, the two matrices must have the same:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Always linearly dependent.', false),
-  ((SELECT id FROM inserted_question), 'Always linearly independent (if non-zero).', true),
-  ((SELECT id FROM inserted_question), 'Always a basis for R<sup>n</sup>.', false),
-  ((SELECT id FROM inserted_question), 'Always contains the zero vector.', false);
+  ((SELECT id FROM inserted_question), 'Numbers', false),
+  ((SELECT id FROM inserted_question), 'Number of rows and columns', true),
+  ((SELECT id FROM inserted_question), 'Memory addresses', false),
+  ((SELECT id FROM inserted_question), 'Values inside them', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'What does Sylvester''s Law of Inertia state is invariant (unchanged) under a non-singular linear transformation?')
+  VALUES ('fds', 'Besides dimensions, matrices being added must also be of the same:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The eigenvalues.', false),
-  ((SELECT id FROM inserted_question), 'The eigenvectors.', false),
-  ((SELECT id FROM inserted_question), 'The number of positive, negative, and zero terms (the signature).', true),
-  ((SELECT id FROM inserted_question), 'The determinant.', false);
+  ((SELECT id FROM inserted_question), 'Name', false),
+  ((SELECT id FROM inserted_question), 'Type (e.g., both integer)', true),
+  ((SELECT id FROM inserted_question), 'Value', false),
+  ((SELECT id FROM inserted_question), 'Pointer length', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'The ''signature'' of a quadratic form refers to...')
+  VALUES ('fds', 'The resulting matrix from an addition operation will have:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The determinant of its matrix.', false),
-  ((SELECT id FROM inserted_question), 'The pair of numbers (index, rank).', true),
-  ((SELECT id FROM inserted_question), 'The set of all its eigenvalues.', false),
-  ((SELECT id FROM inserted_question), 'The trace of its matrix.', false);
+  ((SELECT id FROM inserted_question), 'Double the dimensions', false),
+  ((SELECT id FROM inserted_question), 'Half the dimensions', false),
+  ((SELECT id FROM inserted_question), 'The same dimensions as the input matrices', true),
+  ((SELECT id FROM inserted_question), 'No dimensions', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('math', 'In Sylvester''s Law, the ''index'' of a quadratic form is the number of...')
+  VALUES ('fds', 'Matrix addition is performed by adding:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Positive terms in its canonical form.', true),
-  ((SELECT id FROM inserted_question), 'Negative terms in its canonical form.', false),
-  ((SELECT id FROM inserted_question), 'Zero terms in its canonical form.', false),
-  ((SELECT id FROM inserted_question), 'Total terms in its canonical form.', false);
-
--- ----------------------------------------
--- Data for subject: iot
--- ----------------------------------------
+  ((SELECT id FROM inserted_question), 'All elements together into one sum', false),
+  ((SELECT id FROM inserted_question), 'Corresponding elements together', true),
+  ((SELECT id FROM inserted_question), 'Only the diagonal elements', false),
+  ((SELECT id FROM inserted_question), 'Random elements', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is Requirements Engineering?')
+  VALUES ('fds', 'If A = [[1, 2], [3, 4]] and B = [[5, 6], [7, 8]], what is the value of the first element (row 1, col 1) in the resulting matrix?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The process of writing code for a system.', false),
-  ((SELECT id FROM inserted_question), 'The broad spectrum of tasks that lead to an understanding of requirements.', true),
-  ((SELECT id FROM inserted_question), 'The process of testing and debugging software.', false),
-  ((SELECT id FROM inserted_question), 'The act of designing the system''s architecture.', false);
+  ((SELECT id FROM inserted_question), '5', false),
+  ((SELECT id FROM inserted_question), '6', true),
+  ((SELECT id FROM inserted_question), '7', false),
+  ((SELECT id FROM inserted_question), '8', false);
+
+-- Data for iot
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Requirements engineering builds a bridge to which two activities?')
+  VALUES ('iot', 'What is an Embedded System (ES)?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Communication and Planning', false),
-  ((SELECT id FROM inserted_question), 'Design and Construction', true),
-  ((SELECT id FROM inserted_question), 'Testing and Deployment', false),
-  ((SELECT id FROM inserted_question), 'Inception and Elicitation', false);
+  ((SELECT id FROM inserted_question), 'A general-purpose desktop computer', false),
+  ((SELECT id FROM inserted_question), 'An electronic system designed to perform one or a limited set of functions', true),
+  ((SELECT id FROM inserted_question), 'A software application for mobile phones', false),
+  ((SELECT id FROM inserted_question), 'A global network of servers', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which of the following is NOT one of the seven distinct tasks of requirements engineering?')
+  VALUES ('iot', 'Which of the following is a characteristic of Embedded Systems?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Elicitation', false),
-  ((SELECT id FROM inserted_question), 'Negotiation', false),
-  ((SELECT id FROM inserted_question), 'Coding', true),
-  ((SELECT id FROM inserted_question), 'Validation', false);
+  ((SELECT id FROM inserted_question), 'High power dissipation', false),
+  ((SELECT id FROM inserted_question), 'Unlimited memory', false),
+  ((SELECT id FROM inserted_question), 'Should not be alterable by the user', true),
+  ((SELECT id FROM inserted_question), 'Large set of functions', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'When does a project typically begin?')
+  VALUES ('iot', 'Which of the following is an application domain for Embedded Systems?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'When the design is complete.', false),
-  ((SELECT id FROM inserted_question), 'When a business need is identified.', true),
-  ((SELECT id FROM inserted_question), 'When the first line of code is written.', false),
-  ((SELECT id FROM inserted_question), 'When the validation task starts.', false);
+  ((SELECT id FROM inserted_question), 'Cloud storage', false),
+  ((SELECT id FROM inserted_question), 'Automobile control', true),
+  ((SELECT id FROM inserted_question), 'Social media algorithms', false),
+  ((SELECT id FROM inserted_question), 'Web browsers', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the goal of the ''Inception'' task?')
+  VALUES ('iot', 'What does the acronym "IoT" stand for?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To write the final software specification.', false),
-  ((SELECT id FROM inserted_question), 'To establish a basic understanding of the problem and the desired solution.', true),
-  ((SELECT id FROM inserted_question), 'To test the completed software.', false),
-  ((SELECT id FROM inserted_question), 'To negotiate the cost and timeline.', false);
+  ((SELECT id FROM inserted_question), 'Internet of Technology', false),
+  ((SELECT id FROM inserted_question), 'Intranet of Things', false),
+  ((SELECT id FROM inserted_question), 'Internet of Things', true),
+  ((SELECT id FROM inserted_question), 'Interconnection of Terminals', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which of the following is a type of feasibility study mentioned in the text?')
+  VALUES ('iot', 'The Internet connects all people, so it is often called the "Internet of People." Because IoT connects all things, it is called the:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Cultural Feasibility', false),
-  ((SELECT id FROM inserted_question), 'Economic Feasibility', true),
-  ((SELECT id FROM inserted_question), 'Modular Feasibility', false),
-  ((SELECT id FROM inserted_question), 'Design Feasibility', false);
+  ((SELECT id FROM inserted_question), 'Web of Objects', false),
+  ((SELECT id FROM inserted_question), 'Internet of Things', true),
+  ((SELECT id FROM inserted_question), 'Network of Devices', false),
+  ((SELECT id FROM inserted_question), 'Global Machine Network', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'The ''Elicitation'' task primarily involves...')
+  VALUES ('iot', 'IoT allows objects to communicate and exchange data over a network without requiring:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Asking the customer about the system objectives and what is to be accomplished.', true),
-  ((SELECT id FROM inserted_question), 'Writing the code for the user interface.', false),
-  ((SELECT id FROM inserted_question), 'Debugging the requirements model.', false),
-  ((SELECT id FROM inserted_question), 'Creating a final, written contract.', false);
+  ((SELECT id FROM inserted_question), 'Wi-Fi', false),
+  ((SELECT id FROM inserted_question), 'Human-to-human or human-to-computer interaction', true),
+  ((SELECT id FROM inserted_question), 'A power source', false),
+  ((SELECT id FROM inserted_question), 'Hardware', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'When a customer is not completely sure of what is needed, this is known as a problem of:')
+  VALUES ('iot', 'In the evolution of IoT, what phase came immediately after "Internet of Content" (WWW)?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Scope', false),
-  ((SELECT id FROM inserted_question), 'Volatility', false),
-  ((SELECT id FROM inserted_question), 'Understanding', true),
-  ((SELECT id FROM inserted_question), 'Negotiation', false);
+  ((SELECT id FROM inserted_question), 'Pre-Internet', false),
+  ((SELECT id FROM inserted_question), 'Internet of Things', false),
+  ((SELECT id FROM inserted_question), 'Internet of People', false),
+  ((SELECT id FROM inserted_question), 'Internet of Services', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'When ''the requirements change over time'', this is known as a problem of:')
+  VALUES ('iot', 'Which of the following represents the "Internet of People" phase?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Scope', false),
-  ((SELECT id FROM inserted_question), 'Volatility', true),
-  ((SELECT id FROM inserted_question), 'Understanding', false),
-  ((SELECT id FROM inserted_question), 'Elaboration', false);
+  ((SELECT id FROM inserted_question), 'Fixed & mobile telephony', false),
+  ((SELECT id FROM inserted_question), 'E-mail and Information', false),
+  ((SELECT id FROM inserted_question), 'Skype, Facebook, and YouTube', true),
+  ((SELECT id FROM inserted_question), 'Identification and tracking', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the main purpose of the ''Elaboration'' task?')
+  VALUES ('iot', 'What was the first glimpse of IoT that emerged in 1982?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To get initial project funding.', false),
-  ((SELECT id FROM inserted_question), 'To expand and refine the information obtained during inception and elicitation.', true),
-  ((SELECT id FROM inserted_question), 'To define the final project deadlines.', false),
-  ((SELECT id FROM inserted_question), 'To test the final product.', false);
+  ((SELECT id FROM inserted_question), 'A smart fridge', false),
+  ((SELECT id FROM inserted_question), 'A connected toaster', false),
+  ((SELECT id FROM inserted_question), 'A vending machine at Carnegie Mellon University', true),
+  ((SELECT id FROM inserted_question), 'A smartwatch', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Elaboration is driven by the creation and refinement of what?')
+  VALUES ('iot', 'Who coined the term "Internet of Things"?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Legal contracts', false),
-  ((SELECT id FROM inserted_question), 'User scenarios', true),
-  ((SELECT id FROM inserted_question), 'Marketing plans', false),
-  ((SELECT id FROM inserted_question), 'Hardware specifications', false);
+  ((SELECT id FROM inserted_question), 'Steve Jobs', false),
+  ((SELECT id FROM inserted_question), 'Kevin Ashton', true),
+  ((SELECT id FROM inserted_question), 'Bill Gates', false),
+  ((SELECT id FROM inserted_question), 'Tim Berners-Lee', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'The ''Negotiation'' task is required to reconcile...')
+  VALUES ('iot', 'In what year was the term "Internet of Things" coined?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Different programming languages.', false),
-  ((SELECT id FROM inserted_question), 'Conflicting requirements from different stakeholders.', true),
-  ((SELECT id FROM inserted_question), 'Errors in the code.', false),
-  ((SELECT id FROM inserted_question), 'Hardware and software compatibility.', false);
+  ((SELECT id FROM inserted_question), '1982', false),
+  ((SELECT id FROM inserted_question), '1990', false),
+  ((SELECT id FROM inserted_question), '1999', true),
+  ((SELECT id FROM inserted_question), '2004', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'The best negotiations strive for what kind of result?')
+  VALUES ('iot', 'What early IoT innovation in 1990 allowed users to control it remotely, foreshadowing smart home devices?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A ''win-lose'' result where the developer wins.', false),
-  ((SELECT id FROM inserted_question), 'A ''win-win'' result for all stakeholders.', true),
-  ((SELECT id FROM inserted_question), 'A ''lose-lose'' result to ensure compromise.', false),
-  ((SELECT id FROM inserted_question), 'A result where the customer gets everything they asked for.', false);
+  ((SELECT id FROM inserted_question), 'A toaster', true),
+  ((SELECT id FROM inserted_question), 'A coffee maker', false),
+  ((SELECT id FROM inserted_question), 'A television', false),
+  ((SELECT id FROM inserted_question), 'A thermostat', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'According to the text, a ''Specification'' can be a...')
+  VALUES ('iot', 'Which company introduced the Smart Fridge in 2000?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Written document, a set of graphical models, or a prototype.', true),
-  ((SELECT id FROM inserted_question), 'Meeting agenda only.', false),
-  ((SELECT id FROM inserted_question), 'Test plan only.', false),
-  ((SELECT id FROM inserted_question), 'List of developers on the team.', false);
+  ((SELECT id FROM inserted_question), 'Samsung', false),
+  ((SELECT id FROM inserted_question), 'LG', true),
+  ((SELECT id FROM inserted_question), 'Whirlpool', false),
+  ((SELECT id FROM inserted_question), 'GE', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'The ''Validation'' phase focuses on what activity?')
+  VALUES ('iot', 'What device introduced IoT to the wearable tech realm in 2004?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Gathering initial ideas.', false),
-  ((SELECT id FROM inserted_question), 'Checking for errors and debugging the requirements.', true),
-  ((SELECT id FROM inserted_question), 'Hiring the development team.', false),
-  ((SELECT id FROM inserted_question), 'Negotiating the budget.', false);
+  ((SELECT id FROM inserted_question), 'Smart glasses', false),
+  ((SELECT id FROM inserted_question), 'Smart Ring', false),
+  ((SELECT id FROM inserted_question), 'Smart Watch', true),
+  ((SELECT id FROM inserted_question), 'Fitness band', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is ''Requirements Management''?')
+  VALUES ('iot', 'Apple''s iPhone became a game-changer for IoT integration in what year?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The task of managing the project''s budget.', false),
-  ((SELECT id FROM inserted_question), 'The set of activities for identifying, controlling, and tracking requirements.', true),
-  ((SELECT id FROM inserted_question), 'The process of managing the software developers.', false),
-  ((SELECT id FROM inserted_question), 'The act of writing the user manual.', false);
+  ((SELECT id FROM inserted_question), '2004', false),
+  ((SELECT id FROM inserted_question), '2007', true),
+  ((SELECT id FROM inserted_question), '2009', false),
+  ((SELECT id FROM inserted_question), '2011', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is a ''Stakeholder''?')
+  VALUES ('iot', 'What technology showcased IoT''s potential in image recognition in 2013?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Only the person paying for the project.', false),
-  ((SELECT id FROM inserted_question), 'Only the end-users of the system.', false),
-  ((SELECT id FROM inserted_question), 'Anyone who benefits in a direct or indirect way from the system.', true),
-  ((SELECT id FROM inserted_question), 'Only the software engineers on the team.', false);
+  ((SELECT id FROM inserted_question), 'Amazon Echo', false),
+  ((SELECT id FROM inserted_question), 'Tesla Autopilot', false),
+  ((SELECT id FROM inserted_question), 'Google Lens', true),
+  ((SELECT id FROM inserted_question), 'Smart TV', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which of the following is an example of a stakeholder?')
+  VALUES ('iot', 'Amazon''s Echo, equipped with Alexa, demonstrated the power of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A competitor''s CEO', false),
-  ((SELECT id FROM inserted_question), 'Business operations managers', true),
-  ((SELECT id FROM inserted_question), 'A university professor', false),
-  ((SELECT id FROM inserted_question), 'A random person on the street', false);
+  ((SELECT id FROM inserted_question), 'Autonomous driving', false),
+  ((SELECT id FROM inserted_question), 'Voice-activated IoT', true),
+  ((SELECT id FROM inserted_question), 'Wearable fitness tracking', false),
+  ((SELECT id FROM inserted_question), 'Image recognition', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Why is it important to recognize ''Multiple Viewpoints''?')
+  VALUES ('iot', 'Tesla''s Autopilot system (2015) exemplified IoT in automobiles through:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Because requirements may be inconsistent or conflict with one another.', true),
-  ((SELECT id FROM inserted_question), 'Because it proves the project is too complicated.', false),
-  ((SELECT id FROM inserted_question), 'Because it helps decide which programming language to use.', false),
-  ((SELECT id FROM inserted_question), 'Because it is a legal requirement.', false);
+  ((SELECT id FROM inserted_question), 'Better fuel efficiency', false),
+  ((SELECT id FROM inserted_question), 'Enhanced audio systems', false),
+  ((SELECT id FROM inserted_question), 'Semi-autonomous driving capabilities', true),
+  ((SELECT id FROM inserted_question), 'Remote engine starting', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the job of a requirements engineer regarding collaboration?')
+  VALUES ('iot', 'Fetching the latest software updates without manual intervention is an example of which IoT characteristic?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To always side with the customer.', false),
-  ((SELECT id FROM inserted_question), 'To identify areas of commonality and areas of conflict.', true),
-  ((SELECT id FROM inserted_question), 'To ignore all stakeholders and build their own vision.', false),
-  ((SELECT id FROM inserted_question), 'To choose the cheapest requirements.', false);
+  ((SELECT id FROM inserted_question), 'Self Configuring', true),
+  ((SELECT id FROM inserted_question), 'Heterogeneity', false),
+  ((SELECT id FROM inserted_question), 'Enormous scale', false),
+  ((SELECT id FROM inserted_question), 'Safety', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', '''Who will use the solution?'' and ''What will be the economic benefit?'' are examples of what?')
+  VALUES ('iot', 'IoT devices typically consume less power. When not in use, they should automatically be programmed to:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Final validation questions.', false),
-  ((SELECT id FROM inserted_question), 'Test cases.', false),
-  ((SELECT id FROM inserted_question), 'The ''first questions'' asked during inception.', true),
-  ((SELECT id FROM inserted_question), 'Non-functional requirements.', false);
+  ((SELECT id FROM inserted_question), 'Delete data', false),
+  ((SELECT id FROM inserted_question), 'Reboot', false),
+  ((SELECT id FROM inserted_question), 'Sleep', true),
+  ((SELECT id FROM inserted_question), 'Disconnect permanently', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the goal of ''Collaborative Requirements Gathering''?')
+  VALUES ('iot', 'Why are IoT devices powered off periodically when not in use?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To identify the problem, propose solutions, and negotiate requirements in a team setting.', true),
-  ((SELECT id FROM inserted_question), 'To have a formal meeting where developers present the final product.', false),
-  ((SELECT id FROM inserted_question), 'To write the entire user manual in one session.', false),
-  ((SELECT id FROM inserted_question), 'To let the customer and developer work in complete isolation.', false);
+  ((SELECT id FROM inserted_question), 'To increase heat generation', false),
+  ((SELECT id FROM inserted_question), 'To save bandwidth and battery consumption', true),
+  ((SELECT id FROM inserted_question), 'To reset their IP address', false),
+  ((SELECT id FROM inserted_question), 'To prevent physical theft', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A ''facilitator'' is often used to control meetings in which elicitation technique?')
+  VALUES ('iot', 'Devices in the IoT are considered heterogeneous because they:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Collaborative Requirements Gathering', true),
-  ((SELECT id FROM inserted_question), 'Validation', false),
-  ((SELECT id FROM inserted_question), 'Inception', false),
-  ((SELECT id FROM inserted_question), 'Specification', false);
+  ((SELECT id FROM inserted_question), 'All use the exact same software', false),
+  ((SELECT id FROM inserted_question), 'Are based on different hardware platforms and networks', true),
+  ((SELECT id FROM inserted_question), 'Can only connect to one type of server', false),
+  ((SELECT id FROM inserted_question), 'Are built by a single manufacturer', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is another name for a ''Usage Scenario''?')
+  VALUES ('iot', 'What characteristic refers to the fact that the number of devices communicating with each other will be massively larger than the current Internet?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A State Diagram', false),
-  ((SELECT id FROM inserted_question), 'A ''Use-Case'' or ''user story''', true),
-  ((SELECT id FROM inserted_question), 'A Feasibility Study', false),
-  ((SELECT id FROM inserted_question), 'A Class Diagram', false);
+  ((SELECT id FROM inserted_question), 'Enormous scale', true),
+  ((SELECT id FROM inserted_question), 'Dynamic changes', false),
+  ((SELECT id FROM inserted_question), 'Inter-connectivity', false),
+  ((SELECT id FROM inserted_question), 'Heterogeneity', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A ''bounded statement of scope'' is what kind of work product?')
+  VALUES ('iot', 'In IoT, what enables network accessibility and compatibility?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A design work product', false),
-  ((SELECT id FROM inserted_question), 'A testing work product', false),
-  ((SELECT id FROM inserted_question), 'An elicitation work product', true),
-  ((SELECT id FROM inserted_question), 'A management work product', false);
+  ((SELECT id FROM inserted_question), 'Safety', false),
+  ((SELECT id FROM inserted_question), 'Connectivity', true),
+  ((SELECT id FROM inserted_question), 'Intermittent connectivity', false),
+  ((SELECT id FROM inserted_question), 'Storage', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What does a ''Use Case'' capture?')
+  VALUES ('iot', 'Which addressing protocol will no longer be suitable in the upcoming future due to the abundance of physical objects?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A contract describing the system''s behavior in response to a request.', true),
-  ((SELECT id FROM inserted_question), 'The developer''s name and salary.', false),
-  ((SELECT id FROM inserted_question), 'A list of all bugs in the code.', false),
-  ((SELECT id FROM inserted_question), 'The hardware specifications required to run the system.', false);
+  ((SELECT id FROM inserted_question), 'MAC addressing', false),
+  ((SELECT id FROM inserted_question), 'IP-based addressing', true),
+  ((SELECT id FROM inserted_question), 'URL routing', false),
+  ((SELECT id FROM inserted_question), 'Postal addressing', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A use case depicts the software from which point of view?')
+  VALUES ('iot', 'A device connected right now may not be connected in another instant. This describes which IoT characteristic?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The developer''s', false),
-  ((SELECT id FROM inserted_question), 'The end user''s', true),
-  ((SELECT id FROM inserted_question), 'The project manager''s', false),
-  ((SELECT id FROM inserted_question), 'The database''s', false);
+  ((SELECT id FROM inserted_question), 'Static connection', false),
+  ((SELECT id FROM inserted_question), 'Continuous streaming', false),
+  ((SELECT id FROM inserted_question), 'Intermittent connectivity', true),
+  ((SELECT id FROM inserted_question), 'Permanent addressing', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the first step in writing a use case?')
+  VALUES ('iot', 'What acts as the "brain" of an IoT device, containing a processor core, memory, and programmable I/O?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Define the set of ''actors''.', true),
-  ((SELECT id FROM inserted_question), 'Draw the graphical model.', false),
-  ((SELECT id FROM inserted_question), 'Write the test case.', false),
-  ((SELECT id FROM inserted_question), 'Choose the programming language.', false);
+  ((SELECT id FROM inserted_question), 'Sensor', false),
+  ((SELECT id FROM inserted_question), 'Actuator', false),
+  ((SELECT id FROM inserted_question), 'Control unit', true),
+  ((SELECT id FROM inserted_question), 'Gateway', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'In a use case, what is an ''Actor''?')
+  VALUES ('iot', 'Which hardware components detect changes in an environment and collect data?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The developer writing the code.', false),
-  ((SELECT id FROM inserted_question), 'A person or device that uses the system.', true),
-  ((SELECT id FROM inserted_question), 'A type of data diagram.', false),
-  ((SELECT id FROM inserted_question), 'A software bug.', false);
+  ((SELECT id FROM inserted_question), 'Cloud servers', false),
+  ((SELECT id FROM inserted_question), 'Actuators', false),
+  ((SELECT id FROM inserted_question), 'Sensors', true),
+  ((SELECT id FROM inserted_question), 'Gateways', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is a ''Primary Actor''?')
+  VALUES ('iot', 'What type of sensor produces a continuous output signal that varies proportionally to the measured quantity?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An actor that supports the system so others can work.', false),
-  ((SELECT id FROM inserted_question), 'An actor that works directly and frequently with the software.', true),
-  ((SELECT id FROM inserted_question), 'The main developer on the project.', false),
-  ((SELECT id FROM inserted_question), 'The stakeholder with the most money.', false);
+  ((SELECT id FROM inserted_question), 'Digital sensor', false),
+  ((SELECT id FROM inserted_question), 'Analog sensor', true),
+  ((SELECT id FROM inserted_question), 'Binary sensor', false),
+  ((SELECT id FROM inserted_question), 'Discrete sensor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is a ''Secondary Actor''?')
+  VALUES ('iot', 'What type of sensor outputs a discrete signal, either in binary form (0 or 1)?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'An actor that supports the system so that primary actors can do their work.', true),
-  ((SELECT id FROM inserted_question), 'An actor that works directly with the software.', false),
-  ((SELECT id FROM inserted_question), 'The end-user.', false),
-  ((SELECT id FROM inserted_question), 'The customer.', false);
+  ((SELECT id FROM inserted_question), 'Analog sensor', false),
+  ((SELECT id FROM inserted_question), 'Continuous sensor', false),
+  ((SELECT id FROM inserted_question), 'Digital sensor', true),
+  ((SELECT id FROM inserted_question), 'Proportional sensor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the intent of the ''Analysis Model'' (Requirements Model)?')
+  VALUES ('iot', 'Which device converts a signal from one physical structure (or energy type) to another?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To be a static, unchanging contract.', false),
-  ((SELECT id FROM inserted_question), 'To provide a description of the required informational, functional, and behavioral domains.', true),
-  ((SELECT id FROM inserted_question), 'To list all the developers on the team.', false),
-  ((SELECT id FROM inserted_question), 'To be the final user manual.', false);
+  ((SELECT id FROM inserted_question), 'Processor', false),
+  ((SELECT id FROM inserted_question), 'Controller', false),
+  ((SELECT id FROM inserted_question), 'Gateway', false),
+  ((SELECT id FROM inserted_question), 'Transducer', true);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which element of the requirements model is described from the user’s point of view?')
+  VALUES ('iot', 'Thermistors, thermocouples, and RTDs are examples of which type of sensor?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Class-based elements', false),
-  ((SELECT id FROM inserted_question), 'Behavioral elements', false),
-  ((SELECT id FROM inserted_question), 'Flow-oriented elements', false),
-  ((SELECT id FROM inserted_question), 'Scenario-based elements', true);
+  ((SELECT id FROM inserted_question), 'Pressure sensors', false),
+  ((SELECT id FROM inserted_question), 'Temperature sensors', true),
+  ((SELECT id FROM inserted_question), 'Proximity sensors', false),
+  ((SELECT id FROM inserted_question), 'Image sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Class-based elements categorize objects that have similar attributes and common...?')
+  VALUES ('iot', 'Which sensors detect the presence or absence of objects near them without physical contact?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Behaviors', true),
-  ((SELECT id FROM inserted_question), 'Use cases', false),
-  ((SELECT id FROM inserted_question), 'Flows', false),
-  ((SELECT id FROM inserted_question), 'Data sources', false);
+  ((SELECT id FROM inserted_question), 'Pressure sensors', false),
+  ((SELECT id FROM inserted_question), 'Proximity sensors', true),
+  ((SELECT id FROM inserted_question), 'Humidity sensors', false),
+  ((SELECT id FROM inserted_question), 'Gas sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What does a ''State Diagram'' represent?')
+  VALUES ('iot', 'The BMP180 found in cell phones is an example of a digital:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The flow of data through a system.', false),
-  ((SELECT id FROM inserted_question), 'The behavior of a system by depicting its states and the events that cause state changes.', true),
-  ((SELECT id FROM inserted_question), 'The classes and their relationships.', false),
-  ((SELECT id FROM inserted_question), 'The scenarios of user interaction.', false);
+  ((SELECT id FROM inserted_question), 'Temperature sensor', false),
+  ((SELECT id FROM inserted_question), 'Image sensor', false),
+  ((SELECT id FROM inserted_question), 'Pressure sensor', true),
+  ((SELECT id FROM inserted_question), 'Proximity sensor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'In a state diagram, what is a ''state''?')
+  VALUES ('iot', 'Residual chlorine sensors, turbidity sensors, and pH sensors are examples of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Any externally observable mode of behavior.', true),
-  ((SELECT id FROM inserted_question), 'A piece of data.', false),
-  ((SELECT id FROM inserted_question), 'A function or method.', false),
-  ((SELECT id FROM inserted_question), 'A user.', false);
+  ((SELECT id FROM inserted_question), 'Water quality sensors', true),
+  ((SELECT id FROM inserted_question), 'Smoke sensors', false),
+  ((SELECT id FROM inserted_question), 'Motion sensors', false),
+  ((SELECT id FROM inserted_question), 'Gyroscope sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which element type deals with how information is transformed as it flows through a system?')
+  VALUES ('iot', 'Which sensors monitor air quality for the presence of toxic or hazardous substances?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Flow-oriented elements', true),
-  ((SELECT id FROM inserted_question), 'Behavioral elements', false),
-  ((SELECT id FROM inserted_question), 'Class-based elements', false),
-  ((SELECT id FROM inserted_question), 'Scenario-based elements', false);
+  ((SELECT id FROM inserted_question), 'Infrared sensors', false),
+  ((SELECT id FROM inserted_question), 'Chemical and gas sensors', true),
+  ((SELECT id FROM inserted_question), 'Optical sensors', false),
+  ((SELECT id FROM inserted_question), 'Level sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A Data Flow Diagram (DFD) is an example of which type of requirements model element?')
+  VALUES ('iot', 'Passive infrared (PIR), ultrasonic, and microwave are standard types of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Class-based', false),
-  ((SELECT id FROM inserted_question), 'Behavioral', false),
-  ((SELECT id FROM inserted_question), 'Flow-oriented', true),
-  ((SELECT id FROM inserted_question), 'Scenario-based', false);
+  ((SELECT id FROM inserted_question), 'Motion sensors', true),
+  ((SELECT id FROM inserted_question), 'Temperature sensors', false),
+  ((SELECT id FROM inserted_question), 'Humidity sensors', false),
+  ((SELECT id FROM inserted_question), 'Image sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is an ''Analysis Pattern''?')
+  VALUES ('iot', 'Which sensor would be used to determine the amount of waste in a dumpster?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A bug that reoccurs in the code.', false),
-  ((SELECT id FROM inserted_question), 'A solution for a problem that reoccurs across projects in a specific domain.', true),
-  ((SELECT id FROM inserted_question), 'A standard template for a specification document.', false),
-  ((SELECT id FROM inserted_question), 'A diagram showing the flow of data.', false);
+  ((SELECT id FROM inserted_question), 'Accelerometer', false),
+  ((SELECT id FROM inserted_question), 'Image sensor', false),
+  ((SELECT id FROM inserted_question), 'Level sensor', true),
+  ((SELECT id FROM inserted_question), 'Gyroscope', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is the purpose of ''Validating Requirements''?')
+  VALUES ('iot', 'Charge-coupled devices (CC')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'To check the model for inconsistency, omissions, and ambiguity.', true),
-  ((SELECT id FROM inserted_question), 'To write the code.', false),
-  ((SELECT id FROM inserted_question), 'To hire the team.', false),
-  ((SELECT id FROM inserted_question), 'To gather the initial requirements.', false);
+  ((SELECT id FROM inserted_question), 'and complementary metal-oxide semiconductors (CMOS) are used in:', false),
+  ((SELECT id FROM inserted_question), 'Temperature sensors', false),
+  ((SELECT id FROM inserted_question), 'Image sensors', true),
+  ((SELECT id FROM inserted_question), 'Humidity sensors', false),
+  ((SELECT id FROM inserted_question), 'Chemical sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A validation review asks if a requirement is ''testable''. What does this mean?')
+  VALUES ('iot', 'Which sensors measure the amount of water vapor in the air?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Can it be understood by the customer?', false),
-  ((SELECT id FROM inserted_question), 'Can a test be created to prove that the requirement is met?', true),
-  ((SELECT id FROM inserted_question), 'Is the requirement necessary?', false),
-  ((SELECT id FROM inserted_question), 'Is the requirement from a valid source?', false);
+  ((SELECT id FROM inserted_question), 'Level sensors', false),
+  ((SELECT id FROM inserted_question), 'Proximity sensors', false),
+  ((SELECT id FROM inserted_question), 'Humidity sensors', true),
+  ((SELECT id FROM inserted_question), 'Optical sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is a ''Functional Requirement''?')
+  VALUES ('iot', 'Which sensor measures the acceleration of an object and detects changes in velocity, such as tilt or shake?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'It defines ''how'' the system should operate (e.g., performance).', false),
-  ((SELECT id FROM inserted_question), 'It defines the specific features and operations the system must perform (e.g., user login).', true),
-  ((SELECT id FROM inserted_question), 'It defines the project''s budget.', false),
-  ((SELECT id FROM inserted_question), 'It defines the timeline for the project.', false);
+  ((SELECT id FROM inserted_question), 'Gyroscope', false),
+  ((SELECT id FROM inserted_question), 'Accelerometer', true),
+  ((SELECT id FROM inserted_question), 'Proximity sensor', false),
+  ((SELECT id FROM inserted_question), 'Level sensor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', '''User authentication'' and ''report generation'' are examples of what?')
+  VALUES ('iot', 'Which sensor measures the angular rate or the speed of rotation around an axis?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Functional requirements', true),
-  ((SELECT id FROM inserted_question), 'Non-functional requirements', false),
-  ((SELECT id FROM inserted_question), 'Analysis patterns', false),
-  ((SELECT id FROM inserted_question), 'Feasibility studies', false);
+  ((SELECT id FROM inserted_question), 'Accelerometer', false),
+  ((SELECT id FROM inserted_question), 'Gyroscope sensor', true),
+  ((SELECT id FROM inserted_question), 'Optical sensor', false),
+  ((SELECT id FROM inserted_question), 'Infrared sensor', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'What is a ''Non-functional Requirement''?')
+  VALUES ('iot', 'Fiber optics, photodetectors, and pyrometers are examples of:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'A requirement that is not important.', false),
-  ((SELECT id FROM inserted_question), 'It defines ''how'' the system should operate (e.g., performance, security).', true),
-  ((SELECT id FROM inserted_question), 'It defines a specific feature, like a button.', false),
-  ((SELECT id FROM inserted_question), 'It is an optional requirement.', false);
+  ((SELECT id FROM inserted_question), 'Chemical sensors', false),
+  ((SELECT id FROM inserted_question), 'Water quality sensors', false),
+  ((SELECT id FROM inserted_question), 'Optical sensors', true),
+  ((SELECT id FROM inserted_question), 'Smoke sensors', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', '''Performance'', ''security'', and ''usability'' are examples of what?')
+  VALUES ('iot', 'What component is responsible for moving and controlling a mechanism or system (e.g., opening a valve)?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Functional requirements', false),
-  ((SELECT id FROM inserted_question), 'Non-functional requirements', true),
-  ((SELECT id FROM inserted_question), 'Use cases', false),
-  ((SELECT id FROM inserted_question), 'Actors', false);
+  ((SELECT id FROM inserted_question), 'Sensor', false),
+  ((SELECT id FROM inserted_question), 'Actuator', true),
+  ((SELECT id FROM inserted_question), 'Router', false),
+  ((SELECT id FROM inserted_question), 'Gateway', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which task involves ''expanding and refining'' information from inception and elicitation?')
+  VALUES ('iot', 'A servo motor is a common example of an:')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Validation', false),
-  ((SELECT id FROM inserted_question), 'Negotiation', false),
-  ((SELECT id FROM inserted_question), 'Elaboration', true),
-  ((SELECT id FROM inserted_question), 'Specification', false);
+  ((SELECT id FROM inserted_question), 'Image sensor', false),
+  ((SELECT id FROM inserted_question), 'Actuator', true),
+  ((SELECT id FROM inserted_question), 'IoT server', false),
+  ((SELECT id FROM inserted_question), 'Access point', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', '''Problems of scope'' mean that the system boundary is...')
+  VALUES ('iot', 'In an IoT system, which component generates the control signals for the actuators based on the actions needed?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'perfectly defined.', false),
-  ((SELECT id FROM inserted_question), 'ill-defined or unclear.', true),
-  ((SELECT id FROM inserted_question), 'constantly changing.', false),
-  ((SELECT id FROM inserted_question), 'too small.', false);
+  ((SELECT id FROM inserted_question), 'The sensors', false),
+  ((SELECT id FROM inserted_question), 'The mechanical valve', false),
+  ((SELECT id FROM inserted_question), 'The controller ("brain")', true),
+  ((SELECT id FROM inserted_question), 'The user interface', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', '''Technical Feasibility'' and ''Economic Feasibility'' are part of what?')
+  VALUES ('iot', 'What represents the front end of IoT devices and is truly the "things" in IoT?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'The Feasibility Study', true),
-  ((SELECT id FROM inserted_question), 'The Specification Document', false),
-  ((SELECT id FROM inserted_question), 'The Validation Check', false),
-  ((SELECT id FROM inserted_question), 'The Use Case Model', false);
+  ((SELECT id FROM inserted_question), 'Processors', false),
+  ((SELECT id FROM inserted_question), 'Sensors', true),
+  ((SELECT id FROM inserted_question), 'Cloud storage', false),
+  ((SELECT id FROM inserted_question), 'Applications', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'Which task involves ''identifying, controlling, tracking, and establishing'' requirements?')
+  VALUES ('iot', 'Which building block serves as the "brain" of the IoT system to process raw data into meaningful information?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Inception', false),
-  ((SELECT id FROM inserted_question), 'Elicitation', false),
-  ((SELECT id FROM inserted_question), 'Requirements Management', true),
-  ((SELECT id FROM inserted_question), 'Negotiation', false);
+  ((SELECT id FROM inserted_question), 'Gateways', false),
+  ((SELECT id FROM inserted_question), 'Sensors', false),
+  ((SELECT id FROM inserted_question), 'Processors', true),
+  ((SELECT id FROM inserted_question), 'Applications', false);
 
 WITH inserted_question AS (
   INSERT INTO questions (subject, question)
-  VALUES ('iot', 'A ''Software specification'' can be a written document, graphical models, or a...?')
+  VALUES ('iot', 'Which building block provides the interface for users to interact with the collected data?')
   RETURNING id
 )
 INSERT INTO options (question_id, option_text, is_correct) VALUES
-  ((SELECT id FROM inserted_question), 'Prototype', true),
-  ((SELECT id FROM inserted_question), 'Final bill', false),
-  ((SELECT id FROM inserted_question), 'List of developers', false),
-  ((SELECT id FROM inserted_question), 'Meeting agenda', false);
+  ((SELECT id FROM inserted_question), 'Gateways', false),
+  ((SELECT id FROM inserted_question), 'Applications', true),
+  ((SELECT id FROM inserted_question), 'Processors', false),
+  ((SELECT id FROM inserted_question), 'Sensors', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The main task of which component is to route processed data and transfer it to databases or network storage?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Gateways', true),
+  ((SELECT id FROM inserted_question), 'Sensors', false),
+  ((SELECT id FROM inserted_question), 'Actuators', false),
+  ((SELECT id FROM inserted_question), 'End-users', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'An IoT Gateway provides a bridge between different communication technologies, connecting the cloud and the:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'End user', false),
+  ((SELECT id FROM inserted_question), 'Controller (sensors/devices)', true),
+  ((SELECT id FROM inserted_question), 'Database server exclusively', false),
+  ((SELECT id FROM inserted_question), 'Mobile application', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Why do energy-constrained IoT devices typically communicate with a Gateway first rather than directly to the cloud?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'To increase internet speed', false),
+  ((SELECT id FROM inserted_question), 'Direct cloud connection won''t be effective in terms of battery power', true),
+  ((SELECT id FROM inserted_question), 'To bypass security protocols', false),
+  ((SELECT id FROM inserted_question), 'To avoid using short-range networks', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which of the following is a key functionality of an IoT Gateway?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Displaying graphics to the user', false),
+  ((SELECT id FROM inserted_question), 'Generating physical movement', false),
+  ((SELECT id FROM inserted_question), 'Protocol translation and data aggregation', true),
+  ((SELECT id FROM inserted_question), 'Manufacturing hardware', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'A gateway can be a software program or a:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Typical hardware device', true),
+  ((SELECT id FROM inserted_question), 'Cloud server', false),
+  ((SELECT id FROM inserted_question), 'Mechanical actuator', false),
+  ((SELECT id FROM inserted_question), 'Human interface', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Gateways help IoT devices by performing data computing at the:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Core level', false),
+  ((SELECT id FROM inserted_question), 'Application level', false),
+  ((SELECT id FROM inserted_question), 'Edge level', true),
+  ((SELECT id FROM inserted_question), 'Server level', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What is a virtual space made up of a network of servers that stores and manages data from connected devices?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The Gateway', false),
+  ((SELECT id FROM inserted_question), 'The Cloud', true),
+  ((SELECT id FROM inserted_question), 'The Actuator', false),
+  ((SELECT id FROM inserted_question), 'The UI', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which protocol is commonly used for communication between IoT devices and the cloud?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'HTTP', false),
+  ((SELECT id FROM inserted_question), 'FTP', false),
+  ((SELECT id FROM inserted_question), 'MQTT (Message Queue Telemetry Transport)', true),
+  ((SELECT id FROM inserted_question), 'SMTP', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which cloud deployment model builds and maintains its own underlying infrastructure for internal users?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Public Cloud', false),
+  ((SELECT id FROM inserted_question), 'Private Cloud', true),
+  ((SELECT id FROM inserted_question), 'Community Cloud', false),
+  ((SELECT id FROM inserted_question), 'Hybrid Cloud', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Amazon EC2, IBM, Azure, and GCP are examples of which type of cloud?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Private Cloud', false),
+  ((SELECT id FROM inserted_question), 'Hybrid Cloud', false),
+  ((SELECT id FROM inserted_question), 'Public Cloud', true),
+  ((SELECT id FROM inserted_question), 'Community Cloud', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'A unified, automated environment that combines public cloud services and an on-premises private cloud is a:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Community cloud', false),
+  ((SELECT id FROM inserted_question), 'Hybrid cloud', true),
+  ((SELECT id FROM inserted_question), 'Distributed cloud', false),
+  ((SELECT id FROM inserted_question), 'Edge cloud', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which cloud model supports a specific group with the same mission, policy, and security requirements?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Public cloud', false),
+  ((SELECT id FROM inserted_question), 'Hybrid cloud', false),
+  ((SELECT id FROM inserted_question), 'Community cloud', true),
+  ((SELECT id FROM inserted_question), 'Private cloud', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Delivering services and applications over the Internet so users don''t have to install and maintain software is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Infrastructure as a Service (IaaS)', false),
+  ((SELECT id FROM inserted_question), 'Platform as a Service (PaaS)', false),
+  ((SELECT id FROM inserted_question), 'Software as a Service (SaaS)', true),
+  ((SELECT id FROM inserted_question), 'Hardware as a Service (HaaS)', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which cloud service provides a platform and environment to allow developers to build applications over the internet?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'PaaS', true),
+  ((SELECT id FROM inserted_question), 'SaaS', false),
+  ((SELECT id FROM inserted_question), 'IaaS', false),
+  ((SELECT id FROM inserted_question), 'HaaS', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Infrastructure as a Service (IaaS) is also commonly referred to as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Software as a Service', false),
+  ((SELECT id FROM inserted_question), 'Hardware as a Service (HaaS)', true),
+  ((SELECT id FROM inserted_question), 'Platform as a Service', false),
+  ((SELECT id FROM inserted_question), 'Application as a Service', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What platform connects physical devices to the internet, allowing them to communicate and share data?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Web server', false),
+  ((SELECT id FROM inserted_question), 'IoT server', true),
+  ((SELECT id FROM inserted_question), 'Mail server', false),
+  ((SELECT id FROM inserted_question), 'Print server', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which type of server stores and manages data files so other computers on the same network can access them?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Web server', false),
+  ((SELECT id FROM inserted_question), 'File server', true),
+  ((SELECT id FROM inserted_question), 'Print server', false),
+  ((SELECT id FROM inserted_question), 'Mail server', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which of the following is an example of an IoT Cloud platform?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Amazon Web Services (AWS) IoT', true),
+  ((SELECT id FROM inserted_question), 'Microsoft Word', false),
+  ((SELECT id FROM inserted_question), 'Adobe Photoshop', false),
+  ((SELECT id FROM inserted_question), 'Linux OS', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'IoT cloud computing is convenient because costs typically vary depending on:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The color of the devices', false),
+  ((SELECT id FROM inserted_question), 'The user''s location', false),
+  ((SELECT id FROM inserted_question), 'The usage statistics (you pay for what you use)', true),
+  ((SELECT id FROM inserted_question), 'The time of day', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The process of collecting, processing, and analyzing data generated by IoT devices is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Cloud storage', false),
+  ((SELECT id FROM inserted_question), 'Device management', false),
+  ((SELECT id FROM inserted_question), 'IoT analytics', true),
+  ((SELECT id FROM inserted_question), 'Protocol translation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'IoT data is constantly growing and is considered a subset of:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Metadata', false),
+  ((SELECT id FROM inserted_question), 'Big Data', true),
+  ((SELECT id FROM inserted_question), 'Micro Data', false),
+  ((SELECT id FROM inserted_question), 'Relational Data', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The "3Vs model" of big data and IoT data consists of Volume, Variety, and:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Velocity', true),
+  ((SELECT id FROM inserted_question), 'Validity', false),
+  ((SELECT id FROM inserted_question), 'Value', false),
+  ((SELECT id FROM inserted_question), 'Visualization', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'In the 3Vs model, which "V" refers to the amount of data (e.g., Terabytes, Records)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Velocity', false),
+  ((SELECT id FROM inserted_question), 'Variety', false),
+  ((SELECT id FROM inserted_question), 'Volume', true),
+  ((SELECT id FROM inserted_question), 'Variability', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which "V" refers to the speed at which data is processed (e.g., Real-time, Streams)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Volume', false),
+  ((SELECT id FROM inserted_question), 'Velocity', true),
+  ((SELECT id FROM inserted_question), 'Variety', false),
+  ((SELECT id FROM inserted_question), 'Veracity', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which "V" includes structured, unstructured, and semi-structured types of data?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Volume', false),
+  ((SELECT id FROM inserted_question), 'Velocity', false),
+  ((SELECT id FROM inserted_question), 'Variety', true),
+  ((SELECT id FROM inserted_question), 'Verification', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Big Data typically deals with human-generated data (like social media), while IoT primarily involves analyzing:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Handwritten notes', false),
+  ((SELECT id FROM inserted_question), 'Machine-generated data (such as sensors)', true),
+  ((SELECT id FROM inserted_question), 'Printed books', false),
+  ((SELECT id FROM inserted_question), 'Voice recordings only', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'A significant challenge in IoT analytics is having "Too much data," meaning it may not be possible to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Delete it', false),
+  ((SELECT id FROM inserted_question), 'Move it over the network to a central location', true),
+  ((SELECT id FROM inserted_question), 'Encrypt it', false),
+  ((SELECT id FROM inserted_question), 'Print it', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'If an attacker compromises a weak outdoor sensor to adjust indoor temperature incorrectly, this falls under which IoT analytics challenge?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Too much data', false),
+  ((SELECT id FROM inserted_question), 'Power consumption', false),
+  ((SELECT id FROM inserted_question), 'Security', true),
+  ((SELECT id FROM inserted_question), 'Interoperability', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Sensors that send false readings to the system due to a low battery or software bug are referred to as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Malicious nodes', false),
+  ((SELECT id FROM inserted_question), 'Misbehaving devices', true),
+  ((SELECT id FROM inserted_question), 'Gateways', false),
+  ((SELECT id FROM inserted_question), 'Actuators', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What is the visible, tangible portion of the IoT device that allows users to view, monitor, and manipulate data?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Sensor', false),
+  ((SELECT id FROM inserted_question), 'Gateway', false),
+  ((SELECT id FROM inserted_question), 'Data Processing Layer', false),
+  ((SELECT id FROM inserted_question), 'User Interface (UI)', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'According to the document, the architecture of IoT is divided into how many different layers?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '2', false),
+  ((SELECT id FROM inserted_question), '3', false),
+  ((SELECT id FROM inserted_question), '4', true),
+  ((SELECT id FROM inserted_question), '5', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which layer of the IoT architecture is responsible for collecting data using sensors and actuators?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Network Layer', false),
+  ((SELECT id FROM inserted_question), 'Data Processing Layer', false),
+  ((SELECT id FROM inserted_question), 'Sensing Layer', true),
+  ((SELECT id FROM inserted_question), 'Application Layer', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which layer provides communication and connectivity using technologies like WiFi, Bluetooth, and cellular networks?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Application Layer', false),
+  ((SELECT id FROM inserted_question), 'Data Processing Layer', false),
+  ((SELECT id FROM inserted_question), 'Sensing Layer', false),
+  ((SELECT id FROM inserted_question), 'Network Layer', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which layer is responsible for receiving raw data, analyzing it, and making it available for further action?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Sensing Layer', false),
+  ((SELECT id FROM inserted_question), 'Data processing Layer', true),
+  ((SELECT id FROM inserted_question), 'Network Layer', false),
+  ((SELECT id FROM inserted_question), 'Actuator Layer', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'A "data lake" used for storing raw data from IoT devices is an example of technology found in which layer?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Network Layer', false),
+  ((SELECT id FROM inserted_question), 'Sensing Layer', false),
+  ((SELECT id FROM inserted_question), 'Data processing Layer', true),
+  ((SELECT id FROM inserted_question), 'Application Layer', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which layer is the topmost layer that interacts directly with the end-user through mobile apps and web portals?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Data processing Layer', false),
+  ((SELECT id FROM inserted_question), 'Network Layer', false),
+  ((SELECT id FROM inserted_question), 'Sensing Layer', false),
+  ((SELECT id FROM inserted_question), 'Application Layer', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which of the following is listed as an advantage of IoT?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'High initial investment costs', false),
+  ((SELECT id FROM inserted_question), 'Complexity of maintenance', false),
+  ((SELECT id FROM inserted_question), 'Easiest internet connectivity', true),
+  ((SELECT id FROM inserted_question), 'Limited standardization', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Which of the following is a disadvantage of IoT?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Executing multiple tasks at a time', false),
+  ((SELECT id FROM inserted_question), 'Security concerns and potential for data breaches', true),
+  ((SELECT id FROM inserted_question), 'Increased battery life on all devices', false),
+  ((SELECT id FROM inserted_question), 'Perfect interoperability', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'High initial investment costs and limited battery life on some devices are considered:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Disadvantages of IoT', true),
+  ((SELECT id FROM inserted_question), 'Advantages of IoT', false),
+  ((SELECT id FROM inserted_question), 'Key Components of IoT', false),
+  ((SELECT id FROM inserted_question), 'Data Processing techniques', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Smart grids, smart cities, and home automation are examples of:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'IoT building blocks', false),
+  ((SELECT id FROM inserted_question), 'Disadvantages of IoT', false),
+  ((SELECT id FROM inserted_question), 'Modern Applications of IoT', true),
+  ((SELECT id FROM inserted_question), 'Cloud computing models', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Biochip transponders for farm animals and heart monitoring implants (like pacemakers) belong to which IoT application area?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Smart cities', false),
+  ((SELECT id FROM inserted_question), 'Traffic monitoring', false),
+  ((SELECT id FROM inserted_question), 'Healthcare', true),
+  ((SELECT id FROM inserted_question), 'Earthquake detection', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What security challenge arises because IoT manufacturers are eager to deliver products fast without enough security checks?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Excessive encryption', false),
+  ((SELECT id FROM inserted_question), 'Insufficient testing and updating', true),
+  ((SELECT id FROM inserted_question), 'Too much interoperability', false),
+  ((SELECT id FROM inserted_question), 'High power consumption', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What common factory setting leaves nearly all IoT devices vulnerable to hacking and brute force attacks?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Lack of a screen', false),
+  ((SELECT id FROM inserted_question), 'Default passwords', true),
+  ((SELECT id FROM inserted_question), 'Unchangeable MAC addresses', false),
+  ((SELECT id FROM inserted_question), 'Fast processors', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'What type of malware uses encryption to lock out users from devices and demands payment to unlock the data?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Spyware', false),
+  ((SELECT id FROM inserted_question), 'Adware', false),
+  ((SELECT id FROM inserted_question), 'Ransomware', true),
+  ((SELECT id FROM inserted_question), 'Trojan', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Hackers hijacking a computer camera to take pictures and demanding payment is an example of:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Device scaling', false),
+  ((SELECT id FROM inserted_question), 'Ransomware', true),
+  ((SELECT id FROM inserted_question), 'Interoperability', false),
+  ((SELECT id FROM inserted_question), 'Network routing', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The ability of different systems, devices, or components to work together seamlessly is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Scalability', false),
+  ((SELECT id FROM inserted_question), 'Reliability', false),
+  ((SELECT id FROM inserted_question), 'Interoperability', true),
+  ((SELECT id FROM inserted_question), 'Security', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Protecting the communication between IoT devices and the network from cyber attacks is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Device security', false),
+  ((SELECT id FROM inserted_question), 'Data security', false),
+  ((SELECT id FROM inserted_question), 'Network security', true),
+  ((SELECT id FROM inserted_question), 'Privacy', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The ability of a system to handle increasing workloads or numbers of users without a significant decline in performance is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Reliability', false),
+  ((SELECT id FROM inserted_question), 'Scalability', true),
+  ((SELECT id FROM inserted_question), 'Interoperability', false),
+  ((SELECT id FROM inserted_question), 'Power management', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Effectively managing and storing the massive amounts of data generated by a rapidly growing number of IoT devices is a challenge of:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Reliability', false),
+  ((SELECT id FROM inserted_question), 'Scalability', true),
+  ((SELECT id FROM inserted_question), 'Power consumption', false),
+  ((SELECT id FROM inserted_question), 'Interoperability', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'The ability of a system to perform its intended function consistently and without failure over time is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Scalability', false),
+  ((SELECT id FROM inserted_question), 'Interoperability', false),
+  ((SELECT id FROM inserted_question), 'Reliability', true),
+  ((SELECT id FROM inserted_question), 'Network capacity', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('iot', 'Implementing techniques such as "sleep modes" to reduce energy usage addresses which design challenge?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Privacy', false),
+  ((SELECT id FROM inserted_question), 'Interoperability', false),
+  ((SELECT id FROM inserted_question), 'Power consumption', true),
+  ((SELECT id FROM inserted_question), 'Data storage', false);
+
+-- Data for oop
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is a programming paradigm?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'A specific software tool', false),
+  ((SELECT id FROM inserted_question), 'A style and method of writing or organizing a program', true),
+  ((SELECT id FROM inserted_question), 'A hardware component', false),
+  ((SELECT id FROM inserted_question), 'A built-in C++ library', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which paradigm divides the whole program into multiple functions or modules?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Object-Oriented Programming', false),
+  ((SELECT id FROM inserted_question), 'Declarative Programming', false),
+  ((SELECT id FROM inserted_question), 'Procedural Programming', true),
+  ((SELECT id FROM inserted_question), 'Logic Programming', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Procedural programming follows which execution approach?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Bottom-up approach', false),
+  ((SELECT id FROM inserted_question), 'Top-down approach', true),
+  ((SELECT id FROM inserted_question), 'Random approach', false),
+  ((SELECT id FROM inserted_question), 'Center-out approach', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is an example of a procedural programming language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'C++', false),
+  ((SELECT id FROM inserted_question), 'Java', false),
+  ((SELECT id FROM inserted_question), 'Python', false),
+  ((SELECT id FROM inserted_question), 'C', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'In Object-Oriented Programming (OOP), the program is completely divided into:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Multiple functions', false),
+  ((SELECT id FROM inserted_question), 'Multiple sub-routines', false),
+  ((SELECT id FROM inserted_question), 'Multiple classes and objects', true),
+  ((SELECT id FROM inserted_question), 'Multiple loops', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What execution approach does Object-Oriented Programming follow?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Top-down approach', false),
+  ((SELECT id FROM inserted_question), 'Bottom-up approach', true),
+  ((SELECT id FROM inserted_question), 'Linear approach', false),
+  ((SELECT id FROM inserted_question), 'Horizontal approach', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is NOT a feature of Object-Oriented Programming?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Polymorphism', false),
+  ((SELECT id FROM inserted_question), 'Inheritance', false),
+  ((SELECT id FROM inserted_question), 'Data hiding', false),
+  ((SELECT id FROM inserted_question), 'Top-down execution', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which language supports Object-Oriented Programming?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'C++', true),
+  ((SELECT id FROM inserted_question), 'Pascal', false),
+  ((SELECT id FROM inserted_question), 'Cobol', false),
+  ((SELECT id FROM inserted_question), 'C', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'In the bottom-up approach of OOP, what is usually written at the top of the program structure?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The main() function', false),
+  ((SELECT id FROM inserted_question), 'Classes', true),
+  ((SELECT id FROM inserted_question), 'The return statement', false),
+  ((SELECT id FROM inserted_question), 'Pointers', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Why is OOP considered highly important in today''s world?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Because it is older than procedural programming', false),
+  ((SELECT id FROM inserted_question), 'Because the market runs on it and it handles real-world problems better', true),
+  ((SELECT id FROM inserted_question), 'Because it does not use variables', false),
+  ((SELECT id FROM inserted_question), 'Because it is only used for hardware design', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Who developed the C++ language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Dennis Ritchie', false),
+  ((SELECT id FROM inserted_question), 'James Gosling', false),
+  ((SELECT id FROM inserted_question), 'Bjarne Stroustrup', true),
+  ((SELECT id FROM inserted_question), 'Guido van Rossum', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Where was C++ developed?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Microsoft HQ', false),
+  ((SELECT id FROM inserted_question), 'AT&T Bell Labs', true),
+  ((SELECT id FROM inserted_question), 'MIT', false),
+  ((SELECT id FROM inserted_question), 'Google', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'In which decade was C++ developed?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Early 1970s', false),
+  ((SELECT id FROM inserted_question), 'Early 1980s', true),
+  ((SELECT id FROM inserted_question), 'Early 1990s', false),
+  ((SELECT id FROM inserted_question), 'Early 2000s', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'C++ is considered a superset of which programming language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Java', false),
+  ((SELECT id FROM inserted_question), 'Python', false),
+  ((SELECT id FROM inserted_question), 'Pascal', false),
+  ((SELECT id FROM inserted_question), 'C', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which C++ keyword is used to display output on the screen?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'print', false),
+  ((SELECT id FROM inserted_question), 'cout', true),
+  ((SELECT id FROM inserted_question), 'cin', false),
+  ((SELECT id FROM inserted_question), 'input', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which C++ keyword is used to take input from the user?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'cout', false),
+  ((SELECT id FROM inserted_question), 'scan', false),
+  ((SELECT id FROM inserted_question), 'cin', true),
+  ((SELECT id FROM inserted_question), 'get', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is an application area for C++?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Operating Systems', false),
+  ((SELECT id FROM inserted_question), 'Mobile games', false),
+  ((SELECT id FROM inserted_question), 'Web browsers', false),
+  ((SELECT id FROM inserted_question), 'All of the above', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which popular GUI application was developed using C++?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'MS Word (MS Office)', false),
+  ((SELECT id FROM inserted_question), 'Adobe Photoshop', false),
+  ((SELECT id FROM inserted_question), 'Notepad', false),
+  ((SELECT id FROM inserted_question), 'All of the above', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Database Management Software (DBMS) like Oracle and MySQL are designed in which language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'HTML', false),
+  ((SELECT id FROM inserted_question), 'CSS', false),
+  ((SELECT id FROM inserted_question), 'C++', true),
+  ((SELECT id FROM inserted_question), 'JavaScript', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'How is C++ used in relation to language translators?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'It replaces HTML', false),
+  ((SELECT id FROM inserted_question), 'It is used to build compilers and assemblers', true),
+  ((SELECT id FROM inserted_question), 'It translates English to Spanish', false),
+  ((SELECT id FROM inserted_question), 'It cannot be used for translation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Why is C++ considered a fast language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'It does not use memory', false),
+  ((SELECT id FROM inserted_question), 'It is an interpreted language', false),
+  ((SELECT id FROM inserted_question), 'It is a compiled language', true),
+  ((SELECT id FROM inserted_question), 'It only uses integers', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Because C++ supports both procedural programming and object-oriented programming, it is called a:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Single-paradigm language', false),
+  ((SELECT id FROM inserted_question), 'Multi-paradigm language', true),
+  ((SELECT id FROM inserted_question), 'Low-level only language', false),
+  ((SELECT id FROM inserted_question), 'Scripting language', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'The ability of a C++ program to run on Windows, Linux, and Mac means it is:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Platform independent', true),
+  ((SELECT id FROM inserted_question), 'Platform dependent', false),
+  ((SELECT id FROM inserted_question), 'Hardware specific', false),
+  ((SELECT id FROM inserted_question), 'Slow', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'C++ provides built-in libraries (like <iostream>, <cmath>). This feature is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Exception handling', false),
+  ((SELECT id FROM inserted_question), 'Rich Library Support', true),
+  ((SELECT id FROM inserted_question), 'Pointers', false),
+  ((SELECT id FROM inserted_question), 'Inheritance', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'C++ provides dynamic memory allocation using which keywords?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'add and remove', false),
+  ((SELECT id FROM inserted_question), 'start and stop', false),
+  ((SELECT id FROM inserted_question), 'new and delete', true),
+  ((SELECT id FROM inserted_question), 'create and destroy', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Using the same function name for different tasks is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Function overriding', false),
+  ((SELECT id FROM inserted_question), 'Function overloading', true),
+  ((SELECT id FROM inserted_question), 'Operator overloading', false),
+  ((SELECT id FROM inserted_question), 'Exception handling', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Redefining operators (like +, -, ) for user-defined types is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Operator overloading', true),
+  ((SELECT id FROM inserted_question), 'Pointer manipulation', false),
+  ((SELECT id FROM inserted_question), 'Type casting', false),
+  ((SELECT id FROM inserted_question), 'Dynamic allocation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which feature in C++ allows for direct memory handling?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Classes', false),
+  ((SELECT id FROM inserted_question), 'Exception handling', false),
+  ((SELECT id FROM inserted_question), 'Pointers', true),
+  ((SELECT id FROM inserted_question), 'Strings', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the combination of high-level and low-level features in C++ called?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'High level + low level language', true),
+  ((SELECT id FROM inserted_question), 'Pure machine language', false),
+  ((SELECT id FROM inserted_question), 'Assembly language', false),
+  ((SELECT id FROM inserted_question), 'Binary language', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What feature handles unexpected runtime errors in C++?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Dynamic initialization', false),
+  ((SELECT id FROM inserted_question), 'Function overloading', false),
+  ((SELECT id FROM inserted_question), 'Exception handling', true),
+  ((SELECT id FROM inserted_question), 'Encapsulation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which symbol is used to create a single-line comment in C++?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '/*', true),
+  ((SELECT id FROM inserted_question), '//', false),
+  ((SELECT id FROM inserted_question), '#', false),
+  ((SELECT id FROM inserted_question), '``', false),
+  ((SELECT id FROM inserted_question), '## ##', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Why do programmers use comments?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'To make code execute faster', false),
+  ((SELECT id FROM inserted_question), 'To compile the program', false),
+  ((SELECT id FROM inserted_question), 'To explain logic and make code easy to understand', true),
+  ((SELECT id FROM inserted_question), 'To declare variables', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'The << operator used with cout is known as the:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Extraction operator', false),
+  ((SELECT id FROM inserted_question), 'Insertion (or Put-to) operator', true),
+  ((SELECT id FROM inserted_question), 'Ternary operator', false),
+  ((SELECT id FROM inserted_question), 'Assignment operator', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'The >> operator used with cin is known as the:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Extraction (or Get-from) operator', true),
+  ((SELECT id FROM inserted_question), 'Insertion operator', false),
+  ((SELECT id FROM inserted_question), 'Logical operator', false),
+  ((SELECT id FROM inserted_question), 'Bitwise operator', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the equivalent of C++''s cout in the C language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'scanf', false),
+  ((SELECT id FROM inserted_question), 'print', false),
+  ((SELECT id FROM inserted_question), 'printf', true),
+  ((SELECT id FROM inserted_question), 'echo', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the equivalent of C++''s cin in the C language?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'printf', false),
+  ((SELECT id FROM inserted_question), 'scanf', true),
+  ((SELECT id FROM inserted_question), 'read', false),
+  ((SELECT id FROM inserted_question), 'input', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What does the \n sequence do when used inside a cout statement?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Prints a number', false),
+  ((SELECT id FROM inserted_question), 'Adds a space', false),
+  ((SELECT id FROM inserted_question), 'Moves the output to a new line', true),
+  ((SELECT id FROM inserted_question), 'Stops the program', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What header file must be included to use cin and cout?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '<stdio.h>', false),
+  ((SELECT id FROM inserted_question), '<math.h>', false),
+  ((SELECT id FROM inserted_question), '<string>', false),
+  ((SELECT id FROM inserted_question), '<iostream>', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What happens if you put text inside double quotes (e.g., "Sum=") in a cout statement?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'It prints the exact statement as it is on the screen', true),
+  ((SELECT id FROM inserted_question), 'It triggers an error', false),
+  ((SELECT id FROM inserted_question), 'It calculates the sum automatically', false),
+  ((SELECT id FROM inserted_question), 'It takes input from the user', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is used as a container to store names (like variables and functions) to avoid naming confusion?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Header file', false),
+  ((SELECT id FROM inserted_question), 'namespace', true),
+  ((SELECT id FROM inserted_question), 'Macro', false),
+  ((SELECT id FROM inserted_question), 'int main()', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which namespace contains standard built-in functions like cin, cout, and endl?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'std', true),
+  ((SELECT id FROM inserted_question), 'iostream', false),
+  ((SELECT id FROM inserted_question), 'main', false),
+  ((SELECT id FROM inserted_question), 'system', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What punctuation mark MUST end every C++ statement?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Colon :', false),
+  ((SELECT id FROM inserted_question), 'Comma ,', false),
+  ((SELECT id FROM inserted_question), 'Semicolon ;', true),
+  ((SELECT id FROM inserted_question), 'Period .', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which line tells the compiler to include the input/output stream library?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'import iostream;', false),
+  ((SELECT id FROM inserted_question), '#include <iostream>', true),
+  ((SELECT id FROM inserted_question), 'using namespace std;', false),
+  ((SELECT id FROM inserted_question), 'include (iostream)', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Where does the actual execution of a C++ program start?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '#include', false),
+  ((SELECT id FROM inserted_question), '#define', false),
+  ((SELECT id FROM inserted_question), 'int main()', true),
+  ((SELECT id FROM inserted_question), 'return 0;', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What does return 0; signify at the end of the main() function?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The program crashed', false),
+  ((SELECT id FROM inserted_question), 'The program exited successfully', true),
+  ((SELECT id FROM inserted_question), 'The program is looping', false),
+  ((SELECT id FROM inserted_question), 'The result is zero', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'A statement that declares a variable (e.g., int age;) is known as a(n):')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Assignment Statement', false),
+  ((SELECT id FROM inserted_question), 'Declarative Statement', true),
+  ((SELECT id FROM inserted_question), 'Input Statement', false),
+  ((SELECT id FROM inserted_question), 'Control Statement', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'A statement that assigns a value to a variable (e.g., age = 20;) is called a(n):')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Declarative Statement', false),
+  ((SELECT id FROM inserted_question), 'Output Statement', false),
+  ((SELECT id FROM inserted_question), 'Control Statement', false),
+  ((SELECT id FROM inserted_question), 'Assignment Statement', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Statements like if, for, and while that manage the flow of the program are called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Control Statements', true),
+  ((SELECT id FROM inserted_question), 'Declarative Statements', false),
+  ((SELECT id FROM inserted_question), 'Input Statements', false),
+  ((SELECT id FROM inserted_question), 'Output Statements', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Constants that repeat many times in a program can be defined globally using:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'int main()', false),
+  ((SELECT id FROM inserted_question), 'Macros (e.g., #define)', true),
+  ((SELECT id FROM inserted_question), 'using namespace', false),
+  ((SELECT id FROM inserted_question), 'return', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the smallest meaningful element of a C++ program?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Function', false),
+  ((SELECT id FROM inserted_question), 'Class', false),
+  ((SELECT id FROM inserted_question), 'Token', true),
+  ((SELECT id FROM inserted_question), 'Statement', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Reserved words that have a fixed meaning known to the compiler are called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Identifiers', false),
+  ((SELECT id FROM inserted_question), 'Keywords', true),
+  ((SELECT id FROM inserted_question), 'Punctuators', false),
+  ((SELECT id FROM inserted_question), 'Strings', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is true about C++ keywords?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'They must be in uppercase', false),
+  ((SELECT id FROM inserted_question), 'They must be in lowercase', true),
+  ((SELECT id FROM inserted_question), 'They can contain spaces', false),
+  ((SELECT id FROM inserted_question), 'They can be used as variable names', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Can a keyword (like for or int) be used as a variable name?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Yes, always', false),
+  ((SELECT id FROM inserted_question), 'Yes, if it is capitalized', false),
+  ((SELECT id FROM inserted_question), 'No, never', true),
+  ((SELECT id FROM inserted_question), 'Only in OOP', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'The unique name given to entities like variables, functions, or classes is called an:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Identifier', true),
+  ((SELECT id FROM inserted_question), 'Operator', false),
+  ((SELECT id FROM inserted_question), 'Constant', false),
+  ((SELECT id FROM inserted_question), 'Punctuator', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is a rule for naming identifiers?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Can start with a number', false),
+  ((SELECT id FROM inserted_question), 'Spaces are allowed', false),
+  ((SELECT id FROM inserted_question), 'Can start with a letter or underscore', true),
+  ((SELECT id FROM inserted_question), 'Keywords are allowed', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which of the following is a VALID variable name (identifier)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '1age', false),
+  ((SELECT id FROM inserted_question), 'total marks', false),
+  ((SELECT id FROM inserted_question), 'int', false),
+  ((SELECT id FROM inserted_question), 'total_marks', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'A value that cannot be changed during the execution of a program is called a:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Variable', false),
+  ((SELECT id FROM inserted_question), 'Constant', true),
+  ((SELECT id FROM inserted_question), 'Identifier', false),
+  ((SELECT id FROM inserted_question), 'Token', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which keyword fixes a constant value specifically at compile-time?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'const', false),
+  ((SELECT id FROM inserted_question), 'constexpr', true),
+  ((SELECT id FROM inserted_question), 'static', false),
+  ((SELECT id FROM inserted_question), 'fixed', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which punctuator is used to enclose a single character literal?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Double quotes " "', false),
+  ((SELECT id FROM inserted_question), 'Curly braces { }', false),
+  ((SELECT id FROM inserted_question), 'Single quotes '' ''', true),
+  ((SELECT id FROM inserted_question), 'Square brackets [ ]', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which data type is used to store whole numbers?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'float', false),
+  ((SELECT id FROM inserted_question), 'char', false),
+  ((SELECT id FROM inserted_question), 'int', true),
+  ((SELECT id FROM inserted_question), 'bool', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the memory size of an int data type in C++ (on standard systems)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '1 byte', false),
+  ((SELECT id FROM inserted_question), '2 bytes', false),
+  ((SELECT id FROM inserted_question), '4 bytes', true),
+  ((SELECT id FROM inserted_question), '8 bytes', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which data type is used to store a single character?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'string', false),
+  ((SELECT id FROM inserted_question), 'char', true),
+  ((SELECT id FROM inserted_question), 'int', false),
+  ((SELECT id FROM inserted_question), 'bool', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the memory size of a char data type?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '1 byte', true),
+  ((SELECT id FROM inserted_question), '2 bytes', false),
+  ((SELECT id FROM inserted_question), '4 bytes', false),
+  ((SELECT id FROM inserted_question), '8 bytes', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which data type is used for numbers with decimal points?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'int', false),
+  ((SELECT id FROM inserted_question), 'char', false),
+  ((SELECT id FROM inserted_question), 'float', true),
+  ((SELECT id FROM inserted_question), 'bool', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the memory size of a double data type (used for large decimal numbers)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '1 byte', false),
+  ((SELECT id FROM inserted_question), '2 bytes', false),
+  ((SELECT id FROM inserted_question), '4 bytes', false),
+  ((SELECT id FROM inserted_question), '8 bytes', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which data type stores logical values like true (1) or false (0)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'void', false),
+  ((SELECT id FROM inserted_question), 'bool', true),
+  ((SELECT id FROM inserted_question), 'int', false),
+  ((SELECT id FROM inserted_question), 'char', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which data type means "no value" or "nothing" and is used when a function returns nothing?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'null', false),
+  ((SELECT id FROM inserted_question), 'void', true),
+  ((SELECT id FROM inserted_question), 'empty', false),
+  ((SELECT id FROM inserted_question), 'zero', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Arrays, pointers, and functions fall under which category of data types?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Basic Data Types', false),
+  ((SELECT id FROM inserted_question), 'Derived Data Types', true),
+  ((SELECT id FROM inserted_question), 'User-Defined Data Types', false),
+  ((SELECT id FROM inserted_question), 'String Data Types', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Ensuring that a variable only stores the specific type of data it was declared for to prevent errors is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Type safety', true),
+  ((SELECT id FROM inserted_question), 'Type conversion', false),
+  ((SELECT id FROM inserted_question), 'Dynamic allocation', false),
+  ((SELECT id FROM inserted_question), 'Encapsulation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'In C++, string is technically not a basic built-in data type (like int); it is actually defining a(n):')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Integer', false),
+  ((SELECT id FROM inserted_question), 'Macro', false),
+  ((SELECT id FROM inserted_question), 'Object/Class', true),
+  ((SELECT id FROM inserted_question), 'Pointer', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What does STL stand for in C++ strings and libraries?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Standard Tool List', false),
+  ((SELECT id FROM inserted_question), 'System Template Library', false),
+  ((SELECT id FROM inserted_question), 'Standard Template Library', true),
+  ((SELECT id FROM inserted_question), 'Simple Text Language', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Using the << or >> operators repeatedly in a single statement (e.g., cout << "Sum" << sum;) is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Overloading', false),
+  ((SELECT id FROM inserted_question), 'Cascading', true),
+  ((SELECT id FROM inserted_question), 'Embedding', false),
+  ((SELECT id FROM inserted_question), 'Nesting', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Assigning a value to a variable at runtime (e.g., by taking input using cin >> a;) is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Compile-time initialization', false),
+  ((SELECT id FROM inserted_question), 'Static initialization', false),
+  ((SELECT id FROM inserted_question), 'Dynamic initialization', true),
+  ((SELECT id FROM inserted_question), 'Constant initialization', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What provides an alternative name (or nickname) for an existing variable without creating new memory?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Pointer', false),
+  ((SELECT id FROM inserted_question), 'Array', false),
+  ((SELECT id FROM inserted_question), 'Reference', true),
+  ((SELECT id FROM inserted_question), 'Macro', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which symbol is used in the syntax to create a reference variable?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '*', false),
+  ((SELECT id FROM inserted_question), '&', true),
+  ((SELECT id FROM inserted_question), '#', false),
+  ((SELECT id FROM inserted_question), '@', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'If int b = &a; makes b a reference to a, what happens if you change the value of b?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'a remains the same', false),
+  ((SELECT id FROM inserted_question), 'An error occurs', false),
+  ((SELECT id FROM inserted_question), 'The value of a also changes', true),
+  ((SELECT id FROM inserted_question), 'A new variable is created', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Can you declare multiple variables of the same data type in one line (e.g., int x=5, y=6, z=50;)?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Yes', true),
+  ((SELECT id FROM inserted_question), 'No', false),
+  ((SELECT id FROM inserted_question), 'Only if they are constants', false),
+  ((SELECT id FROM inserted_question), 'Only inside macros', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'If you assign a new value to an already existing variable, what happens?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The program crashes', false),
+  ((SELECT id FROM inserted_question), 'The variable holds both values', false),
+  ((SELECT id FROM inserted_question), 'It takes the new value and discards the previous one', true),
+  ((SELECT id FROM inserted_question), 'The compiler gives a warning', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which punctuator is used to define blocks of code?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '[ ]', false),
+  ((SELECT id FROM inserted_question), '{ }', true),
+  ((SELECT id FROM inserted_question), '( )', false),
+  ((SELECT id FROM inserted_question), '" "', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Changing one data type into another (e.g., int to float) is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Data abstraction', false),
+  ((SELECT id FROM inserted_question), 'Data type conversion', true),
+  ((SELECT id FROM inserted_question), 'Cascading', false),
+  ((SELECT id FROM inserted_question), 'Operator overloading', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'When the C++ compiler automatically converts a smaller type to a larger type without programmer instruction, it is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Explicit conversion', false),
+  ((SELECT id FROM inserted_question), 'Manual conversion', false),
+  ((SELECT id FROM inserted_question), 'Implicit conversion', true),
+  ((SELECT id FROM inserted_question), 'Dynamic conversion', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'When a programmer manually forces a conversion (e.g., int x = (int)num;), it is called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Implicit conversion', false),
+  ((SELECT id FROM inserted_question), 'Automatic conversion', false),
+  ((SELECT id FROM inserted_question), 'Explicit conversion', true),
+  ((SELECT id FROM inserted_question), 'Constant conversion', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What happens when you explicitly convert double num = 10.75; to an int?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The value becomes 11 (rounded up)', false),
+  ((SELECT id FROM inserted_question), 'The value becomes 10.75', false),
+  ((SELECT id FROM inserted_question), 'The value becomes 10 (decimal part is cut off)', true),
+  ((SELECT id FROM inserted_question), 'An error is thrown', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the ASCII value of the character ''A'', which is seen when a char converts implicitly to an int?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '65', true),
+  ((SELECT id FROM inserted_question), '97', false),
+  ((SELECT id FROM inserted_question), '48', false),
+  ((SELECT id FROM inserted_question), '32', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Operators that work on a single operand (like ++ or --) are called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Ternary operators', false),
+  ((SELECT id FROM inserted_question), 'Binary operators', false),
+  ((SELECT id FROM inserted_question), 'Unary operators', true),
+  ((SELECT id FROM inserted_question), 'Relational operators', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Operators that perform actions with two operands (like A +')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'are called:', true),
+  ((SELECT id FROM inserted_question), 'Unary operators', false),
+  ((SELECT id FROM inserted_question), 'Binary operators', true),
+  ((SELECT id FROM inserted_question), 'Ternary operators', false),
+  ((SELECT id FROM inserted_question), 'Increment operators', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which operator takes three operands and is used to perform conditional expressions?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Unary operator', false),
+  ((SELECT id FROM inserted_question), 'Binary operator', false),
+  ((SELECT id FROM inserted_question), 'Ternary operator', true),
+  ((SELECT id FROM inserted_question), 'Logical operator', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Operators like && (AN')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), ', || (OR), and ! (NOT) are classified as:', false),
+  ((SELECT id FROM inserted_question), 'Arithmetic operators', false),
+  ((SELECT id FROM inserted_question), 'Logical operators', true),
+  ((SELECT id FROM inserted_question), 'Assignment operators', false),
+  ((SELECT id FROM inserted_question), 'Bitwise operators', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Operators that perform operations directly on bits (like << left shift or >> right shift) are called:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Bitwise operators', true),
+  ((SELECT id FROM inserted_question), 'Logical operators', false),
+  ((SELECT id FROM inserted_question), 'Comparison operators', false),
+  ((SELECT id FROM inserted_question), 'Assignment operators', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which type of control structure is used to make decisions and execute different blocks of code based on conditions?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Iteration structure', false),
+  ((SELECT id FROM inserted_question), 'Jump structure', false),
+  ((SELECT id FROM inserted_question), 'Selection structure', true),
+  ((SELECT id FROM inserted_question), 'Sequential structure', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which statement executes a block of code ONLY if the condition inside the parentheses is true?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'switch', false),
+  ((SELECT id FROM inserted_question), 'if', true),
+  ((SELECT id FROM inserted_question), 'while', false),
+  ((SELECT id FROM inserted_question), 'for', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which statement is generally used for multiple constant choices instead of writing many if-else statements?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'for', false),
+  ((SELECT id FROM inserted_question), 'do-while', false),
+  ((SELECT id FROM inserted_question), 'switch case', true),
+  ((SELECT id FROM inserted_question), 'break', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'A switch case works exclusively with which data types?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'float and double', false),
+  ((SELECT id FROM inserted_question), 'integer and char', true),
+  ((SELECT id FROM inserted_question), 'string and bool', false),
+  ((SELECT id FROM inserted_question), 'Arrays and pointers', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'In a switch statement, what keyword is used to exit the switch block immediately after a match?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'continue', false),
+  ((SELECT id FROM inserted_question), 'stop', false),
+  ((SELECT id FROM inserted_question), 'break', true),
+  ((SELECT id FROM inserted_question), 'exit', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What happens if you forget to use break in a switch case?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The program won''t compile', false),
+  ((SELECT id FROM inserted_question), 'It executes the matched case and all subsequent cases below it', true),
+  ((SELECT id FROM inserted_question), 'It automatically jumps to the default case', false),
+  ((SELECT id FROM inserted_question), 'It crashes', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which iteration structure is best to use when you know exactly how many times you want to repeat a block of code?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'for loop', true),
+  ((SELECT id FROM inserted_question), 'while loop', false),
+  ((SELECT id FROM inserted_question), 'do-while loop', false),
+  ((SELECT id FROM inserted_question), 'switch', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which loop is preferred when the exact number of iterations is unknown and it checks the condition before executing the code?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'do-while loop', false),
+  ((SELECT id FROM inserted_question), 'for loop', false),
+  ((SELECT id FROM inserted_question), 'while loop', true),
+  ((SELECT id FROM inserted_question), 'Nested if', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which loop is guaranteed to run at least one time, even if the given condition is false from the beginning?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'for loop', false),
+  ((SELECT id FROM inserted_question), 'while loop', false),
+  ((SELECT id FROM inserted_question), 'do-while loop', true),
+  ((SELECT id FROM inserted_question), 'if statement', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'Which jump statement skips the current iteration and forces the loop to proceed to the next iteration?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'break', false),
+  ((SELECT id FROM inserted_question), 'continue', true),
+  ((SELECT id FROM inserted_question), 'goto', false),
+  ((SELECT id FROM inserted_question), 'return', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('oop', 'What is the primary purpose of a reduction formula in integration?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'To increase the power of the integrand', false),
+  ((SELECT id FROM inserted_question), 'To convert a derivative into an integral', false),
+  ((SELECT id FROM inserted_question), 'To express an integral in terms of a simpler integral of the same type', true),
+  ((SELECT id FROM inserted_question), 'To eliminate the constant of integration', false);
+
+-- Data for maths
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For $I_n = \int x^n e^x dx$, which of the following represents the correct reduction step?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_n = x^n e^x - n I_{n-1}$', true),
+  ((SELECT id FROM inserted_question), '$I_n = x^n e^x + n I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_n = e^x - I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_n = x^n - n I_{n-1}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int \sin^n(x) dx$. The reduction formula connects $I_n$ with which lower-index integral?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-3}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-4}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int \cos^n(x) dx$. The reduction formula expresses $I_n$ in terms of:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-3}$', false),
+  ((SELECT id FROM inserted_question), '$I_1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int \tan^n(x) dx$. The reduction formula connects $I_n$ with:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-3}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-4}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Wallis'' formula is specifically used to quickly evaluate integrals of the form $\int_0^{\pi/2} \sin^n(x) dx$ and $\int_0^{\pi/2} \cos^n(x) dx$. What are the limits of integration for Wallis'' formula?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$ to $\pi$', false),
+  ((SELECT id FROM inserted_question), '$0$ to $2\pi$', false),
+  ((SELECT id FROM inserted_question), '$0$ to $\pi/2$', true),
+  ((SELECT id FROM inserted_question), '$-\pi$ to $\pi$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'In the reduction formula for $I_n = \int_0^{\pi/2} \sin^n(x) dx$, if $n$ is an even integer, what is the final multiplier in the expanded Wallis'' formula?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\pi/2$', true),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$0$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'In the reduction formula for $I_n = \int_0^{\pi/2} \sin^n(x) dx$, if $n$ is an odd integer, what is the final multiplier in the expanded Wallis'' formula?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$\pi/2$', false),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which trigonometric identity is most commonly used to derive the reduction formula for $\int \tan^n(x) dx$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\sin^2(x) + \cos^2(x) = 1$', false),
+  ((SELECT id FROM inserted_question), '$1 + \tan^2(x) = \sec^2(x)$', true),
+  ((SELECT id FROM inserted_question), '$1 + \cot^2(x) = \csc^2(x)$', false),
+  ((SELECT id FROM inserted_question), '$\sin(2x) = 2\sin(x)\cos(x)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which trigonometric identity is most commonly used to derive the reduction formula for $\int \cot^n(x) dx$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\sin^2(x) + \cos^2(x) = 1$', false),
+  ((SELECT id FROM inserted_question), '$1 + \tan^2(x) = \sec^2(x)$', false),
+  ((SELECT id FROM inserted_question), '$1 + \cot^2(x) = \csc^2(x)$', true),
+  ((SELECT id FROM inserted_question), '$\cos(2x) = \cos^2(x) - \sin^2(x)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int \sec^n(x) dx$. The reduction formula relates $I_n$ to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-3}$', false),
+  ((SELECT id FROM inserted_question), '$I_1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int \csc^n(x) dx$. The reduction formula relates $I_n$ to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-3}$', false),
+  ((SELECT id FROM inserted_question), '$I_1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Let $I_n = \int (\ln x)^n dx$. The reduction formula relates $I_n$ to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_{n-1}$', true),
+  ((SELECT id FROM inserted_question), '$I_{n-2}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n+1}$', false),
+  ((SELECT id FROM inserted_question), '$I_{n+2}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What technique of integration is primarily used to derive almost all basic reduction formulae?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Partial Fractions', false),
+  ((SELECT id FROM inserted_question), 'Integration by Substitution', false),
+  ((SELECT id FROM inserted_question), 'Integration by Parts', true),
+  ((SELECT id FROM inserted_question), 'Trigonometric Substitution', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $I_n = \int_0^{\pi/2} \sin^n(x) dx$ and $J_n = \int_0^{\pi/2} \cos^n(x) dx$, what is the relationship between $I_n$ and $J_n$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$I_n = -J_n$', false),
+  ((SELECT id FROM inserted_question), '$I_n = J_n$', true),
+  ((SELECT id FROM inserted_question), '$I_n = 1/J_n$', false),
+  ((SELECT id FROM inserted_question), '$I_n = J_{n-1}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For $I_{m,n} = \int \sin^m(x) \cos^n(x) dx$, the reduction formula can be used to reduce:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Only the power $m$', false),
+  ((SELECT id FROM inserted_question), 'Only the power $n$', false),
+  ((SELECT id FROM inserted_question), 'Either the power $m$ or the power $n$', true),
+  ((SELECT id FROM inserted_question), 'Neither power', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The first step in finding the reduction formula for $\int \sin^n(x) dx$ using integration by parts involves splitting $\sin^n(x)$ into:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\sin(x) \cdot \sin(x)$', false),
+  ((SELECT id FROM inserted_question), '$\sin^{n-1}(x) \cdot \sin(x)$', true),
+  ((SELECT id FROM inserted_question), '$\sin^{n-2}(x) \cdot \sin^2(x)$', false),
+  ((SELECT id FROM inserted_question), '$\sin^{n/2}(x) \cdot \sin^{n/2}(x)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The first step in finding the reduction formula for $\int \tan^n(x) dx$ involves splitting $\tan^n(x)$ into:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\tan^{n-1}(x) \cdot \tan(x)$', false),
+  ((SELECT id FROM inserted_question), '$\tan^{n-2}(x) \cdot \tan^2(x)$', true),
+  ((SELECT id FROM inserted_question), '$\tan(x) \cdot \tan(x)$', false),
+  ((SELECT id FROM inserted_question), '$\tan^{n-3}(x) \cdot \tan^3(x)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For the integral $I_n = \int x^n e^{ax} dx$, what is typically chosen as the first function ($u$) when applying integration by parts?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$e^{ax}$', false),
+  ((SELECT id FROM inserted_question), '$x^n$', true),
+  ((SELECT id FROM inserted_question), '$x^{n-1}$', false),
+  ((SELECT id FROM inserted_question), '$a$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For the integral $I_n = \int x^n \cos(ax) dx$, what is typically chosen as the first function ($u$) when applying integration by parts?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\cos(ax)$', false),
+  ((SELECT id FROM inserted_question), '$a$', false),
+  ((SELECT id FROM inserted_question), '$x^n$', true),
+  ((SELECT id FROM inserted_question), '$\sin(ax)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the standard definition of the Gamma function $\Gamma(n)$ for $n > 0$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\int_0^\infty e^x x^{n-1} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^\infty e^{-x} x^{n-1} dx$', true),
+  ((SELECT id FROM inserted_question), '$\int_0^1 e^{-x} x^{n-1} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_{-\infty}^\infty e^{-x} x^{n-1} dx$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which of the following is the fundamental recurrence relation for the Gamma function?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\Gamma(n+1) = \Gamma(n)$', false),
+  ((SELECT id FROM inserted_question), '$\Gamma(n+1) = n + \Gamma(n)$', false),
+  ((SELECT id FROM inserted_question), '$\Gamma(n+1) = n \Gamma(n)$', true),
+  ((SELECT id FROM inserted_question), '$\Gamma(n+1) = \Gamma(n)/n$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For a positive integer $n$, the Gamma function $\Gamma(n+1)$ is equal to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$n!$', true),
+  ((SELECT id FROM inserted_question), '$(n+1)!$', false),
+  ((SELECT id FROM inserted_question), '$(n-1)!$', false),
+  ((SELECT id FROM inserted_question), '$n$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For a positive integer $n$, the Gamma function $\Gamma(n)$ is equal to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$n!$', false),
+  ((SELECT id FROM inserted_question), '$(n+1)!$', false),
+  ((SELECT id FROM inserted_question), '$(n-1)!$', true),
+  ((SELECT id FROM inserted_question), '$1/n!$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\Gamma(1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$\infty$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\Gamma(2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$2$', false),
+  ((SELECT id FROM inserted_question), '$3$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\Gamma(3)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$2$', true),
+  ((SELECT id FROM inserted_question), '$3$', false),
+  ((SELECT id FROM inserted_question), '$6$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\Gamma(4)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$4$', false),
+  ((SELECT id FROM inserted_question), '$6$', true),
+  ((SELECT id FROM inserted_question), '$24$', false),
+  ((SELECT id FROM inserted_question), '$12$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\Gamma(5)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$5$', false),
+  ((SELECT id FROM inserted_question), '$24$', true),
+  ((SELECT id FROM inserted_question), '$120$', false),
+  ((SELECT id FROM inserted_question), '$12$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the exact value of $\Gamma(1/2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1/2$', false),
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}$', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the recurrence relation, what is the value of $\Gamma(3/2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\frac{1}{2} \sqrt{\pi}$', true),
+  ((SELECT id FROM inserted_question), '$\frac{3}{2} \sqrt{\pi}$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}$', false),
+  ((SELECT id FROM inserted_question), '$\frac{1}{4} \sqrt{\pi}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the recurrence relation, what is the value of $\Gamma(5/2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\frac{1}{2} \sqrt{\pi}$', false),
+  ((SELECT id FROM inserted_question), '$\frac{3}{4} \sqrt{\pi}$', true),
+  ((SELECT id FROM inserted_question), '$\frac{5}{2} \sqrt{\pi}$', false),
+  ((SELECT id FROM inserted_question), '$\frac{15}{8} \sqrt{\pi}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The Gamma function $\Gamma(n)$ is a generalization of which mathematical concept to real and complex numbers?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Exponents', false),
+  ((SELECT id FROM inserted_question), 'Logarithms', false),
+  ((SELECT id FROM inserted_question), 'Factorials', true),
+  ((SELECT id FROM inserted_question), 'Matrices', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The integral $\int_0^\infty e^{-ax} x^{n-1} dx$ (where $a > 0$) evaluates to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\frac{\Gamma(n)}{a^n}$', true),
+  ((SELECT id FROM inserted_question), '$a^n \Gamma(n)$', false),
+  ((SELECT id FROM inserted_question), '$\frac{\Gamma(n+1)}{a}$', false),
+  ((SELECT id FROM inserted_question), '$\frac{\Gamma(n)}{a}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The Gamma function integral definition $\int_0^\infty e^{-x} x^{n-1} dx$ converges for:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'All real numbers', false),
+  ((SELECT id FROM inserted_question), '$n > 0$', true),
+  ((SELECT id FROM inserted_question), '$n < 0$', false),
+  ((SELECT id FROM inserted_question), '$n = 0$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'By definition, $\Gamma(x+2)$ is equal to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$x(x+1)\Gamma(x)$', false),
+  ((SELECT id FROM inserted_question), '$(x+1)\Gamma(x+1)$', false),
+  ((SELECT id FROM inserted_question), '$x\Gamma(x+1)$', false),
+  ((SELECT id FROM inserted_question), 'Both A and B are correct', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $0!$ based on the Gamma function relation $n! = \Gamma(n+1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), 'Undefined', false),
+  ((SELECT id FROM inserted_question), '$\infty$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $\Gamma(n+1) = 120$, what is the integer value of $n$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$4$', false),
+  ((SELECT id FROM inserted_question), '$5$', true),
+  ((SELECT id FROM inserted_question), '$6$', false),
+  ((SELECT id FROM inserted_question), '$7$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $\Gamma(n) = 24$, what is the integer value of $n$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$4$', false),
+  ((SELECT id FROM inserted_question), '$5$', true),
+  ((SELECT id FROM inserted_question), '$6$', false),
+  ((SELECT id FROM inserted_question), '$7$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The relation $\Gamma(n)\Gamma(1-n) = \frac{\pi}{\sin(n\pi)}$ is known as:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Leibniz''s formula', false),
+  ((SELECT id FROM inserted_question), 'Euler''s reflection formula', true),
+  ((SELECT id FROM inserted_question), 'Wallis'' formula', false),
+  ((SELECT id FROM inserted_question), 'Beta-Gamma relation', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the standard definition of the Beta function $B(m,n)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\int_0^1 x^{m-1} (1-x)^{n-1} dx$', true),
+  ((SELECT id FROM inserted_question), '$\int_0^\infty x^{m-1} (1-x)^{n-1} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^1 e^{-x} x^{m-1} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_{-1}^1 x^{m-1} (1-x)^{n-1} dx$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which of the following is the symmetry property of the Beta function?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$B(m,n) = -B(n,m)$', false),
+  ((SELECT id FROM inserted_question), '$B(m,n) = 1/B(n,m)$', false),
+  ((SELECT id FROM inserted_question), '$B(m,n) = B(n,m)$', true),
+  ((SELECT id FROM inserted_question), '$B(m,n) = B(m+n, m-n)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the relationship between the Beta function and the Gamma function?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$B(m,n) = \frac{\Gamma(m) + \Gamma(n)}{\Gamma(m+n)}$', false),
+  ((SELECT id FROM inserted_question), '$B(m,n) = \frac{\Gamma(m) \Gamma(n)}{\Gamma(m+n)}$', true),
+  ((SELECT id FROM inserted_question), '$B(m,n) = \Gamma(m) \Gamma(n) \Gamma(m+n)$', false),
+  ((SELECT id FROM inserted_question), '$B(m,n) = \frac{\Gamma(m+n)}{\Gamma(m) \Gamma(n)}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The Beta function integral definition $\int_0^1 x^{m-1} (1-x)^{n-1} dx$ converges for:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$m > 0, n > 0$', true),
+  ((SELECT id FROM inserted_question), '$m \ge 0, n \ge 0$', false),
+  ((SELECT id FROM inserted_question), '$m > 1, n > 1$', false),
+  ((SELECT id FROM inserted_question), 'All real numbers', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the trigonometric form of the Beta function $B(m,n)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$2 \int_0^{\pi/2} \sin^{2m-1}(\theta) \cos^{2n-1}(\theta) d\theta$', true),
+  ((SELECT id FROM inserted_question), '$\int_0^{\pi/2} \sin^m(\theta) \cos^n(\theta) d\theta$', false),
+  ((SELECT id FROM inserted_question), '$2 \int_0^\pi \sin^{m-1}(\theta) \cos^{n-1}(\theta) d\theta$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^{2\pi} \sin^{2m}(\theta) \cos^{2n}(\theta) d\theta$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the Gamma relation, what is $B(1,1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$2$', false),
+  ((SELECT id FROM inserted_question), '$\pi$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the Gamma relation, what is $B(2,1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1/2$', true),
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$2$', false),
+  ((SELECT id FROM inserted_question), '$1/3$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the Gamma relation, what is $B(1,2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$1/2$', true),
+  ((SELECT id FROM inserted_question), '$2$', false),
+  ((SELECT id FROM inserted_question), '$1/3$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the Gamma relation, what is $B(2,2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1/2$', false),
+  ((SELECT id FROM inserted_question), '$1/3$', false),
+  ((SELECT id FROM inserted_question), '$1/6$', true),
+  ((SELECT id FROM inserted_question), '$1/4$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the Gamma relation, what is $B(3,1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1/2$', false),
+  ((SELECT id FROM inserted_question), '$1/3$', true),
+  ((SELECT id FROM inserted_question), '$1/4$', false),
+  ((SELECT id FROM inserted_question), '$1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $B(1/2, 1/2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\pi$', true),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}$', false),
+  ((SELECT id FROM inserted_question), '$\pi/2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Another integral form of the Beta function is $\int_0^\infty \frac{x^{m-1}}{(1+x)^{m+n}} dx$. This evaluates to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\Gamma(m+n)$', false),
+  ((SELECT id FROM inserted_question), '$B(m,n)$', true),
+  ((SELECT id FROM inserted_question), '$B(m+n, 1)$', false),
+  ((SELECT id FROM inserted_question), '$\Gamma(m)\Gamma(n)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'By the properties of the Beta function, $B(m,n)$ is also equal to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\int_0^1 x^{n-1} (1-x)^{m-1} dx$', true),
+  ((SELECT id FROM inserted_question), '$\int_0^1 x^{m} (1-x)^{n} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^\infty e^{-x} x^{m+n-1} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^1 x^{m+n} dx$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $B(m,n) = \frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}$, what is the denominator when $m=3$ and $n=2$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\Gamma(5)$', true),
+  ((SELECT id FROM inserted_question), '$\Gamma(6)$', false),
+  ((SELECT id FROM inserted_question), '$5!$', false),
+  ((SELECT id FROM inserted_question), '$6!$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'For $m=3, n=2$, what is the numerical value of $\Gamma(m+n)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$120$', false),
+  ((SELECT id FROM inserted_question), '$24$', true),
+  ((SELECT id FROM inserted_question), '$6$', false),
+  ((SELECT id FROM inserted_question), '$12$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $B(3,2)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1/12$', true),
+  ((SELECT id FROM inserted_question), '$1/24$', false),
+  ((SELECT id FROM inserted_question), '$1/6$', false),
+  ((SELECT id FROM inserted_question), '$1/2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The integral $\int_0^{\pi/2} \sin^3(\theta) \cos^5(\theta) d\theta$ can be solved easily using the Beta function. In the formula $2 \int \sin^{2m-1}(\theta) \cos^{2n-1}(\theta) d\theta = B(m,n)$, what are $m$ and $n$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$m=3, n=5$', false),
+  ((SELECT id FROM inserted_question), '$m=2, n=3$', true),
+  ((SELECT id FROM inserted_question), '$m=1.5, n=2.5$', false),
+  ((SELECT id FROM inserted_question), '$m=4, n=6$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The function $B(m,n)$ is defined only when:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Both $m$ and $n$ are strictly positive.', true),
+  ((SELECT id FROM inserted_question), 'Both $m$ and $n$ are non-negative.', false),
+  ((SELECT id FROM inserted_question), 'Both $m$ and $n$ are integers.', false),
+  ((SELECT id FROM inserted_question), 'Both $m$ and $n$ are strictly greater than 1.', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The relationship $B(m,n) = \frac{m-1}{m+n-1} B(m-1,n)$ represents a:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Reflection formula', false),
+  ((SELECT id FROM inserted_question), 'Reduction property of the Beta function', true),
+  ((SELECT id FROM inserted_question), 'Trigonometric identity', false),
+  ((SELECT id FROM inserted_question), 'Gamma definition', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which of the following is equivalent to $B(n, 1)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$n$', false),
+  ((SELECT id FROM inserted_question), '$1/n$', true),
+  ((SELECT id FROM inserted_question), '$n!$', false),
+  ((SELECT id FROM inserted_question), '$1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What does DUIS stand for in calculus?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Direct Unification of Integral Sums', false),
+  ((SELECT id FROM inserted_question), 'Derivative Under Infinite Series', false),
+  ((SELECT id FROM inserted_question), 'Differentiation Under the Integral Sign', true),
+  ((SELECT id FROM inserted_question), 'Dual Uniform Integral System', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The DUIS rule is also famously known by the name of which mathematician?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Newton''s Rule', false),
+  ((SELECT id FROM inserted_question), 'Leibniz''s Rule', true),
+  ((SELECT id FROM inserted_question), 'Euler''s Rule', false),
+  ((SELECT id FROM inserted_question), 'L''Hôpital''s Rule', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $I(\alpha) = \int_a^b f(x,\alpha) dx$ where $a$ and $b$ are constants, what does Leibniz''s rule state about $\frac{dI}{d\alpha}$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\int_a^b \frac{df}{dx} dx$', false),
+  ((SELECT id FROM inserted_question), '$\int_a^b \frac{\partial f}{\partial \alpha} dx$', true),
+  ((SELECT id FROM inserted_question), '$\int_a^b f(x,\alpha) d\alpha$', false),
+  ((SELECT id FROM inserted_question), '$f(b,\alpha) - f(a,\alpha)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'In the basic DUIS rule with constant limits, the ordinary derivative $\frac{d}{d\alpha}$ outside the integral becomes what kind of derivative inside the integral?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Ordinary derivative with respect to $x$', false),
+  ((SELECT id FROM inserted_question), 'Partial derivative with respect to $x$', false),
+  ((SELECT id FROM inserted_question), 'Partial derivative with respect to $\alpha$', true),
+  ((SELECT id FROM inserted_question), 'Double derivative', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'To apply the basic Leibniz rule (constant limits), the limits of integration $a$ and $b$ must be:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Variables dependent on $x$', false),
+  ((SELECT id FROM inserted_question), 'Variables dependent on $\alpha$', false),
+  ((SELECT id FROM inserted_question), 'Independent of the parameter $\alpha$', true),
+  ((SELECT id FROM inserted_question), 'Zero and Infinity only', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'When evaluating $\frac{d}{d\alpha} \int_0^1 e^{\alpha x} dx$ using DUIS, what is the partial derivative $\frac{\partial}{\partial \alpha} (e^{\alpha x})$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$e^{\alpha x}$', false),
+  ((SELECT id FROM inserted_question), '$\alpha e^{\alpha x}$', false),
+  ((SELECT id FROM inserted_question), '$x e^{\alpha x}$', true),
+  ((SELECT id FROM inserted_question), '$x \alpha e^{\alpha x}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'When evaluating $\frac{d}{d\alpha} \int_0^\pi \cos(\alpha x) dx$ using DUIS, what is $\frac{\partial}{\partial \alpha} \cos(\alpha x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$-\sin(\alpha x)$', false),
+  ((SELECT id FROM inserted_question), '$-x \sin(\alpha x)$', true),
+  ((SELECT id FROM inserted_question), '$-\alpha \sin(\alpha x)$', false),
+  ((SELECT id FROM inserted_question), '$x \cos(\alpha x)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The extended Leibniz rule applies when:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The integrand is a constant', false),
+  ((SELECT id FROM inserted_question), 'The integral has no limits', false),
+  ((SELECT id FROM inserted_question), 'The limits of integration depend on the parameter being differentiated', true),
+  ((SELECT id FROM inserted_question), 'The parameter is a complex number', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $I(\alpha) = \int_0^\alpha f(x) dx$, then by the fundamental theorem of calculus (which is a simple case of variable-limit DUIS), what is $\frac{dI}{d\alpha}$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$f(x)$', false),
+  ((SELECT id FROM inserted_question), '$f''(\alpha)$', false),
+  ((SELECT id FROM inserted_question), '$f(\alpha)$', true),
+  ((SELECT id FROM inserted_question), '$0$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which theorem forms the foundation of the DUIS rule for variable limits?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Pythagorean Theorem', false),
+  ((SELECT id FROM inserted_question), 'Fundamental Theorem of Calculus', true),
+  ((SELECT id FROM inserted_question), 'Mean Value Theorem', false),
+  ((SELECT id FROM inserted_question), 'Taylor''s Theorem', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Why do we use the DUIS rule?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'To solve differential equations directly', false),
+  ((SELECT id FROM inserted_question), 'To evaluate difficult definite integrals by introducing a parameter', true),
+  ((SELECT id FROM inserted_question), 'To convert integrals into sums', false),
+  ((SELECT id FROM inserted_question), 'To find the roots of a polynomial', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'In the expression $\int_a^b \frac{\partial f(x,\alpha)}{\partial \alpha} dx$, what is treated as a constant during the partial differentiation?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\alpha$', false),
+  ((SELECT id FROM inserted_question), '$x$', true),
+  ((SELECT id FROM inserted_question), '$a$', false),
+  ((SELECT id FROM inserted_question), '$b$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'When evaluating $\frac{d}{dy} \int_1^2 (x^2 + y^2) dx$ using DUIS, what is the integrand for the new integral?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$2x$', false),
+  ((SELECT id FROM inserted_question), '$2y$', true),
+  ((SELECT id FROM inserted_question), '$x^2 + 2y$', false),
+  ((SELECT id FROM inserted_question), '$2x + 2y$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using DUIS on $I(a) = \int_0^1 \frac{\sin(ax)}{x} dx$, what is the first step inside the integral?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Integrate with respect to $a$', false),
+  ((SELECT id FROM inserted_question), 'Differentiate $\frac{\sin(ax)}{x}$ partially with respect to $a$', true),
+  ((SELECT id FROM inserted_question), 'Differentiate $\frac{\sin(ax)}{x}$ partially with respect to $x$', false),
+  ((SELECT id FROM inserted_question), 'Substitute $x = \sin(\theta)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the partial derivative $\frac{\partial}{\partial a} \left(\frac{\sin(ax)}{x}\right)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\cos(ax)$', true),
+  ((SELECT id FROM inserted_question), '$a \cos(ax)$', false),
+  ((SELECT id FROM inserted_question), '$\frac{\cos(ax)}{x}$', false),
+  ((SELECT id FROM inserted_question), '$-\cos(ax)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $I(m) = \int_0^\infty e^{-mx} dx$, what is the partial derivative of the integrand with respect to $m$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$-m e^{-mx}$', false),
+  ((SELECT id FROM inserted_question), '$-x e^{-mx}$', true),
+  ((SELECT id FROM inserted_question), '$e^{-mx}$', false),
+  ((SELECT id FROM inserted_question), '$x e^{-mx}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The term "parameter" in the context of DUIS refers to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'The variable of integration', false),
+  ((SELECT id FROM inserted_question), 'The constant of integration', false),
+  ((SELECT id FROM inserted_question), 'A variable independent of the integration variable that defines a family of integrals', true),
+  ((SELECT id FROM inserted_question), 'The upper limit only', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $I(y) = \int_0^1 x^y dx$, what is $\frac{\partial}{\partial y} (x^y)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$y x^{y-1}$', false),
+  ((SELECT id FROM inserted_question), '$x^y \ln(x)$', true),
+  ((SELECT id FROM inserted_question), '$x^y \ln(y)$', false),
+  ((SELECT id FROM inserted_question), '$x^y$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which function acts as the integration variable in $\int_a^b f(x,\alpha) dx$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\alpha$', false),
+  ((SELECT id FROM inserted_question), '$a$', false),
+  ((SELECT id FROM inserted_question), '$b$', false),
+  ((SELECT id FROM inserted_question), '$x$', true);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'According to the full Leibniz rule for variable limits $a(\alpha)$ and $b(\alpha)$, what term is added for the upper limit?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$f(b(\alpha), \alpha) \cdot b''(\alpha)$', true),
+  ((SELECT id FROM inserted_question), '$f(a(\alpha), \alpha) \cdot a''(\alpha)$', false),
+  ((SELECT id FROM inserted_question), '$f(b(\alpha), x) \cdot \alpha''$', false),
+  ((SELECT id FROM inserted_question), '$f(b, a)$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the standard mathematical definition of the Error Function, denoted as $\text{erf}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\int_0^x e^{-t} dt$', false),
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt$', true),
+  ((SELECT id FROM inserted_question), '$\frac{1}{\sqrt{2\pi}} \int_0^x e^{-t^2/2} dt$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^\infty e^{-t^2} dt$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\text{erf}(0)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$-1$', false),
+  ((SELECT id FROM inserted_question), '$0$', true),
+  ((SELECT id FROM inserted_question), '$\infty$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the limit of $\text{erf}(x)$ as $x \to \infty$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}/2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the definition of the Complementary Error Function, $\text{erfc}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\text{erfc}(x) = \text{erf}(-x)$', false),
+  ((SELECT id FROM inserted_question), '$\text{erfc}(x) = 1 + \text{erf}(x)$', false),
+  ((SELECT id FROM inserted_question), '$\text{erfc}(x) = 1 - \text{erf}(x)$', true),
+  ((SELECT id FROM inserted_question), '$\text{erfc}(x) = \frac{1}{\text{erf}(x)}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Based on the relationship $\text{erf}(x) + \text{erfc}(x) = 1$, what is the value of $\text{erfc}(0)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', true),
+  ((SELECT id FROM inserted_question), '$-1$', false),
+  ((SELECT id FROM inserted_question), '$1/2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the limit of $\text{erfc}(x)$ as $x \to \infty$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', true),
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\infty$', false),
+  ((SELECT id FROM inserted_question), '$-1$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which property applies to the Error Function regarding its symmetry?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'It is an even function: $\text{erf}(-x) = \text{erf}(x)$', false),
+  ((SELECT id FROM inserted_question), 'It is an odd function: $\text{erf}(-x) = -\text{erf}(x)$', true),
+  ((SELECT id FROM inserted_question), 'It is a periodic function', false),
+  ((SELECT id FROM inserted_question), 'It is a nowhere continuous function', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the integral representation of the Complementary Error Function, $\text{erfc}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt$', false),
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} \int_x^\infty e^{-t^2} dt$', true),
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} \int_{-x}^x e^{-t^2} dt$', false),
+  ((SELECT id FROM inserted_question), '$\int_0^\infty e^{-t^2} dt$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the first derivative of the Error Function, $\frac{d}{dx} \text{erf}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$e^{-x^2}$', false),
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} e^{-x^2}$', true),
+  ((SELECT id FROM inserted_question), '$-\frac{2}{\sqrt{\pi}} e^{-x^2}$', false),
+  ((SELECT id FROM inserted_question), '$2x e^{-x^2}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the first derivative of the Complementary Error Function, $\frac{d}{dx} \text{erfc}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\frac{2}{\sqrt{\pi}} e^{-x^2}$', false),
+  ((SELECT id FROM inserted_question), '$-\frac{2}{\sqrt{\pi}} e^{-x^2}$', true),
+  ((SELECT id FROM inserted_question), '$-e^{-x^2}$', false),
+  ((SELECT id FROM inserted_question), '$2x e^{-x^2}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The normalization constant in front of the integral for $\text{erf}(x)$ is $\frac{2}{\sqrt{\pi}}$. This is derived from the fact that the integral $\int_0^\infty e^{-t^2} dt$ equals:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}/2$', true),
+  ((SELECT id FROM inserted_question), '$\pi/2$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'What is the value of $\text{erf}(-\infty)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0$', false),
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$-1$', true),
+  ((SELECT id FROM inserted_question), '$-\infty$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The Error Function frequently appears in which area of science and mathematics?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Group Theory', false),
+  ((SELECT id FROM inserted_question), 'Probability, Statistics, and Partial Differential Equations (like heat conduction)', true),
+  ((SELECT id FROM inserted_question), 'Number Theory', false),
+  ((SELECT id FROM inserted_question), 'Graph Theory', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $\text{erf}(x) = 0.4$, what is $\text{erfc}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0.4$', false),
+  ((SELECT id FROM inserted_question), '$-0.4$', false),
+  ((SELECT id FROM inserted_question), '$0.6$', true),
+  ((SELECT id FROM inserted_question), '$1.4$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'If $\text{erfc}(x) = 0.25$, what is $\text{erf}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$0.25$', false),
+  ((SELECT id FROM inserted_question), '$0.75$', true),
+  ((SELECT id FROM inserted_question), '$-0.25$', false),
+  ((SELECT id FROM inserted_question), '$1.25$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The Maclaurin series (Taylor series at $x=0$) for $\text{erf}(x)$ contains only which types of powers of $x$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'Only even powers', false),
+  ((SELECT id FROM inserted_question), 'Only odd powers', true),
+  ((SELECT id FROM inserted_question), 'Both even and odd powers', false),
+  ((SELECT id FROM inserted_question), 'No powers of $x$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'In the definition of $\text{erf}(x)$, the integrand is $e^{-t^2}$. What kind of function is $e^{-t^2}$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), 'An odd function', false),
+  ((SELECT id FROM inserted_question), 'An even function', true),
+  ((SELECT id FROM inserted_question), 'Neither even nor odd', false),
+  ((SELECT id FROM inserted_question), 'A periodic function', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Which of the following limits is true for the error function?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$\lim_{x \to 0} \text{erf}(x) = 1$', false),
+  ((SELECT id FROM inserted_question), '$\lim_{x \to \infty} \text{erf}(x) = 0$', false),
+  ((SELECT id FROM inserted_question), '$\lim_{x \to -\infty} \text{erf}(x) = -1$', true),
+  ((SELECT id FROM inserted_question), '$\lim_{x \to 0} \text{erfc}(x) = 0$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'The integral of the error function involves the Gaussian integral. The standard Gaussian integral $\int_{-\infty}^\infty e^{-x^2} dx$ evaluates to:')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$\pi$', false),
+  ((SELECT id FROM inserted_question), '$\sqrt{\pi}$', true),
+  ((SELECT id FROM inserted_question), '$\pi/2$', false);
+
+WITH inserted_question AS (
+  INSERT INTO questions (subject, question)
+  VALUES ('maths', 'Using the odd function property of the error function, what is the value of $\text{erf}(-x) + \text{erf}(x)$?')
+  RETURNING id
+)
+INSERT INTO options (question_id, option_text, is_correct) VALUES
+  ((SELECT id FROM inserted_question), '$1$', false),
+  ((SELECT id FROM inserted_question), '$2 \text{erf}(x)$', false),
+  ((SELECT id FROM inserted_question), '$0$', true),
+  ((SELECT id FROM inserted_question), '$-1$', false);
 

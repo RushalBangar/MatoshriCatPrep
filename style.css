@@ -50,6 +50,16 @@ body {
     background-color: #030014;
     /* Deep cosmic space */
 
+    /* Anti-Cheat */
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+
     /* Simplified CSS Galaxy Implementation to reduce lag */
     background-image:
         /* The glowing Galactic Center (Orange/Yellow) */
@@ -128,10 +138,10 @@ main {
 .bg-orb {
     position: fixed;
     border-radius: 50%;
-    filter: blur(120px);
     z-index: -1;
     opacity: 0.6;
     pointer-events: none;
+    will-change: transform;
     animation: drift 20s ease-in-out infinite alternate;
 }
 
@@ -413,6 +423,37 @@ main {
     left: 200%;
 }
 
+/* Subject Card 3D Depth */
+.subject-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+}
+
+.subject-icon {
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    font-size: 8rem;
+    opacity: 0.15;
+    transform: rotate(-15deg);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.subject-card:hover .subject-icon {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 0.25;
+}
+
+.subject-text {
+    position: relative;
+    z-index: 1;
+}
+
 /* Feature Box for Landing Page */
 .feature-box {
     background: var(--glass-bg);
@@ -605,7 +646,7 @@ main {
 }
 
 .btn-primary:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(1px) scale(0.96);
     box-shadow: 0 2px 10px rgba(6, 182, 212, 0.4);
 }
 
@@ -644,6 +685,39 @@ main {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
+}
+
+/* --- Tooltips --- */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(15, 23, 42, 0.95);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 ::-webkit-scrollbar-track {
