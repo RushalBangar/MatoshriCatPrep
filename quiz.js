@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://supabase-proxy.rushalbangar19.workers.dev';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0ZG9mdW9tcWJreGp1dGd0dXh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1NjIxNTAsImV4cCI6MjA4NTEzODE1MH0.lUH-pyxpMbwFZU9t6z-5nNJVV3YevhV5RAHeobAiH9s';
+const SUPABASE_URL = 'https://hcbcsziktqnuvbtpvtxa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYmNzemlrdHFudXZidHB2dHhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxOTk1NjAsImV4cCI6MjA4ODc3NTU2MH0.wSnD6RAoOxudRdZQe1GPRX7i5iDrPSdofM7QO0m97pU';
 
 async function fetchQuestions(subject) {
     // Calling the new RPC function to get questions without 'isCorrect' values
@@ -52,34 +52,3 @@ async function verifyAnswer(questionId, optionIndex) {
     const data = await response.json();
     return data; // returns { isCorrect: boolean, correctIndex: integer }
 }
-
-// ============================================================
-// Supabase Table Setup (run this SQL in Supabase SQL Editor)
-// ============================================================
-/*
--- 1. Create the questions table
-CREATE TABLE questions (
-    id      BIGSERIAL PRIMARY KEY,
-    subject TEXT NOT NULL,          -- 'fds', 'oop', 'iot', 'math'
-    question TEXT NOT NULL
-);
-
--- 2. Create the options table
-CREATE TABLE options (
-    id BIGSERIAL PRIMARY KEY,
-    question_id BIGINT REFERENCES questions(id) ON DELETE CASCADE,
-    option_text TEXT NOT NULL,
-    is_correct BOOLEAN NOT NULL DEFAULT false
-);
-
--- 3. Enable Row Level Security
-ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
-ALTER TABLE options ENABLE ROW LEVEL SECURITY;
-
--- 4. Allow anyone (anon key) to read
-CREATE POLICY "Public read access" ON questions FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON options FOR SELECT USING (true);
-
--- 5. (Optional) Index for fast filtering by subject
-CREATE INDEX idx_questions_subject ON questions (subject);
-*/

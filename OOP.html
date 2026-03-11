@@ -13,7 +13,32 @@
     <link rel="stylesheet" href="quiz_styles.css">
     <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- MathJax for rendering LaTeX math equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRC08H1LGY"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRC08H1LGY');
+</script>
 
 <body>
     <div class="bg-orb orb-primary"></div>
@@ -40,7 +65,7 @@
                 </h1>
 
                 <p class="subtitle" id="quiz-subtitle" style="color: #ffffff; margin-bottom: 2rem;">
-                    You will take a quiz of 10 random questions.<br>
+                    You will take a quiz of 20 random questions.<br>
                     Do not leave the tab, or your quiz will be submitted.
                 </p>
 
@@ -49,12 +74,12 @@
 
             <!-- Sticky Header for Quiz (Timer + Progress) -->
             <div id="sticky-quiz-header" class="sticky-quiz-header">
-                <div id="timer-display" class="neon-timer">10:00</div>
+                <div id="timer-display" class="neon-timer">30:00</div>
                 <div style="width: 80%;">
                     <div class="progress-container">
                         <div id="progress-bar" class="progress-bar"></div>
                     </div>
-                    <p id="progress-text" class="progress-text">Question 1 of 10</p>
+                    <p id="progress-text" class="progress-text">Question 1 of 20</p>
                 </div>
             </div>
 
@@ -92,7 +117,7 @@
                         <div class="circular-score-text">
                             <h2 id="score-heading"><span id="score">0</span></h2>
                             <p id="score-out-of"
-                                style="color: var(--text-secondary); margin-top: 5px; font-weight: 600;">Out of 10</p>
+                                style="color: var(--text-secondary); margin-top: 5px; font-weight: 600;">Out of 20</p>
                         </div>
                     </div>
 
@@ -178,7 +203,7 @@
         let currentQuestion = 0;
         let score = 0;
         let timerInterval;
-        let timeRemaining = 600;
+        let timeRemaining = 1800;
         let quizInProgress = false;
 
         const startContainer = document.getElementById("start-container");
@@ -300,7 +325,7 @@
 
             try {
                 const allQuestions = await fetchQuestions(subjectKey);
-                questions = shuffle([...allQuestions]).slice(0, 10);
+                questions = shuffle([...allQuestions]).slice(0, 20);
 
                 const questionCount = questions.length;
                 document.getElementById('quiz-subtitle').textContent =
@@ -313,7 +338,7 @@
                 document.getElementById("sticky-quiz-header").style.display = "flex";
                 quizContainer.style.display = "block";
                 quizInProgress = true;
-                timeRemaining = 600;
+                timeRemaining = 1800;
                 startTimer();
                 loadQuestion();
 
@@ -347,6 +372,11 @@
                     ${optionsHTML}
                 </ul>
             `;
+
+            // Re-render Math equations after injecting HTML
+            if (window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('question-container')]).catch((err) => console.log('MathJax error:', err.message));
+            }
         }
 
         // --- checkAnswer ---
@@ -495,6 +525,11 @@
             });
 
             reviewList.innerHTML = reviewHTML;
+
+            // Re-render Math equations after injecting HTML
+            if (window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('review-list')]).catch((err) => console.log('MathJax error:', err.message));
+            }
         }
     </script>
     <script src="galaxy.js" defer></script>

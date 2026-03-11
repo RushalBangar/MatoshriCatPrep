@@ -91,28 +91,30 @@ with open('ERP-System/questions.js', 'w', encoding='utf-8') as f:
     f.write(js_content)
 
 with open('ERP-System/insert_questions.sql', 'w', encoding='utf-8') as f:
-    sql_content = '-- Auto-generated for Supabase\n\n'
+    sql_content = '-- Auto-generated for Supabase (Flat Schema)\n\n'
     for subject, qs in db.items():
         sql_content += f'-- Data for {subject}\n\n'
         for q in qs:
             q_text = q['question'].replace("'", "''")
-            sql_content += f"WITH inserted_question AS (\n"
-            sql_content += f"  INSERT INTO questions (subject, question)\n"
-            sql_content += f"  VALUES ('{subject}', '{q_text}')\n"
-            sql_content += f"  RETURNING id\n"
-            sql_content += f")\n"
-            sql_content += f"INSERT INTO options (question_id, option_text, is_correct) VALUES\n"
             
-            opts = []
+            # Extract plain string options and find correct index
+            plain_opts = []
+            corr_idx = 0
+            
             if len(q['options']) == 0:
-                opts.append(f"  ((SELECT id FROM inserted_question), 'Missing Option 1', false)")
-                opts.append(f"  ((SELECT id FROM inserted_question), 'Missing Option 2', true)")
+                plain_opts = ['Missing Option 1', 'Missing Option 2']
+                corr_idx = 1
             else:
-                for o in q['options']:
-                    o_text = o['text'].replace("'", "''")
-                    o_corr = 'true' if o['isCorrect'] else 'false'
-                    opts.append(f"  ((SELECT id FROM inserted_question), '{o_text}', {o_corr})")
+                for idx, o in enumerate(q['options']):
+                    plain_opts.append(o['text'])
+                    if o['isCorrect']:
+                        corr_idx = idx
             
-            sql_content += ",\n".join(opts) + ";\n\n"
+            # Escaping for JSON and SQL strings
+            opts_json = json.dumps(plain_opts).replace("'", "''")
+            
+            sql_content += f"INSERT INTO questions (subject, question, options, correct_index)\n"
+            sql_content += f"VALUES ('{subject}', '{q_text}', '{opts_json}', {corr_idx});\n\n"
+            
     f.write(sql_content)
     print('Wrote files.')

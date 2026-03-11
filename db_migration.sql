@@ -58,7 +58,7 @@ BEGIN
     WHERE q.subject = p_subject
     ORDER BY q.id;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
 
 -- B) Update `check_quiz_answer` to verify answers securely on the backend
 DROP FUNCTION IF EXISTS check_quiz_answer(bigint, integer);
@@ -93,4 +93,4 @@ BEGIN
         'correctIndex', v_correct_index
     );
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public;
