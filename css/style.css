@@ -797,43 +797,6 @@ main {
     .creator-card {
         padding: 1.5rem;
     }
-
-    .cta-section {
-        padding: 3rem 1.5rem;
-        margin-top: 5rem;
-    }
-
-    .section-spacing {
-        margin-top: 5rem;
-        margin-bottom: 3rem;
-    }
-
-    /* Hero Layout Mobile Fixes */
-    .hero-content {
-        order: 2;
-        /* Content below image on mobile */
-    }
-
-    .hero-image {
-        order: 1;
-        /* Image above content on mobile */
-        max-width: 150px !important;
-        /* Force much smaller size */
-        margin: 0 auto 1.5rem auto !important;
-    }
-
-    .hero-buttons {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1rem !important;
-    }
-
-    .hero-buttons .btn-primary {
-        width: 100% !important;
-        max-width: 250px;
-        margin: 0 !important;
-    }
 }
 
 @media (max-width: 480px) {

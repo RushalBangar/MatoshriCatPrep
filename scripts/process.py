@@ -1,5 +1,6 @@
 import json
 import re
+import os
 
 def parse_all_questions(filename):
     with open(filename, 'r', encoding='latin-1', errors='replace') as f:
@@ -78,43 +79,56 @@ def parse_all_questions(filename):
     print(f'FDS: {len(fds)}, IOT: {len(iot)}, OOP: {len(oop)}, MATHS: {len(maths)}')
     return {'fds': fds, 'iot': iot, 'oop': oop, 'maths': maths}
 
-db = parse_all_questions('ERP-System/ERP-System/new questions.txt')
+# Ensure output directories exist
+os.makedirs('js', exist_ok=True)
+os.makedirs('database', exist_ok=True)
 
-with open('ERP-System/questions.js', 'w', encoding='utf-8') as f:
-    js_content = 'const quizDatabase = {\n'
-    for subject, qs in db.items():
-        js_content += f'  // ----------------------------------------\n'
-        js_content += f'  // {subject.upper()} Questions ({len(qs)})\n'
-        js_content += f'  // ----------------------------------------\n'
-        js_content += f'  {subject}: ' + json.dumps(qs, indent=4) + ',\n\n'
-    js_content += '};\n'
-    f.write(js_content)
+# Parse from current source (fallback path if present)
+source_file = 'ERP-System/ERP-System/new questions.txt'
+if not os.path.exists(source_file):
+    # Try looking in parent/adjacent if not run from root
+    source_file = 'new questions.txt'
 
-with open('ERP-System/insert_questions.sql', 'w', encoding='utf-8') as f:
-    sql_content = '-- Auto-generated for Supabase (Flat Schema)\n\n'
-    for subject, qs in db.items():
-        sql_content += f'-- Data for {subject}\n\n'
-        for q in qs:
-            q_text = q['question'].replace("'", "''")
-            
-            # Extract plain string options and find correct index
-            plain_opts = []
-            corr_idx = 0
-            
-            if len(q['options']) == 0:
-                plain_opts = ['Missing Option 1', 'Missing Option 2']
-                corr_idx = 1
-            else:
-                for idx, o in enumerate(q['options']):
-                    plain_opts.append(o['text'])
-                    if o['isCorrect']:
-                        corr_idx = idx
-            
-            # Escaping for JSON and SQL strings
-            opts_json = json.dumps(plain_opts).replace("'", "''")
-            
-            sql_content += f"INSERT INTO questions (subject, question, options, correct_index)\n"
-            sql_content += f"VALUES ('{subject}', '{q_text}', '{opts_json}', {corr_idx});\n\n"
-            
-    f.write(sql_content)
-    print('Wrote files.')
+if os.path.exists(source_file):
+    db = parse_all_questions(source_file)
+
+    with open('js/questions.js', 'w', encoding='utf-8') as f:
+        js_content = 'const quizDatabase = {\n'
+        for subject, qs in db.items():
+            js_content += f'  // ----------------------------------------\n'
+            js_content += f'  // {subject.upper()} Questions ({len(qs)})\n'
+            js_content += f'  // ----------------------------------------\n'
+            js_content += f'  {subject}: ' + json.dumps(qs, indent=4) + ',\n\n'
+        js_content += '};\n'
+        f.write(js_content)
+
+    with open('database/insert_questions.sql', 'w', encoding='utf-8') as f:
+        sql_content = '-- Auto-generated for Supabase (Flat Schema)\n\n'
+        for subject, qs in db.items():
+            sql_content += f'-- Data for {subject}\n\n'
+            for q in qs:
+                q_text = q['question'].replace("'", "''")
+                
+                # Extract plain string options and find correct index
+                plain_opts = []
+                corr_idx = 0
+                
+                if len(q['options']) == 0:
+                    plain_opts = ['Missing Option 1', 'Missing Option 2']
+                    corr_idx = 1
+                else:
+                    for idx, o in enumerate(q['options']):
+                        plain_opts.append(o['text'])
+                        if o['isCorrect']:
+                            corr_idx = idx
+                
+                # Escaping for JSON and SQL strings
+                opts_json = json.dumps(plain_opts).replace("'", "''")
+                
+                sql_content += f"INSERT INTO questions (subject, question, options, correct_index)\n"
+                sql_content += f"VALUES ('{subject}', '{q_text}', '{opts_json}', {corr_idx});\n\n"
+                
+        f.write(sql_content)
+        print('Wrote output files to js/questions.js and database/insert_questions.sql successfully.')
+else:
+    print(f"Skipping export: Source file '{source_file}' not found.")

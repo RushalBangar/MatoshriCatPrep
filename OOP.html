@@ -8,16 +8,16 @@
     <meta name="description" content="Test your Object-Oriented Programming (OOPs) knowledge with our specialized CAT Quiz by Rushal Bangar.">
     <meta property="og:title" content="CAT OOPs Quiz - MatoshriCATPrep">
     <meta property="og:description" content="Test your Object-Oriented Programming (OOPs) knowledge with our specialized CAT Quiz by Rushal Bangar.">
-    <meta property="og:image" content="https://matoshricatprep.netlify.app/Logo.png">
+    <meta property="og:image" content="https://matoshricatprep.netlify.app/assets/logo.png">
     <meta property="og:url" content="https://matoshricatprep.netlify.app/oop">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="Logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="quiz_styles.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz_styles.css">
     <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -53,7 +53,7 @@
 
     <header class="site-header">
         <a class='logo-area' href='/'>
-            <img src="Logo.png" height="50" width="50" alt="MatoshriCATPrep Logo">
+            <img src="assets/logo.png" height="50" width="50" alt="MatoshriCATPrep Logo">
             <b>Matoshri College of Engineering And Research Center</b>
         </a>
         <nav>
@@ -147,7 +147,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <a class='footer-logo' href='/'>
-                    <img src="Logo.png" height="40" width="40" alt="MatoshriCATPrep Logo" loading="lazy">
+                    <img src="assets/logo.png" height="40" width="40" alt="MatoshriCATPrep Logo" loading="lazy">
                     <span>MatoshriCATPrep</span>
                 </a>
                 <p>Empowering B.Tech students to excel in their Continuous Assessment Tests with high-quality, timed
@@ -195,17 +195,15 @@
         </div>
     </div>
 
-    <script src="quiz.js"></script>
+    <script src="js/quiz.js"></script>
 
     <script>
-
         // ==================================================
         // !! THIS IS THE ONLY LINE TO CHANGE PER PAGE !!
         const subjectKey = 'oop';
         // ==================================================
 
 
-        // --- Global variables ---
         let questions = [];
         let currentQuestion = 0;
         let score = 0;
@@ -239,11 +237,9 @@
             };
         }
 
-        // --- Set the page title dynamically ---
         document.getElementById('quiz-title').innerHTML = `<span class="text-gradient">CAT ${subjectKey.toUpperCase()} Quiz</span>`;
         document.title = `CAT ${subjectKey.toUpperCase()} Quiz - MatoshriCATPrep`;
 
-        // --- Tab-Switching Detection ---
         document.addEventListener("visibilitychange", () => {
             if (document.hidden && quizInProgress) {
                 showCustomModal("Tab Changed", "You left the tab. The quiz will be submitted automatically.", () => showScore());
@@ -287,7 +283,6 @@
             }
         });
 
-        // --- Timer Functions ---
         function startTimer() {
             timerInterval = setInterval(() => {
                 timeRemaining--;
@@ -298,7 +293,6 @@
             }, 1000);
         }
 
-        // --- Shuffle (Fisher-Yates) ---
         function shuffle(array) {
             let i = array.length, j;
             while (i !== 0) {
@@ -310,9 +304,7 @@
 
         let isFullscreenEngaged = false;
 
-        // --- startQuiz: now async, fetches from Supabase ---
         async function startQuiz() {
-            // Show loading, hide start & error
             startContainer.style.display = "none";
             errorState.style.display = "none";
             loadingState.style.display = "flex";
@@ -340,7 +332,6 @@
                 document.getElementById('score-heading').innerHTML = `<span id="score">0</span>`;
                 document.getElementById('score-out-of').textContent = `Out of ${questionCount}`;
 
-                // All good — show quiz
                 loadingState.style.display = "none";
                 document.getElementById("sticky-quiz-header").style.display = "flex";
                 quizContainer.style.display = "block";
@@ -350,7 +341,6 @@
                 loadQuestion();
 
             } catch (err) {
-                // Show error state
                 loadingState.style.display = "none";
                 document.getElementById('error-message').textContent = err.message;
                 errorState.style.display = "block";
@@ -539,7 +529,7 @@
             }
         }
     </script>
-    <script src="galaxy.js" defer></script>
+    <script src="js/galaxy.js" defer></script>
 </body>
 
 </html>
