@@ -65,8 +65,6 @@ class GalaxyAnimation {
         const cx = this.canvas.width / 2;
         const cy = this.canvas.height / 2;
 
-        this.ctx.beginPath(); // Batch drawing for stars
-
         for (let star of this.stars) {
             star.z -= star.speed * 20;
 
@@ -82,12 +80,12 @@ class GalaxyAnimation {
             const pSize = star.size * ratio * 0.5;
 
             if (px > 0 && px < this.canvas.width && py > 0 && py < this.canvas.height && pSize > 0) {
-                this.ctx.moveTo(px, py);
+                this.ctx.beginPath();
                 this.ctx.arc(px, py, pSize, 0, Math.PI * 2);
-                this.ctx.fillStyle = star.color; // Simplified drawing
+                this.ctx.fillStyle = star.color;
+                this.ctx.fill();
             }
         }
-        this.ctx.fill(); // Fill all at once
 
         requestAnimationFrame(() => this.animate());
     }

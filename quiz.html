@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAT Quiz - MatoshriCATPrep</title>
+    <meta name="keywords" content="CAT, MatoshriCATPrep, Exam, Practice">
+    <meta name="description" content="Take a practice CAT Quiz on MatoshriCATPrep.">
+    <meta property="og:title" content="CAT Quiz - MatoshriCATPrep">
+    <meta property="og:description" content="Take a practice CAT Quiz on MatoshriCATPrep.">
+    <meta property="og:image" content="https://matoshricatprep.netlify.app/assets/logo.png">
+    <meta property="og:url" content="https://matoshricatprep.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz_styles.css">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- MathJax for rendering LaTeX math equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRC08H1LGY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GRC08H1LGY');
+    </script>
+</head>
+
+<body>
+    <div class="bg-orb orb-primary"></div>
+    <div class="bg-orb orb-secondary"></div>
+
+    <header class="site-header">
+        <a class='logo-area' href='/'>
+            <img src="assets/logo.png" height="50" width="50" alt="MatoshriCATPrep Logo">
+            <b>Matoshri College of Engineering And Research Center</b>
+        </a>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/about'>About</a>
+        </nav>
+    </header>
+
+    <main class="quiz-page-container">
+
+        <div class="glass-card">
+
+            <div id="start-container" class="animate-up">
+                <h1 class="section-heading" id="quiz-title" style="margin-bottom: 1.5rem;">
+                    <span class="text-gradient">CAT Quiz</span>
+                </h1>
+
+                <p class="subtitle" id="quiz-subtitle" style="color: #ffffff; margin-bottom: 2rem;">
+                    You will take a quiz of 20 random questions.<br>
+                    Do not leave the tab, or your quiz will be submitted.
+                </p>
+
+                <button class="neon-pill-btn" id="start-btn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+
+            <!-- Sticky Header for Quiz (Timer + Progress) -->
+            <div id="sticky-quiz-header" class="sticky-quiz-header">
+                <div id="timer-display" class="neon-timer">30:00</div>
+                <div style="width: 80%;">
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <p id="progress-text" class="progress-text">Question 1 of 20</p>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loading-state" style="display: none;">
+                <div class="skeleton-container">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-option"></div>
+                    <div class="skeleton skeleton-option"></div>
+                    <div class="skeleton skeleton-option"></div>
+                    <div class="skeleton skeleton-option"></div>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state" id="error-state" style="display: none;">
+                <h3>⚠️ Failed to Load Questions</h3>
+                <p id="error-message">Could not connect to the database. Please check your internet connection.</p>
+                <button class="retry-button" onclick="startQuiz()">Try Again</button>
+            </div>
+
+            <!-- Quiz Questions Area -->
+            <div class="quiz-container" id="quiz-container" style="display: none;">
+                <div id="question-container"></div>
+                <button id="next-btn" class="neon-pill-btn next-btn" style="display: none;"
+                    onclick="nextQuestion()">Next Question</button>
+            </div>
+
+            <!-- Final Score Area -->
+            <div class="score-container" id="score-container" style="display: none;">
+                <div class="score-card">
+                    <h2 style="margin-bottom: 2rem; color: var(--text-primary); font-size: 2rem;">Quiz Completed!</h2>
+
+                    <div class="circular-chart" id="circular-score-chart" style="--score: 0;">
+                        <div class="circular-score-text">
+                            <h2 id="score-heading"><span id="score">0</span></h2>
+                            <p id="score-out-of"
+                                style="color: var(--text-secondary); margin-top: 5px; font-weight: 600;">Out of 20</p>
+                        </div>
+                    </div>
+
+                    <p class="subtitle margin-b-lg">You can now safely leave this page or return home.</p>
+                    <a class='btn-primary' href='/'>Back to Home</a>
+
+                    <!-- Post-Quiz Review -->
+                    <div id="review-section" class="review-section" style="display: none;">
+                        <h3>Quiz Review</h3>
+                        <div id="review-list" class="review-list"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a class='footer-logo' href='/'>
+                    <img src="assets/logo.png" height="40" width="40" alt="MatoshriCATPrep Logo" loading="lazy">
+                    <span>MatoshriCATPrep</span>
+                </a>
+                <p>Empowering B.Tech students to excel in their Continuous Assessment Tests with high-quality, timed
+                    practice sessions.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href='/'>Home</a></li>
+                    <li><a href='/about'>About Us</a></li>
+                    <li><a href='/#features'>Features</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Subjects</h4>
+                <ul class="footer-links">
+                    <li><a href='/fds'>Data Structures</a></li>
+                    <li><a href='/oop'>OOPs</a></li>
+                    <li><a href='/iot'>IoT</a></li>
+                    <li><a href='/math'>Math II</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:rushalbangar19@gmail.com">Contact Us</a></li>
+                    <li><a href="https://github.com/RushalBangar" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 - Created by Rushal Bangar | Matoshri College of Engineering And Research Center</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal -->
+    <div class="custom-modal-overlay" id="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-title" id="custom-modal-title">Alert</div>
+            <div class="custom-modal-message" id="custom-modal-message">Message goes here.</div>
+            <button class="custom-modal-btn" id="custom-modal-btn">Acknowledge</button>
+        </div>
+    </div>
+
+    <script>
+        // Dynamically detect subject from query param OR path name
+        (function() {
+            const path = window.location.pathname.toLowerCase();
+            const urlParams = new URLSearchParams(window.location.search);
+            let subjectKey = urlParams.get('subject');
+
+            if (!subjectKey) {
+                if (path.includes('oop')) subjectKey = 'oop';
+                else if (path.includes('iot')) subjectKey = 'iot';
+                else if (path.includes('math')) subjectKey = 'maths';
+                else subjectKey = 'fds';
+            }
+            window.subjectKey = subjectKey;
+            
+            // Set dynamic metadata matching the chosen subject
+            const metaData = {
+                fds: {
+                    title: "CAT FDS Quiz - MatoshriCATPrep",
+                    keywords: "CAT, MatoshriCATPrep, FDS, Data Structures, Exam, Practice",
+                    description: "Take the Fundamentals of Data Structures (FDS) CAT Quiz on MatoshriCATPrep by Rushal Bangar to test your programming skills."
+                },
+                oop: {
+                    title: "CAT OOPs Quiz - MatoshriCATPrep",
+                    keywords: "CAT, MatoshriCATPrep, OOP, Object Oriented Programming, Exam, Practice",
+                    description: "Test your Object-Oriented Programming (OOPs) knowledge with our specialized CAT Quiz by Rushal Bangar."
+                },
+                iot: {
+                    title: "CAT IoT Quiz - MatoshriCATPrep",
+                    keywords: "CAT, MatoshriCATPrep, IoT, Internet of Things, Exam, Practice",
+                    description: "Challenge yourself with the Internet of Things (IoT) CAT Quiz on MatoshriCATPrep by Rushal Bangar."
+                },
+                maths: {
+                    title: "CAT Math Quiz - MatoshriCATPrep",
+                    keywords: "CAT, MatoshriCATPrep, Math, Mathematics II, Exam, Practice",
+                    description: "Practice for Mathematics II with this timed CAT Quiz on MatoshriCATPrep by Rushal Bangar."
+                }
+            };
+
+            const selected = metaData[subjectKey] || metaData.fds;
+            document.title = selected.title;
+            
+            // Update og:url dynamically if meta tag exists
+            const ogUrlEl = document.querySelector('meta[property="og:url"]');
+            if (ogUrlEl) {
+                const baseSegment = subjectKey === 'maths' ? 'math' : subjectKey;
+                ogUrlEl.setAttribute('content', `https://matoshricatprep.netlify.app/${baseSegment}`);
+            }
+            
+            // Wait for DOM to load to inject keywords/description and page heading
+            document.addEventListener("DOMContentLoaded", () => {
+                const descEl = document.querySelector('meta[name="description"]');
+                const keyEl = document.querySelector('meta[name="keywords"]');
+                const ogTitleEl = document.querySelector('meta[property="og:title"]');
+                const ogDescEl = document.querySelector('meta[property="og:description"]');
+                
+                if (descEl) descEl.setAttribute('content', selected.description);
+                if (keyEl) keyEl.setAttribute('content', selected.keywords);
+                if (ogTitleEl) ogTitleEl.setAttribute('content', selected.title);
+                if (ogDescEl) ogDescEl.setAttribute('content', selected.description);
+                
+                const titleEl = document.getElementById('quiz-title');
+                if (titleEl) {
+                    const label = subjectKey === 'maths' ? 'MATH' : subjectKey.toUpperCase();
+                    titleEl.innerHTML = `<span class="text-gradient">CAT ${label} Quiz</span>`;
+                }
+            });
+        })();
+    </script>
+    <script src="js/quiz.js"></script>
+    <script src="js/quiz_engine.js" defer></script>
+    <script src="js/galaxy.js" defer></script>
+</body>
+
+</html>
