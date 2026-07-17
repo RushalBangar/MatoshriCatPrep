@@ -100,6 +100,12 @@ function shuffle(array) {
 let isFullscreenEngaged = false;
 
 async function startQuiz() {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        showCustomModal("Login Required", "You must be logged in to take this quiz.", () => openAuthModal('login'));
+        return;
+    }
+
     startContainer.style.display = "none";
     errorState.style.display = "none";
     loadingState.style.display = "flex";
@@ -230,7 +236,7 @@ function nextQuestion() {
 }
 
 // --- showScore ---
-function showScore() {
+async function showScore() {
     clearInterval(timerInterval);
     quizInProgress = false;
     quizContainer.style.display = "none";
@@ -240,6 +246,34 @@ function showScore() {
     // Exit Fullscreen if in fullscreen
     if (document.fullscreenElement) {
         document.exitFullscreen().catch(err => console.log(err));
+    }
+
+    // Save to Database
+    try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+            const timeTaken = 1800 - timeRemaining;
+            
+            // Insert attempt
+            await supabase.from('attempts').insert({
+                user_id: session.user.id,
+                subject: subject,
+                score: score,
+                total_questions: questions.length || 20,
+                time_taken_seconds: timeTaken
+            });
+
+            // Calculate and add XP
+            const xpEarned = score * 10 + (score >= (questions.length || 20) * 0.8 ? 50 : 0);
+            
+            // Get current profile XP
+            const { data: profile } = await supabase.from('profiles').select('total_xp').eq('id', session.user.id).single();
+            if (profile) {
+                await supabase.from('profiles').update({ total_xp: profile.total_xp + xpEarned }).eq('id', session.user.id);
+            }
+        }
+    } catch (err) {
+        console.error("Failed to save score:", err);
     }
 
     // Animate Score Counter

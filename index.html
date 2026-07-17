@@ -21,6 +21,9 @@
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRC08H1LGY"></script>
     <script>
@@ -33,6 +36,10 @@
 </head>
 
 <body>
+    <div style="background: linear-gradient(90deg, #f59e0b, #d97706); color: white; text-align: center; padding: 10px; font-weight: 600; font-size: 0.95rem; z-index: 10000; position: relative;">
+        🚧 Notice: MatoshriCATPrep v2.0 is currently under active construction and maintenance. Some features may be temporarily unavailable. 🚧
+    </div>
+    
     <div class="bg-orb orb-primary"></div>
     <div class="bg-orb orb-secondary"></div>
 
@@ -41,8 +48,11 @@
             <img src="assets/logo.png" height="50" width="50" alt="MatoshriCATPrep Logo">
             <b>Matoshri College of Engineering And Research Center</b>
         </a>
-        <nav>
+        <nav id="main-nav">
             <a href='/about'>About</a>
+            <a href="#" id="nav-login-btn" onclick="openAuthModal('login')">Login</a>
+            <a href='/dashboard' id="nav-dashboard-btn" style="display: none;">Dashboard</a>
+            <a href="#" id="nav-logout-btn" style="display: none;" onclick="handleLogout()">Logout</a>
         </nav>
     </header>
 
@@ -62,8 +72,8 @@
                     practice tests, and expert guidance.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#subjects" class="btn-primary">Start Practicing</a>
-                    <a href="#features" class="btn-primary btn-outline">Learn More</a>
+                    <a href="#subjects" class="btn-primary" id="hero-practice-btn">Start Practicing</a>
+                    <a href="#" class="btn-primary btn-outline" id="hero-login-btn" onclick="openAuthModal('login')">Log In to Track Progress</a>
                 </div>
             </div>
         </section>
@@ -94,31 +104,45 @@
             </div>
         </section>
 
-        <!-- Subject Selection Section -->
+        <!-- Supported Branches Section -->
         <section id="subjects" class="section-spacing animate-up delay-3">
             <div class="grid-2-col">
                 <div>
-                    <h2 class="section-heading">Choose your Subject</h2>
-                    <p class="subtitle margin-b-lg">Select a topic below to begin your 10-question randomized test. Our
-                        database pulls from a pool of 50+ questions per subject to ensure you never take the exact same
-                        test twice.</p>
+                    <h2 class="section-heading">Explore Your Branch</h2>
+                    <p class="subtitle margin-b-lg">MatoshriCATPrep supports all major engineering branches. Select your branch and semester in your personal dashboard to access customized quiz banks tailored to your syllabus.</p>
                 </div>
-                <div class="flex-col-gap" style="margin-top: 0;">
-                    <a class='glass-card subject-card' href='/fds'>
-                        <span class="subject-icon">📊</span>
-                        <span class="subject-text">Fundamentals of Data Structures (FDS)</span>
+                <div class="flex-col-gap" style="margin-top: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">💻</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Computer Eng.</span>
                     </a>
-                    <a class='glass-card subject-card' href='/oop'>
-                        <span class="subject-icon">💻</span>
-                        <span class="subject-text">Object-Oriented Programming (OOP)</span>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">🌐</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Information Tech.</span>
                     </a>
-                    <a class='glass-card subject-card' href='/iot'>
-                        <span class="subject-icon">⚙️</span>
-                        <span class="subject-text">Internet of Things (IoT)</span>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">🤖</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">AI & DS</span>
                     </a>
-                    <a class='glass-card subject-card' href='/math'>
-                        <span class="subject-icon">📐</span>
-                        <span class="subject-text">Mathematics II</span>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">🔌</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Electronics & Comp.</span>
+                    </a>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">📡</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">E&TC</span>
+                    </a>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">⚡</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Electrical Eng.</span>
+                    </a>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">🏗️</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Civil Eng.</span>
+                    </a>
+                    <a class='glass-card subject-card' style="padding: 1rem;" href='#' onclick="openAuthModal('login')">
+                        <span class="subject-icon" style="font-size: 4rem;">⚙️</span>
+                        <span class="subject-text" style="font-size: 1.1rem;">Mechanical Eng.</span>
                     </a>
                 </div>
             </div>
@@ -190,6 +214,43 @@
             <p>© 2026 - Created by Rushal Bangar | Matoshri College of Engineering And Research Center</p>
         </div>
     </footer>
+
+    <!-- Auth Modal -->
+    <div class="custom-modal-overlay" id="auth-modal-overlay" style="display: none; z-index: 1000;">
+        <div class="custom-modal-box" style="width: 400px; max-width: 90%; padding: 2.5rem;">
+            <div class="custom-modal-title" id="auth-modal-title" style="margin-bottom: 1.5rem; font-size: 1.8rem;">Welcome Back</div>
+            
+            <button class="neon-pill-btn" style="width: 100%; margin-bottom: 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); font-weight: normal; font-size: 1rem;" onclick="signInWithGoogle()">
+                <img src="https://www.google.com/favicon.ico" style="width: 16px; vertical-align: middle; margin-right: 8px;" alt="Google">
+                Continue with Google
+            </button>
+
+            <div style="display: flex; align-items: center; text-align: center; color: var(--text-secondary); margin: 1.5rem 0;">
+                <hr style="flex: 1; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                <span style="padding: 0 10px; font-size: 0.9rem;">or</span>
+                <hr style="flex: 1; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            </div>
+
+            <div id="auth-error-msg" style="color: #ff4d4d; font-size: 0.9rem; margin-bottom: 1rem; text-align: center; display: none;"></div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="email" id="auth-email" placeholder="Email Address" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif;">
+                <input type="password" id="auth-password" placeholder="Password" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif;">
+                <input type="text" id="auth-fullname" placeholder="Full Name (For Signup)" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif; display: none;">
+            </div>
+
+            <button class="neon-pill-btn" id="auth-action-btn" style="width: 100%; margin-top: 1.5rem;" onclick="handleAuthAction()">Log In</button>
+
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                <span id="auth-toggle-text">Don't have an account?</span> 
+                <a href="#" style="color: var(--accent-cyan); text-decoration: none;" onclick="toggleAuthMode()">Sign Up</a>
+            </p>
+            <button onclick="closeAuthModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;">&times;</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
     <script src="js/galaxy.js" defer></script>
 </body>
 

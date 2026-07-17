@@ -20,6 +20,10 @@
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/quiz_styles.css">
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -259,7 +263,6 @@
                 if (ogTitleEl) ogTitleEl.setAttribute('content', selected.title);
                 if (ogDescEl) ogDescEl.setAttribute('content', selected.description);
                 
-                const titleEl = document.getElementById('quiz-title');
                 if (titleEl) {
                     const label = subjectKey === 'maths' ? 'MATH' : subjectKey.toUpperCase();
                     titleEl.innerHTML = `<span class="text-gradient">CAT ${label} Quiz</span>`;
@@ -267,6 +270,7 @@
             });
         })();
     </script>
+    <script src="js/auth.js"></script>
     <script src="js/quiz.js"></script>
     <script src="js/quiz_engine.js" defer></script>
     <script src="js/galaxy.js" defer></script>
