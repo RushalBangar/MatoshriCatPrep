@@ -100,11 +100,14 @@ function shuffle(array) {
 let isFullscreenEngaged = false;
 
 async function startQuiz() {
+    // Temporary: Login enforcement disabled
+    /*
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
         showCustomModal("Login Required", "You must be logged in to take this quiz.", () => openAuthModal('login'));
         return;
     }
+    */
 
     startContainer.style.display = "none";
     errorState.style.display = "none";
