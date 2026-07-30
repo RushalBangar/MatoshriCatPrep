@@ -63,9 +63,12 @@
             <img src="assets/logo.png" height="50" width="50" alt="MatoshriCATPrep Logo">
             <b>Matoshri College of Engineering And Research Center</b>
         </a>
-        <nav>
+        <nav id="main-nav">
             <a href='/'>Home</a>
             <a href='/about'>About</a>
+            <a href="#" id="nav-login-btn" onclick="openAuthModal('login')">Login</a>
+            <a href='/dashboard' id="nav-dashboard-btn" style="display: none;">Dashboard</a>
+            <a href="#" id="nav-logout-btn" style="display: none;" onclick="handleLogout()">Logout</a>
         </nav>
     </header>
 
@@ -192,6 +195,40 @@
             <p>© 2026 - Created by Rushal Bangar | Matoshri College of Engineering And Research Center</p>
         </div>
     </footer>
+
+    <!-- Auth Modal -->
+    <div class="custom-modal-overlay" id="auth-modal-overlay" style="display: none; z-index: 1000;">
+        <div class="custom-modal-box" style="width: 400px; max-width: 90%; padding: 2.5rem;">
+            <div class="custom-modal-title" id="auth-modal-title" style="margin-bottom: 1.5rem; font-size: 1.8rem;">Welcome Back</div>
+            
+            <button class="neon-pill-btn" style="width: 100%; margin-bottom: 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); font-weight: normal; font-size: 1rem;" onclick="signInWithGoogle()">
+                <img src="https://www.google.com/favicon.ico" style="width: 16px; vertical-align: middle; margin-right: 8px;" alt="Google">
+                Continue with Google
+            </button>
+
+            <div style="display: flex; align-items: center; text-align: center; color: var(--text-secondary); margin: 1.5rem 0;">
+                <hr style="flex: 1; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                <span style="padding: 0 10px; font-size: 0.9rem;">or</span>
+                <hr style="flex: 1; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            </div>
+
+            <div id="auth-error-msg" style="color: #ff4d4d; font-size: 0.9rem; margin-bottom: 1rem; text-align: center; display: none;"></div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="email" id="auth-email" placeholder="Email Address" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif;">
+                <input type="password" id="auth-password" placeholder="Password" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif;">
+                <input type="text" id="auth-fullname" placeholder="Full Name (For Signup)" class="glass-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: 'Outfit', sans-serif; display: none;">
+            </div>
+
+            <button class="neon-pill-btn" id="auth-action-btn" style="width: 100%; margin-top: 1.5rem;" onclick="handleAuthAction()">Log In</button>
+
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                <span id="auth-toggle-text">Don't have an account?</span> 
+                <a href="#" style="color: var(--accent-cyan); text-decoration: none;" onclick="toggleAuthMode()">Sign Up</a>
+            </p>
+            <button onclick="closeAuthModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;">&times;</button>
+        </div>
+    </div>
 
     <!-- Custom Modal -->
     <div class="custom-modal-overlay" id="custom-modal-overlay">
