@@ -1,9 +1,15 @@
 // Initialize Supabase Client
-const SUPABASE_URL = 'https://hcbcsziktqnuvbtpvtxa.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYmNzemlrdHFudXZidHB2dHhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxOTk1NjAsImV4cCI6MjA4ODc3NTU2MH0.wSnD6RAoOxudRdZQe1GPRX7i5iDrPSdofM7QO0m97pU';
+if (typeof SUPABASE_URL === 'undefined') {
+    var SUPABASE_URL = 'https://hcbcsziktqnuvbtpvtxa.supabase.co';
+}
+if (typeof SUPABASE_ANON_KEY === 'undefined') {
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjYmNzemlrdHFudXZidHB2dHhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxOTk1NjAsImV4cCI6MjA4ODc3NTU2MH0.wSnD6RAoOxudRdZQe1GPRX7i5iDrPSdofM7QO0m97pU';
+}
 
 // Create a single supabase client for interacting with your database
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+if (typeof supabase === 'undefined' || (supabase && typeof supabase.auth === 'undefined')) {
+    var supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+}
 
 let authMode = 'login'; // 'login' or 'signup'
 let currentUser = null;

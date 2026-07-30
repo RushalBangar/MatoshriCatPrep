@@ -174,7 +174,7 @@
                 <h4 class="footer-heading">Subjects</h4>
                 <ul class="footer-links">
                     <li><a href='/fds'>Data Structures</a></li>
-                    <li><a href='/oop'>OOPs</a></li>
+                    <li><a href='/os'>OS</a></li>
                     <li><a href='/iot'>IoT</a></li>
                     <li><a href='/math'>Math II</a></li>
                 </ul>
@@ -210,7 +210,7 @@
             let subjectKey = urlParams.get('subject');
 
             if (!subjectKey) {
-                if (path.includes('oop')) subjectKey = 'oop';
+                if (path.includes('os')) subjectKey = 'os';
                 else if (path.includes('iot')) subjectKey = 'iot';
                 else if (path.includes('math')) subjectKey = 'maths';
                 else subjectKey = 'fds';
@@ -224,10 +224,10 @@
                     keywords: "CAT, MatoshriCATPrep, FDS, Data Structures, Exam, Practice",
                     description: "Take the Fundamentals of Data Structures (FDS) CAT Quiz on MatoshriCATPrep by Rushal Bangar to test your programming skills."
                 },
-                oop: {
-                    title: "CAT OOPs Quiz - MatoshriCATPrep",
-                    keywords: "CAT, MatoshriCATPrep, OOP, Object Oriented Programming, Exam, Practice",
-                    description: "Test your Object-Oriented Programming (OOPs) knowledge with our specialized CAT Quiz by Rushal Bangar."
+                os: {
+                    title: "CAT OS Quiz - MatoshriCATPrep",
+                    keywords: "CAT, MatoshriCATPrep, OS, Operating Systems, Exam, Practice",
+                    description: "Test your Operating Systems (OS) knowledge with our specialized CAT Quiz by Rushal Bangar."
                 },
                 iot: {
                     title: "CAT IoT Quiz - MatoshriCATPrep",
@@ -257,6 +257,7 @@
                 const keyEl = document.querySelector('meta[name="keywords"]');
                 const ogTitleEl = document.querySelector('meta[property="og:title"]');
                 const ogDescEl = document.querySelector('meta[property="og:description"]');
+                const titleEl = document.getElementById('quiz-title');
                 
                 if (descEl) descEl.setAttribute('content', selected.description);
                 if (keyEl) keyEl.setAttribute('content', selected.keywords);

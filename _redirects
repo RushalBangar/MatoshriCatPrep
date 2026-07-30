@@ -1,9 +1,9 @@
 # Netlify Redirects configuration to map pretty subject URLs to unified quiz.html template with 200 rewrites
 /fds        /quiz.html?subject=fds    200
-/oop        /quiz.html?subject=oop    200
+/os         /quiz.html?subject=os     200
 /iot        /quiz.html?subject=iot    200
 /math       /quiz.html?subject=maths  200
 /fds.html   /quiz.html?subject=fds    200
-/oop.html   /quiz.html?subject=oop    200
+/os.html    /quiz.html?subject=os     200
 /iot.html   /quiz.html?subject=iot    200
 /math.html  /quiz.html?subject=maths  200

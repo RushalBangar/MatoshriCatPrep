@@ -604,304 +604,304 @@ VALUES ('iot', 'The ability of a system to perform its intended function consist
 INSERT INTO questions (subject, question, options, correct_index)
 VALUES ('iot', 'Implementing techniques such as "sleep modes" to reduce energy usage addresses which design challenge?', '["Privacy", "Interoperability", "Power consumption", "Data storage"]', 2);
 
--- Data for oop
+-- Data for os
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is a programming paradigm?', '["A specific software tool", "A style and method of writing or organizing a program", "A hardware component", "A built-in C++ library"]', 1);
+VALUES ('os', 'What is a programming paradigm?', '["A specific software tool", "A style and method of writing or organizing a program", "A hardware component", "A built-in C++ library"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which paradigm divides the whole program into multiple functions or modules?', '["Object-Oriented Programming", "Declarative Programming", "Procedural Programming", "Logic Programming"]', 2);
+VALUES ('os', 'Which paradigm divides the whole program into multiple functions or modules?', '["Object-Oriented Programming", "Declarative Programming", "Procedural Programming", "Logic Programming"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Procedural programming follows which execution approach?', '["Bottom-up approach", "Top-down approach", "Random approach", "Center-out approach"]', 1);
+VALUES ('os', 'Procedural programming follows which execution approach?', '["Bottom-up approach", "Top-down approach", "Random approach", "Center-out approach"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is an example of a procedural programming language?', '["C++", "Java", "Python", "C"]', 3);
+VALUES ('os', 'Which of the following is an example of a procedural programming language?', '["C++", "Java", "Python", "C"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'In Object-Oriented Programming (OOP), the program is completely divided into:', '["Multiple functions", "Multiple sub-routines", "Multiple classes and objects", "Multiple loops"]', 2);
+VALUES ('os', 'In Object-Oriented Programming (OOP), the program is completely divided into:', '["Multiple functions", "Multiple sub-routines", "Multiple classes and objects", "Multiple loops"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What execution approach does Object-Oriented Programming follow?', '["Top-down approach", "Bottom-up approach", "Linear approach", "Horizontal approach"]', 1);
+VALUES ('os', 'What execution approach does Object-Oriented Programming follow?', '["Top-down approach", "Bottom-up approach", "Linear approach", "Horizontal approach"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is NOT a feature of Object-Oriented Programming?', '["Polymorphism", "Inheritance", "Data hiding", "Top-down execution"]', 3);
+VALUES ('os', 'Which of the following is NOT a feature of Object-Oriented Programming?', '["Polymorphism", "Inheritance", "Data hiding", "Top-down execution"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which language supports Object-Oriented Programming?', '["C++", "Pascal", "Cobol", "C"]', 0);
+VALUES ('os', 'Which language supports Object-Oriented Programming?', '["C++", "Pascal", "Cobol", "C"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'In the bottom-up approach of OOP, what is usually written at the top of the program structure?', '["The main() function", "Classes", "The return statement", "Pointers"]', 1);
+VALUES ('os', 'In the bottom-up approach of OOP, what is usually written at the top of the program structure?', '["The main() function", "Classes", "The return statement", "Pointers"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Why is OOP considered highly important in today''s world?', '["Because it is older than procedural programming", "Because the market runs on it and it handles real-world problems better", "Because it does not use variables", "Because it is only used for hardware design"]', 1);
+VALUES ('os', 'Why is OOP considered highly important in today''s world?', '["Because it is older than procedural programming", "Because the market runs on it and it handles real-world problems better", "Because it does not use variables", "Because it is only used for hardware design"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Who developed the C++ language?', '["Dennis Ritchie", "James Gosling", "Bjarne Stroustrup", "Guido van Rossum"]', 2);
+VALUES ('os', 'Who developed the C++ language?', '["Dennis Ritchie", "James Gosling", "Bjarne Stroustrup", "Guido van Rossum"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Where was C++ developed?', '["Microsoft HQ", "AT&T Bell Labs", "MIT", "Google"]', 1);
+VALUES ('os', 'Where was C++ developed?', '["Microsoft HQ", "AT&T Bell Labs", "MIT", "Google"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'In which decade was C++ developed?', '["Early 1970s", "Early 1980s", "Early 1990s", "Early 2000s"]', 1);
+VALUES ('os', 'In which decade was C++ developed?', '["Early 1970s", "Early 1980s", "Early 1990s", "Early 2000s"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'C++ is considered a superset of which programming language?', '["Java", "Python", "Pascal", "C"]', 3);
+VALUES ('os', 'C++ is considered a superset of which programming language?', '["Java", "Python", "Pascal", "C"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which C++ keyword is used to display output on the screen?', '["print", "cout", "cin", "input"]', 1);
+VALUES ('os', 'Which C++ keyword is used to display output on the screen?', '["print", "cout", "cin", "input"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which C++ keyword is used to take input from the user?', '["cout", "scan", "cin", "get"]', 2);
+VALUES ('os', 'Which C++ keyword is used to take input from the user?', '["cout", "scan", "cin", "get"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is an application area for C++?', '["Operating Systems", "Mobile games", "Web browsers", "All of the above"]', 3);
+VALUES ('os', 'Which of the following is an application area for C++?', '["Operating Systems", "Mobile games", "Web browsers", "All of the above"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which popular GUI application was developed using C++?', '["MS Word (MS Office)", "Adobe Photoshop", "Notepad", "All of the above"]', 3);
+VALUES ('os', 'Which popular GUI application was developed using C++?', '["MS Word (MS Office)", "Adobe Photoshop", "Notepad", "All of the above"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Database Management Software (DBMS) like Oracle and MySQL are designed in which language?', '["HTML", "CSS", "C++", "JavaScript"]', 2);
+VALUES ('os', 'Database Management Software (DBMS) like Oracle and MySQL are designed in which language?', '["HTML", "CSS", "C++", "JavaScript"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'How is C++ used in relation to language translators?', '["It replaces HTML", "It is used to build compilers and assemblers", "It translates English to Spanish", "It cannot be used for translation"]', 1);
+VALUES ('os', 'How is C++ used in relation to language translators?', '["It replaces HTML", "It is used to build compilers and assemblers", "It translates English to Spanish", "It cannot be used for translation"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Why is C++ considered a fast language?', '["It does not use memory", "It is an interpreted language", "It is a compiled language", "It only uses integers"]', 2);
+VALUES ('os', 'Why is C++ considered a fast language?', '["It does not use memory", "It is an interpreted language", "It is a compiled language", "It only uses integers"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Because C++ supports both procedural programming and object-oriented programming, it is called a:', '["Single-paradigm language", "Multi-paradigm language", "Low-level only language", "Scripting language"]', 1);
+VALUES ('os', 'Because C++ supports both procedural programming and object-oriented programming, it is called a:', '["Single-paradigm language", "Multi-paradigm language", "Low-level only language", "Scripting language"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'The ability of a C++ program to run on Windows, Linux, and Mac means it is:', '["Platform independent", "Platform dependent", "Hardware specific", "Slow"]', 0);
+VALUES ('os', 'The ability of a C++ program to run on Windows, Linux, and Mac means it is:', '["Platform independent", "Platform dependent", "Hardware specific", "Slow"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'C++ provides built-in libraries (like <iostream>, <cmath>). This feature is known as:', '["Exception handling", "Rich Library Support", "Pointers", "Inheritance"]', 1);
+VALUES ('os', 'C++ provides built-in libraries (like <iostream>, <cmath>). This feature is known as:', '["Exception handling", "Rich Library Support", "Pointers", "Inheritance"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'C++ provides dynamic memory allocation using which keywords?', '["add and remove", "start and stop", "new and delete", "create and destroy"]', 2);
+VALUES ('os', 'C++ provides dynamic memory allocation using which keywords?', '["add and remove", "start and stop", "new and delete", "create and destroy"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Using the same function name for different tasks is called:', '["Function overriding", "Function overloading", "Operator overloading", "Exception handling"]', 1);
+VALUES ('os', 'Using the same function name for different tasks is called:', '["Function overriding", "Function overloading", "Operator overloading", "Exception handling"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Redefining operators (like +, -, ) for user-defined types is known as:', '["Operator overloading", "Pointer manipulation", "Type casting", "Dynamic allocation"]', 0);
+VALUES ('os', 'Redefining operators (like +, -, ) for user-defined types is known as:', '["Operator overloading", "Pointer manipulation", "Type casting", "Dynamic allocation"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which feature in C++ allows for direct memory handling?', '["Classes", "Exception handling", "Pointers", "Strings"]', 2);
+VALUES ('os', 'Which feature in C++ allows for direct memory handling?', '["Classes", "Exception handling", "Pointers", "Strings"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the combination of high-level and low-level features in C++ called?', '["High level + low level language", "Pure machine language", "Assembly language", "Binary language"]', 0);
+VALUES ('os', 'What is the combination of high-level and low-level features in C++ called?', '["High level + low level language", "Pure machine language", "Assembly language", "Binary language"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What feature handles unexpected runtime errors in C++?', '["Dynamic initialization", "Function overloading", "Exception handling", "Encapsulation"]', 2);
+VALUES ('os', 'What feature handles unexpected runtime errors in C++?', '["Dynamic initialization", "Function overloading", "Exception handling", "Encapsulation"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which symbol is used to create a single-line comment in C++?', '["/*", "//", "#", "``", "## ##"]', 0);
+VALUES ('os', 'Which symbol is used to create a single-line comment in C++?', '["/*", "//", "#", "``", "## ##"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Why do programmers use comments?', '["To make code execute faster", "To compile the program", "To explain logic and make code easy to understand", "To declare variables"]', 2);
+VALUES ('os', 'Why do programmers use comments?', '["To make code execute faster", "To compile the program", "To explain logic and make code easy to understand", "To declare variables"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'The << operator used with cout is known as the:', '["Extraction operator", "Insertion (or Put-to) operator", "Ternary operator", "Assignment operator"]', 1);
+VALUES ('os', 'The << operator used with cout is known as the:', '["Extraction operator", "Insertion (or Put-to) operator", "Ternary operator", "Assignment operator"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'The >> operator used with cin is known as the:', '["Extraction (or Get-from) operator", "Insertion operator", "Logical operator", "Bitwise operator"]', 0);
+VALUES ('os', 'The >> operator used with cin is known as the:', '["Extraction (or Get-from) operator", "Insertion operator", "Logical operator", "Bitwise operator"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the equivalent of C++''s cout in the C language?', '["scanf", "print", "printf", "echo"]', 2);
+VALUES ('os', 'What is the equivalent of C++''s cout in the C language?', '["scanf", "print", "printf", "echo"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the equivalent of C++''s cin in the C language?', '["printf", "scanf", "read", "input"]', 1);
+VALUES ('os', 'What is the equivalent of C++''s cin in the C language?', '["printf", "scanf", "read", "input"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What does the \n sequence do when used inside a cout statement?', '["Prints a number", "Adds a space", "Moves the output to a new line", "Stops the program"]', 2);
+VALUES ('os', 'What does the \n sequence do when used inside a cout statement?', '["Prints a number", "Adds a space", "Moves the output to a new line", "Stops the program"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What header file must be included to use cin and cout?', '["<stdio.h>", "<math.h>", "<string>", "<iostream>"]', 3);
+VALUES ('os', 'What header file must be included to use cin and cout?', '["<stdio.h>", "<math.h>", "<string>", "<iostream>"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What happens if you put text inside double quotes (e.g., "Sum=") in a cout statement?', '["It prints the exact statement as it is on the screen", "It triggers an error", "It calculates the sum automatically", "It takes input from the user"]', 0);
+VALUES ('os', 'What happens if you put text inside double quotes (e.g., "Sum=") in a cout statement?', '["It prints the exact statement as it is on the screen", "It triggers an error", "It calculates the sum automatically", "It takes input from the user"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is used as a container to store names (like variables and functions) to avoid naming confusion?', '["Header file", "namespace", "Macro", "int main()"]', 1);
+VALUES ('os', 'What is used as a container to store names (like variables and functions) to avoid naming confusion?', '["Header file", "namespace", "Macro", "int main()"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which namespace contains standard built-in functions like cin, cout, and endl?', '["std", "iostream", "main", "system"]', 0);
+VALUES ('os', 'Which namespace contains standard built-in functions like cin, cout, and endl?', '["std", "iostream", "main", "system"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What punctuation mark MUST end every C++ statement?', '["Colon :", "Comma ,", "Semicolon ;", "Period ."]', 2);
+VALUES ('os', 'What punctuation mark MUST end every C++ statement?', '["Colon :", "Comma ,", "Semicolon ;", "Period ."]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which line tells the compiler to include the input/output stream library?', '["import iostream;", "#include <iostream>", "using namespace std;", "include (iostream)"]', 1);
+VALUES ('os', 'Which line tells the compiler to include the input/output stream library?', '["import iostream;", "#include <iostream>", "using namespace std;", "include (iostream)"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Where does the actual execution of a C++ program start?', '["#include", "#define", "int main()", "return 0;"]', 2);
+VALUES ('os', 'Where does the actual execution of a C++ program start?', '["#include", "#define", "int main()", "return 0;"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What does return 0; signify at the end of the main() function?', '["The program crashed", "The program exited successfully", "The program is looping", "The result is zero"]', 1);
+VALUES ('os', 'What does return 0; signify at the end of the main() function?', '["The program crashed", "The program exited successfully", "The program is looping", "The result is zero"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'A statement that declares a variable (e.g., int age;) is known as a(n):', '["Assignment Statement", "Declarative Statement", "Input Statement", "Control Statement"]', 1);
+VALUES ('os', 'A statement that declares a variable (e.g., int age;) is known as a(n):', '["Assignment Statement", "Declarative Statement", "Input Statement", "Control Statement"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'A statement that assigns a value to a variable (e.g., age = 20;) is called a(n):', '["Declarative Statement", "Output Statement", "Control Statement", "Assignment Statement"]', 3);
+VALUES ('os', 'A statement that assigns a value to a variable (e.g., age = 20;) is called a(n):', '["Declarative Statement", "Output Statement", "Control Statement", "Assignment Statement"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Statements like if, for, and while that manage the flow of the program are called:', '["Control Statements", "Declarative Statements", "Input Statements", "Output Statements"]', 0);
+VALUES ('os', 'Statements like if, for, and while that manage the flow of the program are called:', '["Control Statements", "Declarative Statements", "Input Statements", "Output Statements"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Constants that repeat many times in a program can be defined globally using:', '["int main()", "Macros (e.g., #define)", "using namespace", "return"]', 1);
+VALUES ('os', 'Constants that repeat many times in a program can be defined globally using:', '["int main()", "Macros (e.g., #define)", "using namespace", "return"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the smallest meaningful element of a C++ program?', '["Function", "Class", "Token", "Statement"]', 2);
+VALUES ('os', 'What is the smallest meaningful element of a C++ program?', '["Function", "Class", "Token", "Statement"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Reserved words that have a fixed meaning known to the compiler are called:', '["Identifiers", "Keywords", "Punctuators", "Strings"]', 1);
+VALUES ('os', 'Reserved words that have a fixed meaning known to the compiler are called:', '["Identifiers", "Keywords", "Punctuators", "Strings"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is true about C++ keywords?', '["They must be in uppercase", "They must be in lowercase", "They can contain spaces", "They can be used as variable names"]', 1);
+VALUES ('os', 'Which of the following is true about C++ keywords?', '["They must be in uppercase", "They must be in lowercase", "They can contain spaces", "They can be used as variable names"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Can a keyword (like for or int) be used as a variable name?', '["Yes, always", "Yes, if it is capitalized", "No, never", "Only in OOP"]', 2);
+VALUES ('os', 'Can a keyword (like for or int) be used as a variable name?', '["Yes, always", "Yes, if it is capitalized", "No, never", "Only in OOP"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'The unique name given to entities like variables, functions, or classes is called an:', '["Identifier", "Operator", "Constant", "Punctuator"]', 0);
+VALUES ('os', 'The unique name given to entities like variables, functions, or classes is called an:', '["Identifier", "Operator", "Constant", "Punctuator"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is a rule for naming identifiers?', '["Can start with a number", "Spaces are allowed", "Can start with a letter or underscore", "Keywords are allowed"]', 2);
+VALUES ('os', 'Which of the following is a rule for naming identifiers?', '["Can start with a number", "Spaces are allowed", "Can start with a letter or underscore", "Keywords are allowed"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which of the following is a VALID variable name (identifier)?', '["1age", "total marks", "int", "total_marks"]', 3);
+VALUES ('os', 'Which of the following is a VALID variable name (identifier)?', '["1age", "total marks", "int", "total_marks"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'A value that cannot be changed during the execution of a program is called a:', '["Variable", "Constant", "Identifier", "Token"]', 1);
+VALUES ('os', 'A value that cannot be changed during the execution of a program is called a:', '["Variable", "Constant", "Identifier", "Token"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which keyword fixes a constant value specifically at compile-time?', '["const", "constexpr", "static", "fixed"]', 1);
+VALUES ('os', 'Which keyword fixes a constant value specifically at compile-time?', '["const", "constexpr", "static", "fixed"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which punctuator is used to enclose a single character literal?', '["Double quotes \" \"", "Curly braces { }", "Single quotes '' ''", "Square brackets [ ]"]', 2);
+VALUES ('os', 'Which punctuator is used to enclose a single character literal?', '["Double quotes \" \"", "Curly braces { }", "Single quotes '' ''", "Square brackets [ ]"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which data type is used to store whole numbers?', '["float", "char", "int", "bool"]', 2);
+VALUES ('os', 'Which data type is used to store whole numbers?', '["float", "char", "int", "bool"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the memory size of an int data type in C++ (on standard systems)?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 2);
+VALUES ('os', 'What is the memory size of an int data type in C++ (on standard systems)?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which data type is used to store a single character?', '["string", "char", "int", "bool"]', 1);
+VALUES ('os', 'Which data type is used to store a single character?', '["string", "char", "int", "bool"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the memory size of a char data type?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 0);
+VALUES ('os', 'What is the memory size of a char data type?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which data type is used for numbers with decimal points?', '["int", "char", "float", "bool"]', 2);
+VALUES ('os', 'Which data type is used for numbers with decimal points?', '["int", "char", "float", "bool"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the memory size of a double data type (used for large decimal numbers)?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 3);
+VALUES ('os', 'What is the memory size of a double data type (used for large decimal numbers)?', '["1 byte", "2 bytes", "4 bytes", "8 bytes"]', 3);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which data type stores logical values like true (1) or false (0)?', '["void", "bool", "int", "char"]', 1);
+VALUES ('os', 'Which data type stores logical values like true (1) or false (0)?', '["void", "bool", "int", "char"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which data type means "no value" or "nothing" and is used when a function returns nothing?', '["null", "void", "empty", "zero"]', 1);
+VALUES ('os', 'Which data type means "no value" or "nothing" and is used when a function returns nothing?', '["null", "void", "empty", "zero"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Arrays, pointers, and functions fall under which category of data types?', '["Basic Data Types", "Derived Data Types", "User-Defined Data Types", "String Data Types"]', 1);
+VALUES ('os', 'Arrays, pointers, and functions fall under which category of data types?', '["Basic Data Types", "Derived Data Types", "User-Defined Data Types", "String Data Types"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Ensuring that a variable only stores the specific type of data it was declared for to prevent errors is called:', '["Type safety", "Type conversion", "Dynamic allocation", "Encapsulation"]', 0);
+VALUES ('os', 'Ensuring that a variable only stores the specific type of data it was declared for to prevent errors is called:', '["Type safety", "Type conversion", "Dynamic allocation", "Encapsulation"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'In C++, string is technically not a basic built-in data type (like int); it is actually defining a(n):', '["Integer", "Macro", "Object/Class", "Pointer"]', 2);
+VALUES ('os', 'In C++, string is technically not a basic built-in data type (like int); it is actually defining a(n):', '["Integer", "Macro", "Object/Class", "Pointer"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What does STL stand for in C++ strings and libraries?', '["Standard Tool List", "System Template Library", "Standard Template Library", "Simple Text Language"]', 2);
+VALUES ('os', 'What does STL stand for in C++ strings and libraries?', '["Standard Tool List", "System Template Library", "Standard Template Library", "Simple Text Language"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Using the << or >> operators repeatedly in a single statement (e.g., cout << "Sum" << sum;) is called:', '["Overloading", "Cascading", "Embedding", "Nesting"]', 1);
+VALUES ('os', 'Using the << or >> operators repeatedly in a single statement (e.g., cout << "Sum" << sum;) is called:', '["Overloading", "Cascading", "Embedding", "Nesting"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Assigning a value to a variable at runtime (e.g., by taking input using cin >> a;) is known as:', '["Compile-time initialization", "Static initialization", "Dynamic initialization", "Constant initialization"]', 2);
+VALUES ('os', 'Assigning a value to a variable at runtime (e.g., by taking input using cin >> a;) is known as:', '["Compile-time initialization", "Static initialization", "Dynamic initialization", "Constant initialization"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What provides an alternative name (or nickname) for an existing variable without creating new memory?', '["Pointer", "Array", "Reference", "Macro"]', 2);
+VALUES ('os', 'What provides an alternative name (or nickname) for an existing variable without creating new memory?', '["Pointer", "Array", "Reference", "Macro"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which symbol is used in the syntax to create a reference variable?', '["*", "&", "#", "@"]', 1);
+VALUES ('os', 'Which symbol is used in the syntax to create a reference variable?', '["*", "&", "#", "@"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'If int b = &a; makes b a reference to a, what happens if you change the value of b?', '["a remains the same", "An error occurs", "The value of a also changes", "A new variable is created"]', 2);
+VALUES ('os', 'If int b = &a; makes b a reference to a, what happens if you change the value of b?', '["a remains the same", "An error occurs", "The value of a also changes", "A new variable is created"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Can you declare multiple variables of the same data type in one line (e.g., int x=5, y=6, z=50;)?', '["Yes", "No", "Only if they are constants", "Only inside macros"]', 0);
+VALUES ('os', 'Can you declare multiple variables of the same data type in one line (e.g., int x=5, y=6, z=50;)?', '["Yes", "No", "Only if they are constants", "Only inside macros"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'If you assign a new value to an already existing variable, what happens?', '["The program crashes", "The variable holds both values", "It takes the new value and discards the previous one", "The compiler gives a warning"]', 2);
+VALUES ('os', 'If you assign a new value to an already existing variable, what happens?', '["The program crashes", "The variable holds both values", "It takes the new value and discards the previous one", "The compiler gives a warning"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which punctuator is used to define blocks of code?', '["[ ]", "{ }", "( )", "\" \""]', 1);
+VALUES ('os', 'Which punctuator is used to define blocks of code?', '["[ ]", "{ }", "( )", "\" \""]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Changing one data type into another (e.g., int to float) is known as:', '["Data abstraction", "Data type conversion", "Cascading", "Operator overloading"]', 1);
+VALUES ('os', 'Changing one data type into another (e.g., int to float) is known as:', '["Data abstraction", "Data type conversion", "Cascading", "Operator overloading"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'When the C++ compiler automatically converts a smaller type to a larger type without programmer instruction, it is called:', '["Explicit conversion", "Manual conversion", "Implicit conversion", "Dynamic conversion"]', 2);
+VALUES ('os', 'When the C++ compiler automatically converts a smaller type to a larger type without programmer instruction, it is called:', '["Explicit conversion", "Manual conversion", "Implicit conversion", "Dynamic conversion"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'When a programmer manually forces a conversion (e.g., int x = (int)num;), it is called:', '["Implicit conversion", "Automatic conversion", "Explicit conversion", "Constant conversion"]', 2);
+VALUES ('os', 'When a programmer manually forces a conversion (e.g., int x = (int)num;), it is called:', '["Implicit conversion", "Automatic conversion", "Explicit conversion", "Constant conversion"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What happens when you explicitly convert double num = 10.75; to an int?', '["The value becomes 11 (rounded up)", "The value becomes 10.75", "The value becomes 10 (decimal part is cut off)", "An error is thrown"]', 2);
+VALUES ('os', 'What happens when you explicitly convert double num = 10.75; to an int?', '["The value becomes 11 (rounded up)", "The value becomes 10.75", "The value becomes 10 (decimal part is cut off)", "An error is thrown"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What is the ASCII value of the character ''A'', which is seen when a char converts implicitly to an int?', '["65", "97", "48", "32"]', 0);
+VALUES ('os', 'What is the ASCII value of the character ''A'', which is seen when a char converts implicitly to an int?', '["65", "97", "48", "32"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Operators that work on a single operand (like ++ or --) are called:', '["Ternary operators", "Binary operators", "Unary operators", "Relational operators"]', 2);
+VALUES ('os', 'Operators that work on a single operand (like ++ or --) are called:', '["Ternary operators", "Binary operators", "Unary operators", "Relational operators"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Operators that perform actions with two operands (like A +', '["are called:", "Unary operators", "Binary operators", "Ternary operators", "Increment operators"]', 2);
+VALUES ('os', 'Operators that perform actions with two operands (like A +', '["are called:", "Unary operators", "Binary operators", "Ternary operators", "Increment operators"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which operator takes three operands and is used to perform conditional expressions?', '["Unary operator", "Binary operator", "Ternary operator", "Logical operator"]', 2);
+VALUES ('os', 'Which operator takes three operands and is used to perform conditional expressions?', '["Unary operator", "Binary operator", "Ternary operator", "Logical operator"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Operators like && (AN', '[", || (OR), and ! (NOT) are classified as:", "Arithmetic operators", "Logical operators", "Assignment operators", "Bitwise operators"]', 2);
+VALUES ('os', 'Operators like && (AN', '[", || (OR), and ! (NOT) are classified as:", "Arithmetic operators", "Logical operators", "Assignment operators", "Bitwise operators"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Operators that perform operations directly on bits (like << left shift or >> right shift) are called:', '["Bitwise operators", "Logical operators", "Comparison operators", "Assignment operators"]', 0);
+VALUES ('os', 'Operators that perform operations directly on bits (like << left shift or >> right shift) are called:', '["Bitwise operators", "Logical operators", "Comparison operators", "Assignment operators"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which type of control structure is used to make decisions and execute different blocks of code based on conditions?', '["Iteration structure", "Jump structure", "Selection structure", "Sequential structure"]', 2);
+VALUES ('os', 'Which type of control structure is used to make decisions and execute different blocks of code based on conditions?', '["Iteration structure", "Jump structure", "Selection structure", "Sequential structure"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which statement executes a block of code ONLY if the condition inside the parentheses is true?', '["switch", "if", "while", "for"]', 1);
+VALUES ('os', 'Which statement executes a block of code ONLY if the condition inside the parentheses is true?', '["switch", "if", "while", "for"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which statement is generally used for multiple constant choices instead of writing many if-else statements?', '["for", "do-while", "switch case", "break"]', 2);
+VALUES ('os', 'Which statement is generally used for multiple constant choices instead of writing many if-else statements?', '["for", "do-while", "switch case", "break"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'A switch case works exclusively with which data types?', '["float and double", "integer and char", "string and bool", "Arrays and pointers"]', 1);
+VALUES ('os', 'A switch case works exclusively with which data types?', '["float and double", "integer and char", "string and bool", "Arrays and pointers"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'In a switch statement, what keyword is used to exit the switch block immediately after a match?', '["continue", "stop", "break", "exit"]', 2);
+VALUES ('os', 'In a switch statement, what keyword is used to exit the switch block immediately after a match?', '["continue", "stop", "break", "exit"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'What happens if you forget to use break in a switch case?', '["The program won''t compile", "It executes the matched case and all subsequent cases below it", "It automatically jumps to the default case", "It crashes"]', 1);
+VALUES ('os', 'What happens if you forget to use break in a switch case?', '["The program won''t compile", "It executes the matched case and all subsequent cases below it", "It automatically jumps to the default case", "It crashes"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which iteration structure is best to use when you know exactly how many times you want to repeat a block of code?', '["for loop", "while loop", "do-while loop", "switch"]', 0);
+VALUES ('os', 'Which iteration structure is best to use when you know exactly how many times you want to repeat a block of code?', '["for loop", "while loop", "do-while loop", "switch"]', 0);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which loop is preferred when the exact number of iterations is unknown and it checks the condition before executing the code?', '["do-while loop", "for loop", "while loop", "Nested if"]', 2);
+VALUES ('os', 'Which loop is preferred when the exact number of iterations is unknown and it checks the condition before executing the code?', '["do-while loop", "for loop", "while loop", "Nested if"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which loop is guaranteed to run at least one time, even if the given condition is false from the beginning?', '["for loop", "while loop", "do-while loop", "if statement"]', 2);
+VALUES ('os', 'Which loop is guaranteed to run at least one time, even if the given condition is false from the beginning?', '["for loop", "while loop", "do-while loop", "if statement"]', 2);
 
 INSERT INTO questions (subject, question, options, correct_index)
-VALUES ('oop', 'Which jump statement skips the current iteration and forces the loop to proceed to the next iteration?', '["break", "continue", "goto", "return"]', 1);
+VALUES ('os', 'Which jump statement skips the current iteration and forces the loop to proceed to the next iteration?', '["break", "continue", "goto", "return"]', 1);
 
 INSERT INTO questions (subject, question, options, correct_index)
 VALUES ('oop', 'What is the primary purpose of a reduction formula in integration?', '["To increase the power of the integrand", "To convert a derivative into an integral", "To express an integral in terms of a simpler integral of the same type", "To eliminate the constant of integration"]', 2);

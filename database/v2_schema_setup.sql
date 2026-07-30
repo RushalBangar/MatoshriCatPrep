@@ -38,7 +38,7 @@ CREATE TRIGGER on_auth_user_created
 -- 2. Subjects Mapping Table
 CREATE TABLE IF NOT EXISTS subjects (
     id BIGSERIAL PRIMARY KEY,
-    name TEXT NOT NULL UNIQUE,       -- e.g., 'fds', 'oop', 'iot', 'maths'
+    name TEXT NOT NULL UNIQUE,       -- e.g., 'fds', 'os', 'iot', 'maths'
     display_name TEXT NOT NULL,      -- e.g., 'Fundamentals of Data Structures'
     branch TEXT NOT NULL,            -- e.g., 'AI&DS', 'Computer', 'IT'
     semester INTEGER NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS subjects (
 -- Insert existing subjects for 1st year (Semester 1/2) as defaults
 INSERT INTO subjects (name, display_name, branch, semester) VALUES
 ('fds', 'Fundamentals of Data Structures', 'All', 2),
-('oop', 'Object-Oriented Programming', 'All', 2),
+('os', 'Operating Systems', 'All', 2),
 ('iot', 'Internet of Things', 'All', 2),
 ('maths', 'Mathematics II', 'All', 2)
 ON CONFLICT (name) DO NOTHING;
