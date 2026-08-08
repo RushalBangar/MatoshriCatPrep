@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Is Faculty
         document.getElementById('faculty-main').style.display = 'block';
         loadStudentInsights();
+        loadSubjectsDropdown();
         
     }, 500);
 });
@@ -114,5 +115,84 @@ async function loadStudentInsights() {
     } catch (err) {
         container.innerHTML = `<p style="color: #ff4d4d;">Error loading insights.</p>`;
         console.error(err);
+    }
+}
+
+async function loadSubjectsDropdown() {
+    const dropdown = document.getElementById('admin-q-subject');
+    try {
+        const { data: subjects, error } = await supabase
+            .from('subjects')
+            .select('name, display_name');
+            
+        if (error) throw error;
+        
+        if (subjects.length === 0) {
+            dropdown.innerHTML = '<option value="" disabled selected>No subjects available</option>';
+            return;
+        }
+        
+        let html = '<option value="" disabled selected>Select a Subject</option>';
+        subjects.forEach(sub => {
+            html += `<option value="${sub.name}">${sub.display_name} (${sub.name})</option>`;
+        });
+        dropdown.innerHTML = html;
+    } catch (err) {
+        console.error("Failed to load subjects", err);
+        dropdown.innerHTML = '<option value="" disabled selected>Error loading subjects</option>';
+    }
+}
+
+async function submitNewQuestion() {
+    const subject = document.getElementById('admin-q-subject').value;
+    const text = document.getElementById('admin-q-text').value.trim();
+    const optA = document.getElementById('admin-q-optA').value.trim();
+    const optB = document.getElementById('admin-q-optB').value.trim();
+    const optC = document.getElementById('admin-q-optC').value.trim();
+    const optD = document.getElementById('admin-q-optD').value.trim();
+    const correctVal = document.getElementById('admin-q-correct').value;
+    const msgEl = document.getElementById('admin-q-msg');
+
+    if (!subject || !text || !optA || !optB || !optC || !optD || correctVal === "") {
+        msgEl.style.display = 'block';
+        msgEl.style.color = '#ff4d4d';
+        msgEl.textContent = 'Please fill out all fields and select a correct answer.';
+        return;
+    }
+
+    try {
+        const optionsArray = [optA, optB, optC, optD];
+        const correctIndex = parseInt(correctVal);
+
+        const { error } = await supabase
+            .from('questions')
+            .insert({
+                subject: subject,
+                question: text,
+                options: optionsArray,
+                correct_index: correctIndex
+            });
+
+        if (error) throw error;
+
+        msgEl.style.display = 'block';
+        msgEl.style.color = '#10b981';
+        msgEl.textContent = 'Successfully added new question!';
+        
+        // Clear fields
+        document.getElementById('admin-q-text').value = '';
+        document.getElementById('admin-q-optA').value = '';
+        document.getElementById('admin-q-optB').value = '';
+        document.getElementById('admin-q-optC').value = '';
+        document.getElementById('admin-q-optD').value = '';
+        document.getElementById('admin-q-correct').value = '';
+
+        // Hide success message after 3 seconds
+        setTimeout(() => { msgEl.style.display = 'none'; }, 3000);
+
+    } catch (err) {
+        msgEl.style.display = 'block';
+        msgEl.style.color = '#ff4d4d';
+        msgEl.textContent = err.message;
     }
 }
