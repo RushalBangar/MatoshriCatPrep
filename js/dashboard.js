@@ -20,6 +20,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             .single();
 
         if (error) {
+            // PGRST116 means 0 rows returned (profile doesn't exist yet)
+            if (error.code === 'PGRST116') {
+                // Auto-create the missing profile
+                await supabase.from('profiles').insert({
+                    id: user.id,
+                    full_name: user.user_metadata.full_name || user.email.split('@')[0],
+                    email: user.email,
+                    role: 'student'
+                });
+                // Open modal since it's a new profile
+                openProfileSetupModal();
+                return;
+            }
             console.error("Error fetching profile:", error);
             return;
         }
