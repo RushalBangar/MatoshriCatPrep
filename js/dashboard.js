@@ -130,6 +130,7 @@ async function loadAnalytics(userId) {
     if (error || !attempts || attempts.length === 0) {
         document.getElementById('progressChart').style.display = 'none';
         document.getElementById('chart-empty-state').style.display = 'block';
+        renderBadges([]);
         return;
     }
 
@@ -180,6 +181,51 @@ async function loadAnalytics(userId) {
             }
         }
     });
+
+    // Render badges based on attempts
+    renderBadges(attempts);
+}
+
+function renderBadges(attempts) {
+    const container = document.getElementById('badges-container');
+    
+    // Define all badges
+    const badges = [
+        { id: 'first_step', title: 'First Step', description: 'Completed your first quiz.', icon: '🏆', unlocked: false },
+        { id: 'on_a_roll', title: 'On a Roll', description: 'Completed 3 or more quizzes.', icon: '🔥', unlocked: false },
+        { id: 'perfectionist', title: 'Perfectionist', description: 'Scored 100% on a quiz.', icon: '💯', unlocked: false },
+        { id: 'speed_demon', title: 'Speed Demon', description: 'Finished a quiz in under 5 minutes with a passing score.', icon: '⚡', unlocked: false }
+    ];
+
+    // Compute unlocks
+    if (attempts && attempts.length >= 1) badges[0].unlocked = true;
+    if (attempts && attempts.length >= 3) badges[1].unlocked = true;
+    
+    if (attempts) {
+        attempts.forEach(a => {
+            const percentage = a.score / a.total_questions;
+            if (percentage === 1) badges[2].unlocked = true;
+            if (a.time_taken_seconds < 300 && percentage >= 0.4) badges[3].unlocked = true;
+        });
+    }
+
+    // Render HTML
+    let html = '';
+    badges.forEach(b => {
+        const style = b.unlocked 
+            ? 'background: rgba(15,23,42,0.8); border: 1px solid rgba(6, 182, 212, 0.5); box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);'
+            : 'background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); opacity: 0.5; filter: grayscale(100%);';
+        
+        html += `
+            <div style="width: 150px; padding: 1.5rem 1rem; border-radius: 12px; text-align: center; transition: all 0.3s ease; ${style}">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">${b.icon}</div>
+                <div style="font-weight: 700; color: ${b.unlocked ? '#06b6d4' : 'var(--text-secondary)'}; font-size: 0.9rem;">${b.title}</div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 5px;">${b.description}</div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
 }
 
 async function loadLeaderboard(branch) {

@@ -270,8 +270,21 @@ async function showScore() {
                 time_taken_seconds: timeTaken
             });
 
-            // Calculate and add XP
-            const xpEarned = score * 10 + (score >= (questions.length || 20) * 0.8 ? 50 : 0);
+            // Calculate and add Advanced XP
+            let xpEarned = score * 10;
+            const totalQ = questions.length || 20;
+            
+            // Perfection Bonus
+            if (score === totalQ && totalQ > 0) {
+                xpEarned += 100;
+            } else if (score >= totalQ * 0.8) {
+                xpEarned += 50;
+            }
+
+            // Speed Bonus (< 5 mins and passed)
+            if (timeTaken < 300 && score >= totalQ * 0.4) {
+                xpEarned += 25;
+            }
             
             // Get current profile XP
             const { data: profile } = await supabase.from('profiles').select('total_xp').eq('id', session.user.id).single();
