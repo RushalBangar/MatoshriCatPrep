@@ -92,9 +92,10 @@ function updateAuthUI() {
     }
 }
 
-function showAuthError(msg) {
+function showAuthError(msg, isSuccess = false) {
     const errorMsg = document.getElementById('auth-error-msg');
     errorMsg.textContent = msg;
+    errorMsg.style.color = isSuccess ? '#10b981' : '#ff4d4d';
     errorMsg.style.display = 'block';
 }
 
@@ -119,6 +120,9 @@ async function handleAuthAction() {
             });
             if (error) throw error;
             closeAuthModal();
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                window.location.href = '/dashboard';
+            }
         } else {
             const fullName = document.getElementById('auth-fullname').value.trim();
             if(!fullName) {
@@ -138,7 +142,7 @@ async function handleAuthAction() {
                 }
             });
             if (error) throw error;
-            showAuthError("Success! You can now log in (or check email for confirmation).");
+            showAuthError("Success! You can now log in (or check email for confirmation).", true);
             setTimeout(() => toggleAuthMode(), 2000);
         }
     } catch (err) {
@@ -166,5 +170,9 @@ async function signInWithGoogle() {
 
 async function handleLogout() {
     await supabase.auth.signOut();
-    window.location.reload();
+    if (window.location.pathname.includes('/dashboard') || window.location.pathname.includes('/admin')) {
+        window.location.href = '/';
+    } else {
+        window.location.reload();
+    }
 }

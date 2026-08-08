@@ -38,12 +38,14 @@ document.title = `CAT ${subject.toUpperCase()} Quiz - MatoshriCATPrep`;
 
 document.addEventListener("visibilitychange", () => {
     if (document.hidden && quizInProgress) {
+        clearInterval(timerInterval);
         showCustomModal("Tab Changed", "You left the tab. The quiz will be submitted automatically.", () => showScore());
     }
 });
 
 window.addEventListener("blur", () => {
     if (quizInProgress) {
+        clearInterval(timerInterval);
         showCustomModal("Focus Lost", "Opening other apps or overlays is not allowed. The quiz will be submitted automatically.", () => showScore());
     }
 });
@@ -51,6 +53,7 @@ window.addEventListener("blur", () => {
 // Anti-Cheat: Fullscreen Change Listener
 document.addEventListener("fullscreenchange", () => {
     if (isFullscreenEngaged && !document.fullscreenElement && quizInProgress) {
+        clearInterval(timerInterval);
         showCustomModal("Fullscreen Exited", "You exited fullscreen mode. The quiz will be submitted automatically.", () => showScore());
     }
 });
@@ -164,7 +167,7 @@ function loadQuestion() {
 
     // Map options to <li> tags, passing the index to checkAnswer
     let optionsHTML = questionData.options.map((option, index) => {
-        return `<li onclick="checkAnswer(this, ${index})">${option.text}</li>`
+        return `<li onclick="checkAnswer(this, ${index})">${option}</li>`
     }).join('');
 
     questionContainer.innerHTML = `
@@ -240,8 +243,9 @@ function nextQuestion() {
 
 // --- showScore ---
 async function showScore() {
-    clearInterval(timerInterval);
+    if (!quizInProgress) return;
     quizInProgress = false;
+    clearInterval(timerInterval);
     quizContainer.style.display = "none";
     document.getElementById("sticky-quiz-header").style.display = "none";
     scoreContainer.style.display = "block";
@@ -344,8 +348,8 @@ function buildReviewSection() {
         const statusClass = isCorrect ? "correct" : "incorrect";
 
         // Construct safe strings for rendering
-        const userOptionText = q.userChoice !== undefined ? q.options[q.userChoice]?.text : "Did not answer";
-        const correctOptionText = q.correctChoice !== undefined ? q.options[q.correctChoice]?.text : "Unknown API State";
+        const userOptionText = q.userChoice !== undefined ? q.options[q.userChoice] : "Did not answer";
+        const correctOptionText = q.correctChoice !== undefined ? q.options[q.correctChoice] : "Unknown API State";
 
         let answerHTML = `<div class="review-answer your-answer"><span>Your Answer:</span> ${userOptionText}</div>`;
         if (!isCorrect) {
