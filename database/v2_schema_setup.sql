@@ -71,6 +71,14 @@ ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE subjects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE attempts ENABLE ROW LEVEL SECURITY;
 
+-- Helper function to bypass RLS for role checks (fixes infinite recursion)
+CREATE OR REPLACE FUNCTION public.is_faculty()
+RETURNS boolean AS $$
+  SELECT EXISTS (
+    SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'faculty'
+  );
+$$ LANGUAGE sql SECURITY DEFINER;
+
 -- Profile Policies
 CREATE POLICY "Users can view their own profile" ON profiles 
   FOR SELECT USING (auth.uid() = id);
@@ -79,9 +87,7 @@ CREATE POLICY "Users can update their own profile" ON profiles
   FOR UPDATE USING (auth.uid() = id);
 
 CREATE POLICY "Faculty can view all profiles" ON profiles 
-  FOR SELECT USING (
-      EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'faculty')
-  );
+  FOR SELECT USING (public.is_faculty());
 
 -- Subjects Policies
 CREATE POLICY "Public subjects access" ON subjects 
@@ -95,9 +101,7 @@ CREATE POLICY "Users can insert their own attempts" ON attempts
   FOR INSERT WITH CHECK (auth.uid() = user_id);
 
 CREATE POLICY "Faculty can view all attempts" ON attempts 
-  FOR SELECT USING (
-      EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'faculty')
-  );
+  FOR SELECT USING (public.is_faculty());
 
 -- Modify existing questions to have RLS just in case
 ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
