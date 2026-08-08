@@ -71,9 +71,12 @@
         <div class="grid-2-col" style="margin-top: 2rem; align-items: start;">
             <!-- Analytics Section -->
             <section class="animate-up delay-2">
-                <h2 class="section-heading" style="font-size: 1.8rem;">Your Progress</h2>
+                <h2 class="section-heading" style="font-size: 1.8rem;">Your Analytics</h2>
                 <div class="glass-card" style="padding: 2rem;">
-                    <canvas id="progressChart" style="width: 100%; height: 250px;"></canvas>
+                    <div class="grid-2-col" id="charts-container">
+                        <canvas id="progressChart" style="width: 100%; height: 250px;"></canvas>
+                        <canvas id="radarChart" style="width: 100%; height: 250px;"></canvas>
+                    </div>
                     <p id="chart-empty-state" style="color: rgba(255,255,255,0.5); text-align: center; display: none;">Complete a quiz to see your analytics here.</p>
                 </div>
             </section>
@@ -95,6 +98,16 @@
             <div class="glass-card" style="padding: 2rem;">
                 <div id="badges-container" style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
                     <p style="color: rgba(255,255,255,0.5);">Loading achievements...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity Section -->
+        <section class="animate-up delay-5" style="margin-top: 2rem; margin-bottom: 3rem;">
+            <h2 class="section-heading" style="font-size: 1.8rem;">Recent Activity</h2>
+            <div class="glass-card" style="padding: 1.5rem;">
+                <div id="activity-feed">
+                    <p style="color: rgba(255,255,255,0.5); text-align: center;">Loading activity...</p>
                 </div>
             </div>
         </section>

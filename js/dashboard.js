@@ -141,8 +141,9 @@ async function loadAnalytics(userId) {
         .order('created_at', { ascending: true });
 
     if (error || !attempts || attempts.length === 0) {
-        document.getElementById('progressChart').style.display = 'none';
+        document.getElementById('charts-container').style.display = 'none';
         document.getElementById('chart-empty-state').style.display = 'block';
+        document.getElementById('activity-feed').innerHTML = '<p style="color: rgba(255,255,255,0.5); text-align: center;">No activity yet.</p>';
         renderBadges([]);
         return;
     }
@@ -195,8 +196,99 @@ async function loadAnalytics(userId) {
         }
     });
 
+    // Render Radar Chart
+    renderRadarChart(attempts);
+
+    // Render Recent Activity
+    renderRecentActivity(attempts);
+
     // Render badges based on attempts
     renderBadges(attempts);
+}
+
+function renderRadarChart(attempts) {
+    const subjectMastery = {};
+    attempts.forEach(a => {
+        if (!subjectMastery[a.subject]) {
+            subjectMastery[a.subject] = { totalScore: 0, totalQuestions: 0 };
+        }
+        subjectMastery[a.subject].totalScore += a.score;
+        subjectMastery[a.subject].totalQuestions += a.total_questions;
+    });
+
+    const labels = Object.keys(subjectMastery).map(s => s.toUpperCase());
+    const data = Object.values(subjectMastery).map(m => (m.totalScore / m.totalQuestions) * 100);
+
+    // If less than 3 subjects, the radar chart looks weird (just a line or point). 
+    // Fill with empty placeholders to make a triangle/pentagon
+    while(labels.length < 3) {
+        labels.push('???');
+        data.push(0);
+    }
+
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Accuracy (%)',
+                data: data,
+                backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                borderColor: '#06b6d4',
+                pointBackgroundColor: '#f43f5e',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#f43f5e',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(255,255,255,0.1)' },
+                    grid: { color: 'rgba(255,255,255,0.1)' },
+                    pointLabels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, family: 'Outfit' } },
+                    ticks: { display: false, min: 0, max: 100 }
+                }
+            },
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+}
+
+function renderRecentActivity(attempts) {
+    const feed = document.getElementById('activity-feed');
+    // Clone and reverse to get descending order
+    const recent = [...attempts].reverse().slice(0, 5);
+    
+    let html = '';
+    recent.forEach(a => {
+        const date = new Date(a.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit' });
+        const percentage = (a.score / a.total_questions) * 100;
+        const color = percentage >= 40 ? '#10b981' : '#f43f5e';
+        const mins = Math.floor(a.time_taken_seconds / 60);
+        const secs = a.time_taken_seconds % 60;
+        
+        html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <div>
+                    <div style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Quiz: ${a.subject.toUpperCase()}</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">⏱️ ${mins}m ${secs}s • 📅 ${date}</div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="font-weight: 700; font-size: 1.2rem; color: ${color};">${a.score}/${a.total_questions}</div>
+                    <div style="font-size: 0.8rem; color: ${color};">${percentage.toFixed(0)}%</div>
+                </div>
+            </div>
+        `;
+    });
+    
+    feed.innerHTML = html;
 }
 
 function renderBadges(attempts) {
